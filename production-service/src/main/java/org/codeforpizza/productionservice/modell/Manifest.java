@@ -1,0 +1,37 @@
+package org.codeforpizza.productionservice.modell;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="manifests")
+public class Manifest {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name="title")
+    private String title;
+
+    @Column(name="year")
+    private long year;
+
+    @ManyToOne
+    @JoinColumn(name = "production_id")
+    private Production production;
+
+    @OneToMany(mappedBy = "manifest", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Cast> casts = new ArrayList<>();
+
+}
