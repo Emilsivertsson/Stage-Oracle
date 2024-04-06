@@ -1,12 +1,15 @@
 package org.codeforpizza.productionservice.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.Act;
+import org.codeforpizza.productionservice.modell.ActDto;
 import org.codeforpizza.productionservice.service.ActService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -19,10 +22,10 @@ public class ActController {
     private final ActService actService;
 
     @PostMapping("")
-    public ResponseEntity<Act> createAct() {
+    public ResponseEntity<Act> createAct(@Valid @RequestBody ActDto act, Principal principal) {
         try {
             log.info("Creating act");
-            return ResponseEntity.ok(actService.createAct());
+            return ResponseEntity.ok(actService.createAct(act, principal));
         } catch (Exception e) {
             log.error("Error creating act", e);
             return ResponseEntity.badRequest().build();
@@ -30,10 +33,10 @@ public class ActController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Act> updateAct(@PathVariable Long id) {
+    public ResponseEntity<Act> updateAct(@PathVariable Long id, Principal principal,@Valid @RequestBody ActDto actDto) {
         try {
             log.info("Updating act");
-            return ResponseEntity.ok(actService.updateAct(id));
+            return ResponseEntity.ok(actService.updateAct(id, principal, actDto));
         } catch (Exception e) {
             log.error("Error updating act", e);
             return ResponseEntity.badRequest().build();
@@ -41,10 +44,10 @@ public class ActController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteAct(@PathVariable Long id) {
+    public ResponseEntity<String> deleteAct(@PathVariable Long id, Principal principal) {
         try {
             log.info("Deleting act");
-            actService.deleteAct(id);
+            actService.deleteAct(id, principal);
             return ResponseEntity.ok("Act deleted");
         } catch (Exception e) {
             log.error("Error deleting act", e);
@@ -53,10 +56,10 @@ public class ActController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Act> getAct(@PathVariable Long id) {
+    public ResponseEntity<Act> getAct(@PathVariable Long id, Principal principal) {
         try {
             log.info("Getting act");
-            return ResponseEntity.ok(actService.getAct(id));
+            return ResponseEntity.ok(actService.getAct(id, principal));
         } catch (Exception e) {
             log.error("Error getting act", e);
             return ResponseEntity.badRequest().build();
@@ -64,10 +67,10 @@ public class ActController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Act>> getActs() {
+    public ResponseEntity<List<Act>> getActs(Principal principal) {
         try {
             log.info("Getting acts");
-            return ResponseEntity.ok(actService.getActs());
+            return ResponseEntity.ok(actService.getActs(principal));
         } catch (Exception e) {
             log.error("Error getting acts", e);
             return ResponseEntity.badRequest().build();

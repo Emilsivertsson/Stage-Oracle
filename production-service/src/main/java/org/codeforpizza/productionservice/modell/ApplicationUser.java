@@ -29,7 +29,7 @@ public class ApplicationUser implements UserDetails{
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer userId;
+    private Long userId;
     @Column(unique=true)
     private String username;
     private String password;
@@ -45,10 +45,11 @@ public class ApplicationUser implements UserDetails{
     @OneToMany(mappedBy = "applicationUser", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Production> productions = new ArrayList<>();
 
-    public ApplicationUser(String username, String password, Set<Role> authorities) {
+    public ApplicationUser(String username, String password, Set<Role> authorities, List<Production> productions) {
         this.username = username;
         this.password = password;
         this.authorities = authorities;
+        this.productions = productions;
     }
 
     public void setAuthorities(Set<Role> authorities) {

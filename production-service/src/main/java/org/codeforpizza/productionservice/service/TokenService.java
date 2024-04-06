@@ -21,8 +21,6 @@ public class TokenService {
 
     private final JwtDecoder jwtDecoder;
 
-
-
     public String generateJwt(Authentication auth){
         Instant now = Instant.now();
 
@@ -39,6 +37,10 @@ public class TokenService {
                 .build();
 
         return jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+    }
+
+    public String getIdFromJwt(String token){
+        return jwtDecoder.decode(token).getId();
     }
 
 }

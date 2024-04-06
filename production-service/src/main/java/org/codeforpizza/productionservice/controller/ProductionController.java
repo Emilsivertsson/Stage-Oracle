@@ -1,12 +1,16 @@
 package org.codeforpizza.productionservice.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.Production;
+import org.codeforpizza.productionservice.modell.ProductionDto;
 import org.codeforpizza.productionservice.service.ProductionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -19,9 +23,9 @@ public class ProductionController {
     private final ProductionService productionService;
 
     @PostMapping("")
-    public ResponseEntity<String> createProduction() {
+    public ResponseEntity<String> createProduction(Principal principal,@Valid @RequestBody ProductionDto productionDto) {
         try {
-            productionService.createProduction();
+            productionService.createProduction(productionDto, principal);
             log.info("Creating production");
             return ResponseEntity.ok("Production created");
         } catch (Exception e) {
@@ -31,11 +35,10 @@ public class ProductionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteProduction(@PathVariable Long id) {
+    public ResponseEntity<String> deleteProduction(@PathVariable Long id, Principal principal) {
         try {
-            productionService.deleteProduction(id);
             log.info("Deleting production");
-            return ResponseEntity.status(205).body("Production deleted");
+            return productionService.deleteProduction(id, principal);
         } catch (Exception e) {
             log.error("Error deleting production");
             return ResponseEntity.badRequest().body("Error deleting production");
@@ -43,11 +46,10 @@ public class ProductionController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateProduction(@PathVariable Long id) {
+    public ResponseEntity<String> updateProduction(@PathVariable Long id,@Valid @RequestBody ProductionDto productionDto, Principal principal) {
         try {
-            productionService.updateProduction(id);
             log.info("Updating production");
-            return ResponseEntity.ok("Production updated");
+            return ResponseEntity.ok(productionService.updateProduction(id, productionDto, principal));
         } catch (Exception e) {
             log.error("Error updating production");
             return ResponseEntity.badRequest().body("Error updating production");
@@ -55,10 +57,10 @@ public class ProductionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Production> getProduction(@PathVariable Long id) {
+    public ResponseEntity<Production> getProduction(@PathVariable Long id, Principal principal) {
         try {
             log.info("Getting production");
-            return ResponseEntity.ok(productionService.getProduction(id));
+            return ResponseEntity.ok(productionService.getProduction(id, principal));
         } catch (Exception e) {
             log.error("Error getting production");
             return ResponseEntity.badRequest().build();
@@ -66,10 +68,10 @@ public class ProductionController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Production>> getAllProductions() {
+    public ResponseEntity<List<Production>> getAllProductions(Principal principal) {
         try {
             log.info("Getting all productions");
-            return ResponseEntity.ok(productionService.getAllProductions());
+            return ResponseEntity.ok(productionService.getAllProductions(principal));
         } catch (Exception e) {
             log.error("Error getting all productions");
             return ResponseEntity.badRequest().build();

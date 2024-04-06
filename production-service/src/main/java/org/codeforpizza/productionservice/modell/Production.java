@@ -19,10 +19,10 @@ public class Production {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column(name="year")
-    private long year;
+    private Long year;
 
     @Column(name="title")
     private String title;
