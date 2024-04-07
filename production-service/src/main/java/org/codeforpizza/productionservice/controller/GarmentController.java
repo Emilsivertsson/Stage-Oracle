@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.Garment;
 import org.codeforpizza.productionservice.modell.GarmentDto;
+import org.codeforpizza.productionservice.service.GarmentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,10 +22,10 @@ public class GarmentController {
     private final GarmentService garmentService;
 
     @PostMapping("")
-    public ResponseEntity<Garment> createGarment(@Valid @RequestBody GarmentDto garment, Principal principal) {
+    public ResponseEntity<String> createGarment(@Valid @RequestBody GarmentDto garment, Principal principal, Long costumeId) {
         try {
             log.info("Creating garment");
-            return ResponseEntity.ok(garmentService.createGarment(garment, principal));
+            return garmentService.createGarment(garment, principal, costumeId);
         } catch (Exception e) {
             log.error("Error creating garment", e);
             return ResponseEntity.badRequest().build();
@@ -35,7 +36,7 @@ public class GarmentController {
     public ResponseEntity<String> updateGarment(@PathVariable Long id, Principal principal, @Valid @RequestBody GarmentDto garmentDto) {
         try {
             log.info("Updating garment");
-            return ResponseEntity.ok(garmentService.updateGarment(id, principal, garmentDto));
+            return garmentService.updateGarment(id, principal, garmentDto);
         } catch (Exception e) {
             log.error("Error updating garment", e);
             return ResponseEntity.badRequest().build();
@@ -46,7 +47,7 @@ public class GarmentController {
     public ResponseEntity<String> deleteGarment(@PathVariable Long id, Principal principal) {
         try {
             log.info("Deleting garment");
-            return ResponseEntity.ok(garmentService.deleteGarment(id, principal));
+            return garmentService.deleteGarment(id, principal);
         } catch (Exception e) {
             log.error("Error deleting garment", e);
             return ResponseEntity.badRequest().build();
@@ -57,7 +58,7 @@ public class GarmentController {
     public ResponseEntity<Garment> getGarment(@PathVariable Long id, Principal principal) {
         try {
             log.info("Getting garment");
-            return ResponseEntity.ok(garmentService.getGarment(id, principal));
+            return garmentService.getGarment(id, principal);
         } catch (Exception e) {
             log.error("Error getting garment", e);
             return ResponseEntity.badRequest().build();
@@ -65,10 +66,10 @@ public class GarmentController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Garment>> getAllGarments(Principal principal) {
+    public ResponseEntity<List<Garment>> getAllGarments(Principal principal, Long costumeId) {
         try {
             log.info("Getting all garments");
-            return ResponseEntity.ok(garmentService.getAllGarments(principal));
+            return garmentService.getAllGarments(principal, costumeId);
         } catch (Exception e) {
             log.error("Error getting all garments", e);
             return ResponseEntity.badRequest().build();
