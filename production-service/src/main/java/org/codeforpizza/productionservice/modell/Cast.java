@@ -31,7 +31,7 @@ public class Cast {
     private Manifest manifest;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "cast", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "cast", cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Performer> performers = new ArrayList<>();
 
     public Cast(String name) {

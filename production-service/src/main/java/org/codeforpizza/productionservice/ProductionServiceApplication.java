@@ -24,9 +24,10 @@ public class ProductionServiceApplication {
     CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository
                         , PasswordEncoder passwordEncode, ProductionRepository productionRepository
                         , ActRepository actRepository, CastRepository castRepository
-                        , ManifestRepository manifestRepository,GarmentRepository garmentRepository
+                        , ManifestRepository manifestRepository,CostumeRepository costumeRepository,GarmentRepository garmentRepository
     ,PerformerRepository performerRepository) {
         return args -> {
+
             if (roleRepository.findByAuthority("ADMIN").isPresent()) return;
             Role adminRole = roleRepository.save(new Role("ADMIN"));
 
@@ -34,72 +35,69 @@ public class ProductionServiceApplication {
             adminRoles.add(adminRole);
 
             Garment adminGarment = new Garment("Black jacket", "its black");
-            garmentRepository.save(adminGarment);
-
             Costume adminCostume = new Costume("admin costume");
-            adminCostume.getGarments().add(adminGarment);
-
             Act adminAct = new Act("Act admin");
-            adminAct.getCostumes().add(adminCostume);
-            actRepository.save(adminAct);
-
             Performer adminPerformer = new Performer("admin", "Doe");
-            adminPerformer.getActs().add(adminAct);
-            performerRepository.save(adminPerformer);
-
             Cast adminCast = new Cast("admin cast");
-            adminCast.getPerformers().add(adminPerformer);
-            castRepository.save(adminCast);
-
             Manifest adminManifest = new Manifest("Manifest admin", 2026);
-            adminManifest.getCasts().add(adminCast);
-
             Production adminProduction = new Production(2026L, "Production admin",true, "Description admin");
-            adminProduction.getManifests().add(adminManifest);
-            productionRepository.save(adminProduction);
-
             List<Production> adminProductions = new ArrayList<>();
-            adminProductions.add(adminProduction);
-
             ApplicationUser admin = new ApplicationUser("admin", passwordEncode.encode("password2"), adminRoles, adminProductions);
 
             userRepository.save(admin);
-
+            adminProduction.setApplicationUser(admin);
+            productionRepository.save(adminProduction);
+            adminManifest.setProduction(adminProduction);
+            manifestRepository.save(adminManifest);
+            adminCast.setManifest(adminManifest);
+            castRepository.save(adminCast);
+            adminPerformer.setCast(adminCast);
+            performerRepository.save(adminPerformer);
+            adminAct.setPerformer(adminPerformer);
+            actRepository.save(adminAct);
+            adminCostume.setAct(adminAct);
+            costumeRepository.save(adminCostume);
+            adminGarment.setCostume(adminCostume);
+            garmentRepository.save(adminGarment);
 
 
             Role userRole = roleRepository.save(new Role("USER"));
             Set<Role> userRoles = new HashSet<>();
             userRoles.add(userRole);
             Garment garment = new Garment("Black jacket", "its black");
+            Costume costume = new Costume("Black costume");
+            Act act = new Act("Act 1");
+            Performer performer = new Performer("John", "Doe");
+            Cast cast = new Cast("Main cast");
+            Manifest manifest = new Manifest("Manifest 1", 2021);
+            Production production = new Production(2005L, "Production 1",true, "Description 1");
+            List<Production> productions = new ArrayList<>();
+            ApplicationUser user = new ApplicationUser( "user", passwordEncode.encode("password1"), userRoles, productions);
+
+            userRepository.save(user);
+            production.setApplicationUser(user);
+            productionRepository.save(production);
+            manifest.setProduction(production);
+            manifestRepository.save(manifest);
+            cast.setManifest(manifest);
+            castRepository.save(cast);
+            performer.setCast(cast);
+            performerRepository.save(performer);
+            act.setPerformer(performer);
+            actRepository.save(act);
+            costume.setAct(act);
+            costumeRepository.save(costume);
+            garment.setCostume(costume);
             garmentRepository.save(garment);
 
-            Costume costume = new Costume("Black costume");
-            costume.getGarments().add(garment);
 
-            Act act = new Act("Act 1");
-            act.getCostumes().add(costume);
-            actRepository.save(act);
 
-            Performer performer = new Performer("John", "Doe");
-            performer.getActs().add(act);
-            performerRepository.save(performer);
 
-            Cast cast = new Cast("Main cast");
-            cast.getPerformers().add(performer);
-            castRepository.save(cast);
 
-            Manifest manifest = new Manifest("Manifest 1", 2021);
-            manifest.getCasts().add(cast);
 
-            Production production = new Production(2005L, "Production 1",true, "Description 1");
-            production.getManifests().add(manifest);
-            productionRepository.save(production);
 
-            List<Production> productions = new ArrayList<>();
-            productions.add(production);
 
-            ApplicationUser user = new ApplicationUser( "user", passwordEncode.encode("password1"), userRoles, productions);
-            userRepository.save(user);
+
 
 
         };

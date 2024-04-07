@@ -34,7 +34,7 @@ public class Manifest {
     private Production production;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "manifest", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "manifest", cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Cast> casts = new ArrayList<>();
 
     public Manifest(String title, long year) {

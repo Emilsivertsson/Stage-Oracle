@@ -31,7 +31,7 @@ public class Act {
     private Performer performer;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "act", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "act", cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Costume> costumes = new ArrayList<>();
 
     public Act(String title) {

@@ -42,7 +42,7 @@ public class ApplicationUser implements UserDetails{
     )
     private Set<Role> authorities;
 
-    @OneToMany(mappedBy = "applicationUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "applicationUser", cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Production> productions = new ArrayList<>();
 
     public ApplicationUser(String username, String password, Set<Role> authorities, List<Production> productions) {

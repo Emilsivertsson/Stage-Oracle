@@ -93,6 +93,6 @@ public class PerformerService {
 
     //TODO Get performer from other service, based on the id
     public String createPerformer(Long performerId, Principal principal, Long castId) {
-
+        return null;
     }
 }

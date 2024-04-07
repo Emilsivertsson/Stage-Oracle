@@ -35,7 +35,7 @@ public class Production {
     private String description;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "production", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "production", cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Manifest> manifests = new ArrayList<>();
 
     @JsonIgnore
