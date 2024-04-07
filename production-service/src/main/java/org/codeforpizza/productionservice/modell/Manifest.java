@@ -1,5 +1,6 @@
 package org.codeforpizza.productionservice.modell;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,11 +28,18 @@ public class Manifest {
     @Column(name="year")
     private long year;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "production_id")
     private Production production;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "manifest", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cast> casts = new ArrayList<>();
+
+    public Manifest(String title, long year) {
+        this.title = title;
+        this.year = year;
+    }
 
 }

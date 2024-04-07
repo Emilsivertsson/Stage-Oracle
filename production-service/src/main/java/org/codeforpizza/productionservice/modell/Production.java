@@ -1,5 +1,6 @@
 package org.codeforpizza.productionservice.modell;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,11 +34,19 @@ public class Production {
     @Column(name="description")
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "production", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Manifest> manifests = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "application_user_user_id")
     private ApplicationUser applicationUser;
 
+    public Production(Long year, String title, Boolean inRotation, String description) {
+        this.year = year;
+        this.title = title;
+        this.inRotation = inRotation;
+        this.description = description;
+    }
 }

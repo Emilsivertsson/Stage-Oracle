@@ -3,12 +3,14 @@ package org.codeforpizza.productionservice.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.codeforpizza.productionservice.modell.Performer;
 import org.codeforpizza.productionservice.modell.PerformerDto;
 import org.codeforpizza.productionservice.service.PerformerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/performers")
@@ -20,11 +22,11 @@ public class PerformerController {
     private final PerformerService performerService;
 
 
-    //TODO Get performer from other service, based on the id
+
     @PostMapping("")
-    public ResponseEntity<String> createPerformer(@Valid @RequestBody PerformerDto performerDto, Principal principal) {
+    public ResponseEntity<String> createPerformer(Long performerId, Principal principal, Long CastId) {
         try {
-            return ResponseEntity.ok(performerService.createPerformer(performerDto, principal));
+            return ResponseEntity.ok(performerService.createPerformer(performerId, principal, CastId));
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
@@ -50,18 +52,18 @@ public class PerformerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> getPerformer(@PathVariable Long id, Principal principal) {
+    public ResponseEntity<Performer> getPerformer(@PathVariable Long id, Principal principal) {
         try {
-            return ResponseEntity.ok(performerService.getPerformer(id, principal));
+            return performerService.getPerformer(id, principal);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("")
-    public ResponseEntity<String> getAllPerformers(Principal principal) {
+    public ResponseEntity<List<Performer>> getAllPerformers(Principal principal, Long CastId) {
         try {
-            return ResponseEntity.ok(performerService.getAllPerformers(principal));
+            return performerService.getAllPerformers(principal,CastId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

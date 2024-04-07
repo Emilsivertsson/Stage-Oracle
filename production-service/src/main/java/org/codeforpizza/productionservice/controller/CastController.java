@@ -3,12 +3,14 @@ package org.codeforpizza.productionservice.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.codeforpizza.productionservice.modell.Cast;
 import org.codeforpizza.productionservice.modell.CastDto;
 import org.codeforpizza.productionservice.service.CastService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/casts")
@@ -20,9 +22,9 @@ public class CastController {
     private final CastService castService;
 
     @PostMapping("")
-    public ResponseEntity<String> createCast(@Valid @RequestBody CastDto castDto, Principal principal) {
+    public ResponseEntity<String> createCast(@Valid @RequestBody CastDto castDto, Principal principal,Long ManifestId) {
         try {
-            return ResponseEntity.ok(castService.createCast(castDto, principal));
+            return ResponseEntity.ok(castService.createCast(castDto, principal, ManifestId));
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
@@ -47,18 +49,18 @@ public class CastController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> getCast(@PathVariable Long id, Principal principal) {
+    public ResponseEntity<Cast> getCast(@PathVariable Long id, Principal principal, Long ManifestId) {
         try {
-            return ResponseEntity.ok(castService.getCast(id, principal));
+            return castService.getCast(id, principal, ManifestId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("")
-    public ResponseEntity<String> getAllCasts(Principal principal) {
+    public ResponseEntity<List<Cast>> getAllCasts(Principal principal, Long ManifestId) {
         try {
-            return ResponseEntity.ok(castService.getAllCasts(principal));
+            return castService.getAllCasts(principal, ManifestId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

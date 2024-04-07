@@ -1,5 +1,6 @@
 package org.codeforpizza.productionservice.modell;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,12 +25,16 @@ public class Costume {
     @Column(name = "name")
     private String name;
 
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "act_id")
     private Act act;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "costume", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Garment> garments = new ArrayList<>();
 
+    public Costume(String name) {
+        this.name = name;
+    }
 }
