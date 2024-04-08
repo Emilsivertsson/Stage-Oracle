@@ -78,16 +78,10 @@ public class ManifestService {
         }
     }
 
-    public ResponseEntity<Manifest> getManifest(Long id, Principal principal, Long productionId) {
+    public ResponseEntity<Manifest> getManifest(Long id, Principal principal) {
         try {
-            user = userRepository.findByUsername(principal.getName());
-            production = user.getProductions().stream().filter(p -> p.getId().equals(productionId)).findFirst();
-            if (production.isPresent()) {
-                manifest = manifestRepository.findById(id).orElse(null);
-                return ResponseEntity.ok(manifest);
-            } else {
-                return ResponseEntity.status(400).build();
-            }
+            manifest = manifestRepository.findById(id).orElse(null);
+            return ResponseEntity.ok(manifest);
         } catch (Exception e) {
             log.error("Error getting manifest");
             return ResponseEntity.status(400).build();

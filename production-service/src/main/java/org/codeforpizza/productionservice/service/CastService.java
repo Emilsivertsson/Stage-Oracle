@@ -75,7 +75,7 @@ public class CastService {
         return "Cast deletion failed";
     }
 
-    public ResponseEntity<Cast> getCast(Long id, Principal principal, Long manifestId) {
+    public ResponseEntity<Cast> getCast(Long id, Principal principal) {
         try {
             cast = castRepository.findById(id).orElse(null);
             if (cast != null) {

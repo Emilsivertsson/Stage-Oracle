@@ -21,8 +21,8 @@ public class ManifestController {
 
     private final ManifestService manifestService;
 
-    @PostMapping("")
-    public ResponseEntity<String> createManifest(@Valid @RequestBody ManifestDto manifestDto, Principal principal, Long ProductionId) {
+    @PostMapping("/{ProductionId}")
+    public ResponseEntity<String> createManifest(@Valid @RequestBody ManifestDto manifestDto, Principal principal,@PathVariable Long ProductionId) {
         try {
             return ResponseEntity.ok(manifestService.createManifest(principal, manifestDto, ProductionId));
         } catch (Exception e) {
@@ -30,37 +30,37 @@ public class ManifestController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateManifest(@PathVariable Long id,@Valid @RequestBody ManifestDto manifestDto, Principal principal) {
+    @PutMapping("/{manifestId}")
+    public ResponseEntity<String> updateManifest(@PathVariable Long manifestId,@Valid @RequestBody ManifestDto manifestDto, Principal principal) {
         try {
-            return ResponseEntity.ok(manifestService.updateManifest(id, manifestDto, principal));
+            return ResponseEntity.ok(manifestService.updateManifest(manifestId, manifestDto, principal));
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteManifest(@PathVariable Long id) {
+    @DeleteMapping("/{manifestId}")
+    public ResponseEntity<String> deleteManifest(@PathVariable Long manifestId) {
         try {
-            return ResponseEntity.ok(manifestService.deleteManifest(id));
+            return ResponseEntity.ok(manifestService.deleteManifest(manifestId));
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Manifest> getManifest(@PathVariable Long id, Principal principal, Long ProductionId) {
+    @GetMapping("/{manifestId}")
+    public ResponseEntity<Manifest> getManifest(@PathVariable Long manifestId, Principal principal) {
         try {
-            return manifestService.getManifest(id, principal, ProductionId);
+            return manifestService.getManifest(manifestId, principal);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<Manifest>> getAllManifests(Principal principal, Long ProductionId) {
+    @GetMapping("/production/{productionId}")
+    public ResponseEntity<List<Manifest>> getAllManifests(Principal principal,@PathVariable Long productionId) {
         try {
-            return manifestService.getAllManifests(principal, ProductionId);
+            return manifestService.getAllManifests(principal, productionId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

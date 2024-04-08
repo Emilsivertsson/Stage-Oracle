@@ -63,17 +63,23 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-                    auth.anyRequest().permitAll();
+
                     //registation and login
-                    //auth.requestMatchers("/auth/**").permitAll();
+                    auth.requestMatchers("/auth/**").permitAll();
 
                     //admin routes
-                    //auth.requestMatchers("/admin/**").hasRole("ADMIN");
+                    auth.requestMatchers("/admin/**").hasRole("ADMIN");
 
-                    //performer routes
-                    //auth.requestMatchers("/performer/**").hasAnyRole("ADMIN", "USER");
+                    //user routes
+                    auth.requestMatchers("/performer/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/act/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/costume/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/cast/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/manifest/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/garment/**").hasAnyRole("ADMIN", "USER");
 
-                    //auth.anyRequest().authenticated();
+                    auth.anyRequest().authenticated();
                 });
 
         http.oauth2ResourceServer(oauth -> oauth.jwt(
