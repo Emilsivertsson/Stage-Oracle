@@ -3,6 +3,7 @@ package org.codeforpizza.productionservice.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.codeforpizza.productionservice.modell.GetPerformerRequestDTO;
 import org.codeforpizza.productionservice.modell.Performer;
 import org.codeforpizza.productionservice.modell.PerformerDto;
 import org.codeforpizza.productionservice.service.PerformerService;
@@ -23,10 +24,10 @@ public class PerformerController {
 
 
 
-    @PostMapping("/{castId}/getPerformer/{performerId}")
-    public ResponseEntity<String> createPerformer(@PathVariable Long performerId, Principal principal,@PathVariable Long castId) {
+    @PostMapping("/{castId}")
+    public ResponseEntity<String> createPerformer(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, @PathVariable Long castId) {
         try {
-            return ResponseEntity.ok(performerService.createPerformer(performerId, principal, castId));
+            return ResponseEntity.ok(performerService.createPerformer(getPerformerRequestDTO, principal, castId));
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

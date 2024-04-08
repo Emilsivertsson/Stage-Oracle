@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,7 +41,7 @@ public class AuthenticationService {
 
     private final MeasurementsRepository measurementsRepository;
 
-
+    private final HttpService httpService;
 
     public ResponseEntity<String> registerUser(String username, String password){
         try{
@@ -64,7 +65,7 @@ public class AuthenticationService {
         log.info("Performer created");
 
         ApplicationUser newUser = new ApplicationUser(username, encodedPassword, authorities, performer);
-        ApplicationUser savedUser = userRepository.save(newUser);
+        userRepository.save(newUser);
         log.info("User registered successfully");
 
         return ResponseEntity.ok("User registered successfully");
@@ -96,8 +97,8 @@ public class AuthenticationService {
         }
     }
 
-    public Boolean isAuthenticated(String username) {
-
+    public Boolean isAuthenticated(String username) throws IOException {
+        return httpService.isAuthenticated(username);
         //TODO Call other Service , send username and get boolean response
     }
 }

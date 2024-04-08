@@ -529,3 +529,13 @@ w
 G.idea/sonarlint/issuestore/a/d/adeb19b0510fd26c865e3603d9066dbd3c9a95f5,8\1\81a9da3a72a79bee25e9abc4498b029988eda8f6
 Å
 Q.idea/sonarlint/securityhotspotstore/c/9/c993cf236fa3357e23f6bd099dae6d22ac422efd,3\2\32c5334a9dda3c4782045e64a19f0dcf499dc074
+è
+_production-service/src/main/java/org/codeforpizza/productionservice/config/WebClientConfig.java,3\a\3a1942db3b1ad84fdca6ed251d60acef45c8b479
+å
+\production-service/src/main/java/org/codeforpizza/productionservice/service/HttpService.java,4\4\4466a58abbd2500e73104945468b664fda3b1287
+ê
+`registration-service/src/main/java/org/codeforpizza/registrationservice/service/HttpService.java,b\0\b0e467644022bfbe7e930b2058dd65baa3f35cc7
+ñ
+fregistration-service/src/main/java/org/codeforpizza/registrationservice/models/IsAuthenticatedDTO.java,4\f\4fcb9d1ff3a601eb82213a5e759ee178e477c083
+ñ
+fproduction-service/src/main/java/org/codeforpizza/productionservice/modell/GetPerformerRequestDTO.java,7\a\7a7d5c0443093f568f71f514e610eaae7c3365b3

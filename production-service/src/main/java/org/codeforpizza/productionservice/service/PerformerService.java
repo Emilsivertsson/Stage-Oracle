@@ -2,10 +2,7 @@ package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.ApplicationUser;
-import org.codeforpizza.productionservice.modell.Cast;
-import org.codeforpizza.productionservice.modell.Performer;
-import org.codeforpizza.productionservice.modell.PerformerDto;
+import org.codeforpizza.productionservice.modell.*;
 import org.codeforpizza.productionservice.repository.CastRepository;
 import org.codeforpizza.productionservice.repository.PerformerRepository;
 import org.codeforpizza.productionservice.repository.UserRepository;
@@ -33,6 +30,8 @@ public class PerformerService {
     private Performer performer;
 
     private Cast cast;
+
+    private final HttpService httpService;
 
     public String updatePerformer(Long id, PerformerDto performerDto, Principal principal) {
         try {
@@ -92,7 +91,7 @@ public class PerformerService {
     }
 
     //TODO Get performer from other service, based on the id
-    public String createPerformer(Long performerId, Principal principal, Long castId) {
-        return null;
+    public String createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, Long castId) {
+        Performer perfomer =  httpService.getPerformer(getPerformerRequestDTO.getPerformerId());
     }
 }
