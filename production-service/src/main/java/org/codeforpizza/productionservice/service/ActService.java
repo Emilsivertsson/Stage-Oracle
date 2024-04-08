@@ -26,7 +26,7 @@ public class ActService {
 
     private final UserRepository userRepository;
 
-    private PerformerRepository performerRepository;
+    private final PerformerRepository performerRepository;
 
     private ApplicationUser user;
 

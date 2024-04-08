@@ -40,7 +40,7 @@ public class CostumeService {
             if (act != null) {
                 costume = new Costume();
                 costume.setName(costumeDto.getName());
-                act.getCostumes().add(costume);
+                costume.setAct(act);
                 costumeRepository.save(costume);
                 return ResponseEntity.ok("Costume created successfully");
             } else {

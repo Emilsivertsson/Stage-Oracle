@@ -21,11 +21,13 @@ public class CastController {
 
     private final CastService castService;
 
-    @PostMapping("/{ManifestId}")
-    public ResponseEntity<String> createCast(@Valid @RequestBody CastDto castDto, Principal principal,@PathVariable Long ManifestId) {
+    @PostMapping("/{manifestId}")
+    public ResponseEntity<String> createCast(@Valid @RequestBody CastDto castDto, Principal principal,@PathVariable Long manifestId) {
         try {
-            return ResponseEntity.ok(castService.createCast(castDto, principal, ManifestId));
+            log.info("Creating cast in api");
+            return castService.createCast(castDto, principal, manifestId);
         } catch (Exception e) {
+            log.error("Error creating cast in api");
             return ResponseEntity.status(400).build();
         }
     }
@@ -33,7 +35,7 @@ public class CastController {
     @PutMapping("/{castId}")
     public ResponseEntity<String> updateCast(@PathVariable Long castId, Principal principal, @Valid @RequestBody CastDto castDto) {
         try {
-            return ResponseEntity.ok(castService.updateCast(castId, principal, castDto));
+            return castService.updateCast(castId, principal, castDto);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
@@ -42,7 +44,7 @@ public class CastController {
     @DeleteMapping("/{castId}")
     public ResponseEntity<String> deleteCast(@PathVariable Long castId, Principal principal) {
         try {
-            return ResponseEntity.ok(castService.deleteCast(castId, principal));
+            return castService.deleteCast(castId, principal);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

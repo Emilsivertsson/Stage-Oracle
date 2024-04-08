@@ -96,4 +96,8 @@ public class AuthenticationService {
         }
     }
 
+    public Boolean isAuthenticated(String username) {
+
+        //TODO Call other Service , send username and get boolean response
+    }
 }

@@ -35,6 +35,7 @@ public class ProductionService {
             production.setYear(productionDto.getYear());
             production.setDescription(productionDto.getDescription());
             production.setInRotation(productionDto.getInRotation());
+            production.setApplicationUser(user);
             productionRepository.save(production);
             user.getProductions().add(production);
             log.info("Creating production");

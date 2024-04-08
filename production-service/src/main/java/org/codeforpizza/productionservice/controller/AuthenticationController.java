@@ -4,6 +4,7 @@ package org.codeforpizza.productionservice.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.codeforpizza.productionservice.modell.IsAuthenticatedDTO;
 import org.codeforpizza.productionservice.modell.LoginResponseDTO;
 import org.codeforpizza.productionservice.modell.RegistationAndUpdateDTO;
 import org.codeforpizza.productionservice.service.AuthenticationService;
@@ -34,6 +35,12 @@ public class AuthenticationController {
     public ResponseEntity <LoginResponseDTO> loginUser(@RequestBody RegistationAndUpdateDTO body){
         log.info("Logging in user");
         return authenticationService.loginUser(body.getUsername(), body.getPassword());
+    }
+
+    @GetMapping("/isAuthenticated")
+    public ResponseEntity<Boolean> isAuthenticated(@RequestBody IsAuthenticatedDTO username){
+        log.info("Checking if user is authenticated");
+        return authenticationService.isAuthenticated(username);
     }
 }
 

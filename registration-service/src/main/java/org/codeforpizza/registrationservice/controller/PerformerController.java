@@ -3,9 +3,11 @@ package org.codeforpizza.registrationservice.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import org.codeforpizza.registrationservice.models.GetPerformerRequestDTO;
 import org.codeforpizza.registrationservice.models.MeasurementsDTO;
 import org.codeforpizza.registrationservice.models.Performer;
 import org.codeforpizza.registrationservice.models.PerformerDTO;
+import org.codeforpizza.registrationservice.service.AuthenticationService;
 import org.codeforpizza.registrationservice.service.PerformerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +24,16 @@ public class PerformerController {
 
     private final PerformerService performerService;
 
+    private final AuthenticationService authenticationService;
+
     @GetMapping("")
-    public ResponseEntity<Optional<Performer>> getPerformer(Principal principal) {
+    public ResponseEntity<Optional<Performer>> getPerformer(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO) {
         try {
-            return performerService.getPerformer(principal);
+            if(authenticationService.isAuthenticated(getPerformerRequestDTO.getUsername())){
+                return performerService.getPerformerByUsername(getPerformerRequestDTO.getPerformerId());
+            } else {
+                return ResponseEntity.status(401).build();
+            }
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

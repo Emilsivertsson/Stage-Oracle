@@ -2,10 +2,7 @@ package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.ApplicationUser;
-import org.codeforpizza.productionservice.modell.LoginResponseDTO;
-import org.codeforpizza.productionservice.modell.Production;
-import org.codeforpizza.productionservice.modell.Role;
+import org.codeforpizza.productionservice.modell.*;
 import org.codeforpizza.productionservice.repository.ProductionRepository;
 import org.codeforpizza.productionservice.repository.RoleRepository;
 import org.codeforpizza.productionservice.repository.UserRepository;
@@ -39,6 +36,7 @@ public class AuthenticationService {
     private final TokenService tokenService;
 
     private final ProductionRepository productionRepository;
+
 
     public ResponseEntity<String> registerUser(String username, String password) {
         try{
@@ -81,7 +79,7 @@ public class AuthenticationService {
                     new UsernamePasswordAuthenticationToken(username, password));
 
             String token = tokenService.generateJwt(auth);
-            LoginResponseDTO loggedUser = new LoginResponseDTO(token);
+            LoginResponseDTO loggedUser = new LoginResponseDTO(username,token);
 
             log.info("User logged in successfully");
             return ResponseEntity.ok(loggedUser);
@@ -92,5 +90,19 @@ public class AuthenticationService {
         }
     }
 
+    public ResponseEntity<Boolean> isAuthenticated(IsAuthenticatedDTO username) {
+        try {
+            if (userRepository.existsByUsername(username.getUsername())) {
+                log.info("User is authenticated");
+                return ResponseEntity.ok(true);
+            } else {
+                log.info("User is not authenticated");
+                return ResponseEntity.ok(false);
+            }
+        } catch (Exception e) {
+            log.error("Error checking if user is authenticated");
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
 

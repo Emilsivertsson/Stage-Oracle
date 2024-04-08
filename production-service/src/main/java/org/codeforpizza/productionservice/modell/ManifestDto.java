@@ -1,19 +1,19 @@
 package org.codeforpizza.productionservice.modell;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
 /**
  * DTO for {@link Manifest}
  */
-@AllArgsConstructor
+
 @Getter
+@Setter
 @ToString
 public class ManifestDto implements Serializable {
     @NotNull(message = "Title can´t be empty")
@@ -21,4 +21,10 @@ public class ManifestDto implements Serializable {
     @NotBlank
     private final String title;
     private final long year;
+
+    @JsonCreator
+    public ManifestDto(String title, long year) {
+        this.title = title;
+        this.year = year;
+    }
 }

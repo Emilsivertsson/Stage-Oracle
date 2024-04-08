@@ -1,5 +1,6 @@
 package org.codeforpizza.productionservice.modell;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -12,7 +13,7 @@ import java.io.Serializable;
 /**
  * DTO for {@link Performer}
  */
-@AllArgsConstructor
+
 @Getter
 @ToString
 public class PerformerDto implements Serializable {
@@ -24,4 +25,10 @@ public class PerformerDto implements Serializable {
     @NotEmpty(message = "Last name can´t be empty")
     @NotBlank(message = "Last name can´t be empty")
     private final String lastName;
+
+    @JsonCreator
+    public PerformerDto(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

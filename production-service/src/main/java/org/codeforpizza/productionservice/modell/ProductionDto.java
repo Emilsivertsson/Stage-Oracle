@@ -1,5 +1,6 @@
 package org.codeforpizza.productionservice.modell;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import java.io.Serializable;
 /**
  * DTO for {@link Production}
  */
-@AllArgsConstructor
+
 @Getter
 @ToString
 public class ProductionDto implements Serializable {
@@ -23,4 +24,12 @@ public class ProductionDto implements Serializable {
     private final String title;
     private final Boolean inRotation;
     private final String description;
+
+    @JsonCreator
+    public ProductionDto(long year, String title, Boolean inRotation, String description) {
+        this.year = year;
+        this.title = title;
+        this.inRotation = inRotation;
+        this.description = description;
+    }
 }

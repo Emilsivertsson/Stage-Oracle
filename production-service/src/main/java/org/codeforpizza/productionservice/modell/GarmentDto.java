@@ -1,5 +1,6 @@
 package org.codeforpizza.productionservice.modell;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -12,7 +13,7 @@ import java.io.Serializable;
 /**
  * DTO for {@link Garment}
  */
-@AllArgsConstructor
+
 @Getter
 @ToString
 public class GarmentDto implements Serializable {
@@ -21,4 +22,10 @@ public class GarmentDto implements Serializable {
     @NotBlank
     private final String name;
     private final String description;
+
+    @JsonCreator
+    public GarmentDto(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }

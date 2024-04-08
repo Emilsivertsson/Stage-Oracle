@@ -32,47 +32,52 @@ public class CastService {
 
     private Cast cast;
 
-    public String createCast(CastDto castDto, Principal principal, Long manifestId) {
+    public ResponseEntity<String> createCast(CastDto castDto, Principal principal, Long manifestId) {
         try {
+            log.info("getting manifest by id");
             manifest = manifestRepository.findById(manifestId).orElse(null);
             if (manifest != null) {
+                log.info("creating cast");
                 cast = new Cast();
                 cast.setName(castDto.getName());
-                manifest.getCasts().add(cast);
+                cast.setManifest(manifest);
                 castRepository.save(cast);
-                return "Cast created successfully";
+                log.info("Cast created successfully");
+                return ResponseEntity.ok("Cast created successfully");
             }
         } catch (Exception e) {
+            log.error("Error creating cast");
             throw new RuntimeException(e);
         }
-        return "Cast creation failed";
+        log.error("Error creating cast in service");
+        return ResponseEntity.badRequest().build();
     }
 
-    public String updateCast(Long id, Principal principal, CastDto castDto) {
+    public ResponseEntity<String> updateCast(Long id, Principal principal, CastDto castDto) {
         try {
             cast = castRepository.findById(id).orElse(null);
             if (cast != null) {
                 cast.setName(castDto.getName());
                 castRepository.save(cast);
-                return "Cast updated successfully";
+                return ResponseEntity.ok("Cast updated successfully");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return "Cast update failed";
+        return ResponseEntity.badRequest().build();
     }
 
-    public String deleteCast(Long id, Principal principal) {
+    public ResponseEntity<String> deleteCast(Long id, Principal principal) {
         try {
             cast = castRepository.findById(id).orElse(null);
             if (cast != null) {
                 castRepository.delete(cast);
-                return "Cast deleted successfully";
+                return ResponseEntity.ok("Cast deleted successfully");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return "Cast deletion failed";
+        return ResponseEntity.badRequest().build();
     }
 
     public ResponseEntity<Cast> getCast(Long id, Principal principal) {

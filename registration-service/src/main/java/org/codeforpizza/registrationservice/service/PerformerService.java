@@ -89,4 +89,15 @@ public class PerformerService {
 
     }
 
+    public ResponseEntity<Optional<Performer>> getPerformerByUsername(Long perfomerId) {
+        try {
+            if (performerRepository.existsById(perfomerId)) {
+                return ResponseEntity.ok(performerRepository.findById(perfomerId));
+            } else {
+                return ResponseEntity.status(404).build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(400).build();
+        }
+    }
 }
