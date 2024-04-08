@@ -25,7 +25,6 @@ public class HttpService {
         IsAuthenticatedDTO isAuthenticatedDTO = new IsAuthenticatedDTO(username);
         request.setEntity(new StringEntity(mapper.writeValueAsString(isAuthenticatedDTO), ContentType.APPLICATION_JSON));
         CloseableHttpResponse response = httpClient.execute(request);
-        HttpEntity entity = response.getEntity();
         if (response.getCode() == 200) {
             return true;
         } else {

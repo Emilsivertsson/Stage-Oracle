@@ -24,20 +24,16 @@ public class PerformerController {
 
     private final PerformerService performerService;
 
-    private final AuthenticationService authenticationService;
-
     @GetMapping("")
-    public ResponseEntity<Optional<Performer>> getPerformer(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO) {
+    public ResponseEntity<Optional<Performer>> getPerformer(Principal principal) {
         try {
-            if(authenticationService.isAuthenticated(getPerformerRequestDTO.getUsername())){
-                return performerService.getPerformerByUsername(getPerformerRequestDTO.getPerformerId());
-            } else {
-                return ResponseEntity.status(401).build();
-            }
+            return performerService.getPerformer(principal);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
+
+
 
     @PutMapping("")
     public ResponseEntity <Performer> updatePerformer(Principal principal, @RequestBody PerformerDTO performer) {

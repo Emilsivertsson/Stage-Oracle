@@ -89,10 +89,12 @@ public class PerformerService {
 
     }
 
-    public ResponseEntity<Optional<Performer>> getPerformerByUsername(Long perfomerId) {
+
+    public ResponseEntity<Performer> getPerformerToProduction(Long performerId) {
         try {
-            if (performerRepository.existsById(perfomerId)) {
-                return ResponseEntity.ok(performerRepository.findById(perfomerId));
+            if (performerRepository.existsById(performerId)) {
+                log.info("Performer found, returning performer");
+                return ResponseEntity.ok(performerRepository.findById(performerId).get());
             } else {
                 return ResponseEntity.status(404).build();
             }

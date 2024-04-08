@@ -1,6 +1,7 @@
 package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.ParseException;
 import org.codeforpizza.productionservice.modell.*;
@@ -92,20 +93,21 @@ public class PerformerService {
         return ResponseEntity.status(400).build();
     }
 
-    //TODO Get performer from other service, based on the id
-    public String createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, Long castId) throws IOException, ParseException {
-        PerformerResponsDTO performerRespons =  httpService.getPerformer(getPerformerRequestDTO);
-        if (performer != null) {
+    public ResponseEntity<String> createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, Long castId) throws IOException, ParseException {
+        try {
+            PerformerResponsDTO performerRespons =  httpService.getPerformer(getPerformerRequestDTO);
+            log.info("performerRespons in service:" + performerRespons);
             cast = castRepository.findById(castId).orElse(null);
-            if (cast != null) {
-                performer.setFirstName(performerRespons.getFirstName());
-                performer.setLastName(performerRespons.getLastName());
-                performer.setCast(cast);
-                performerRepository.save(performer);
-                log.info("Performer created successfully");
-                return "Performer created successfully";
-            }
+            performer = new Performer();
+            performer.setFirstName(performerRespons.getFirstName());
+            performer.setLastName(performerRespons.getLastName());
+            performer.setCast(cast);
+            performerRepository.save(performer);
+            return ResponseEntity.ok("Performer created successfully");
+        } catch (Exception e) {
+            log.info("Error creating performer: " + e);
+            throw new RuntimeException(e);
+
         }
-        return "Performer creation failed";
     }
 }

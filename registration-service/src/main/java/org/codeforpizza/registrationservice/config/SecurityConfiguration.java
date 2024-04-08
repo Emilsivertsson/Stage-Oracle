@@ -30,6 +30,8 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.http.HttpMethod.GET;
+
 /**
  * This class is responsible for the security configuration
  */
@@ -66,6 +68,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
                     //registation and login
                     auth.requestMatchers("/auth/**").permitAll();
+
+                    auth.requestMatchers("/toProduction/**").permitAll();
 
                     //admin routes
                     auth.requestMatchers("/admin/**").hasRole("ADMIN");

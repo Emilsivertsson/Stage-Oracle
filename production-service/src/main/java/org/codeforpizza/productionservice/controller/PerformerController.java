@@ -23,12 +23,14 @@ public class PerformerController {
     private final PerformerService performerService;
 
 
-
     @PostMapping("/{castId}")
     public ResponseEntity<String> createPerformer(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, @PathVariable Long castId) {
         try {
-            return ResponseEntity.ok(performerService.createPerformer(getPerformerRequestDTO, principal, castId));
+            log.info("recived request to create performer");
+            return performerService.createPerformer(getPerformerRequestDTO, principal, castId);
         } catch (Exception e) {
+            log.info("failed to recive request to create performer");
+            log.info(e.getMessage() + " " + e.getCause());
             return ResponseEntity.status(400).build();
         }
     }
