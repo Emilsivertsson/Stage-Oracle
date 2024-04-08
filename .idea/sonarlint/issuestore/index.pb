@@ -249,8 +249,6 @@ eproduction-service/src/main/java/org/codeforpizza/productionservice/ProductionS
 bproduction-service/src/main/java/org/codeforpizza/productionservice/utils/KeyGeneratorUtility.java,f\0\f09f1632334ebe188244a800b45b254ec462a11a
 è
 _production-service/src/main/java/org/codeforpizza/productionservice/utils/RSAKeyProperties.java,c\e\cee96a76ea70be73f8c765af595b1a5c83122131
-Ü
-Vproduction-service/src/main/java/org/codeforpizza/productionservice/modell/JwtDTO.java,6\a\6a3f2a00dbc63f5f85938be69bdd21a8044b0ccf
 í
 bproduction-service/src/main/java/org/codeforpizza/productionservice/modell/IsAuthenticatedDTO.java,9\c\9c61b0a581a3f50667bd9f99387652e887d22c29
 ö
@@ -426,10 +424,6 @@ G.idea/sonarlint/issuestore/c/e/cee96a76ea70be73f8c765af595b1a5c83122131,3\b\3b
 Å
 Q.idea/sonarlint/securityhotspotstore/f/0/f09f1632334ebe188244a800b45b254ec462a11a,0\1\01c492db5f0e119110b73f9cf58cf275a79cc55d
 Å
-Q.idea/sonarlint/securityhotspotstore/6/a/6a3f2a00dbc63f5f85938be69bdd21a8044b0ccf,0\7\07144eb0281405939dc1b8c7abd7412168c64ca5
-w
-G.idea/sonarlint/issuestore/6/a/6a3f2a00dbc63f5f85938be69bdd21a8044b0ccf,8\6\86d8ff8a2c5a5c9f750dd589c680a3fd442512b6
-Å
 Q.idea/sonarlint/securityhotspotstore/c/e/cee96a76ea70be73f8c765af595b1a5c83122131,e\1\e1b4c1c8485058e55193983d5020bcb27af560a2
 Å
 Q.idea/sonarlint/securityhotspotstore/9/c/9c61b0a581a3f50667bd9f99387652e887d22c29,3\c\3caff70a912a1a6976f444f6c943fd8a699a5113
@@ -529,8 +523,6 @@ w
 G.idea/sonarlint/issuestore/a/d/adeb19b0510fd26c865e3603d9066dbd3c9a95f5,8\1\81a9da3a72a79bee25e9abc4498b029988eda8f6
 Å
 Q.idea/sonarlint/securityhotspotstore/c/9/c993cf236fa3357e23f6bd099dae6d22ac422efd,3\2\32c5334a9dda3c4782045e64a19f0dcf499dc074
-è
-_production-service/src/main/java/org/codeforpizza/productionservice/config/WebClientConfig.java,3\a\3a1942db3b1ad84fdca6ed251d60acef45c8b479
 å
 \production-service/src/main/java/org/codeforpizza/productionservice/service/HttpService.java,4\4\4466a58abbd2500e73104945468b664fda3b1287
 ê
@@ -539,3 +531,7 @@ _production-service/src/main/java/org/codeforpizza/productionservice/config/WebC
 fregistration-service/src/main/java/org/codeforpizza/registrationservice/models/IsAuthenticatedDTO.java,4\f\4fcb9d1ff3a601eb82213a5e759ee178e477c083
 ñ
 fproduction-service/src/main/java/org/codeforpizza/productionservice/modell/GetPerformerRequestDTO.java,7\a\7a7d5c0443093f568f71f514e610eaae7c3365b3
+à
+Xproduction-service/src/main/java/org/codeforpizza/productionservice/utils/HttpUtils.java,e\7\e7b8df369123749183b8ce4d9253cedae613d660
+ì
+cproduction-service/src/main/java/org/codeforpizza/productionservice/modell/PerformerResponsDTO.java,e\4\e4ebd5922fbf0a57ee3bb3747126e011a2a09f85

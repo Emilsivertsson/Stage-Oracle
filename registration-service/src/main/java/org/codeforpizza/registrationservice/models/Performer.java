@@ -1,5 +1,6 @@
 package org.codeforpizza.registrationservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,6 +34,7 @@ public class Performer {
     @Column(name = "department")
     String department;
 
+    @JsonIgnore
     @OneToOne(optional = false, orphanRemoval = true)
     @JoinColumn(name = "measurements_id", nullable = false)
     private Measurements measurements;

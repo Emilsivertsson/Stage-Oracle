@@ -2,6 +2,7 @@ package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.hc.core5.http.ParseException;
 import org.codeforpizza.productionservice.modell.*;
 import org.codeforpizza.productionservice.repository.CastRepository;
 import org.codeforpizza.productionservice.repository.PerformerRepository;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
@@ -91,7 +93,19 @@ public class PerformerService {
     }
 
     //TODO Get performer from other service, based on the id
-    public String createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, Long castId) {
-        Performer perfomer =  httpService.getPerformer(getPerformerRequestDTO.getPerformerId());
+    public String createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, Long castId) throws IOException, ParseException {
+        PerformerResponsDTO performerRespons =  httpService.getPerformer(getPerformerRequestDTO);
+        if (performer != null) {
+            cast = castRepository.findById(castId).orElse(null);
+            if (cast != null) {
+                performer.setFirstName(performerRespons.getFirstName());
+                performer.setLastName(performerRespons.getLastName());
+                performer.setCast(cast);
+                performerRepository.save(performer);
+                log.info("Performer created successfully");
+                return "Performer created successfully";
+            }
+        }
+        return "Performer creation failed";
     }
 }
