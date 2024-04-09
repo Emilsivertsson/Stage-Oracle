@@ -2,13 +2,12 @@ package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.ApplicationUser;
-import org.codeforpizza.productionservice.modell.Cast;
-import org.codeforpizza.productionservice.modell.CastDto;
-import org.codeforpizza.productionservice.modell.Manifest;
+import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.Cast;
+import org.codeforpizza.productionservice.modell.DTOs.CastDto;
+import org.codeforpizza.productionservice.modell.entitys.Manifest;
 import org.codeforpizza.productionservice.repository.CastRepository;
 import org.codeforpizza.productionservice.repository.ManifestRepository;
-import org.codeforpizza.productionservice.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

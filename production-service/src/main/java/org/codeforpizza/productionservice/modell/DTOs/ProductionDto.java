@@ -1,10 +1,10 @@
-package org.codeforpizza.productionservice.modell;
+package org.codeforpizza.productionservice.modell.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
+import org.codeforpizza.productionservice.modell.entitys.Production;
 
 import java.io.Serializable;
 

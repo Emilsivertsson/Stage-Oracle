@@ -1,8 +1,7 @@
-package org.codeforpizza.registrationservice.controller;
+package org.codeforpizza.productionservice.controller;
 
 import io.restassured.RestAssured;
-
-import org.codeforpizza.registrationservice.repository.UserRepository;
+import org.codeforpizza.productionservice.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,13 +12,11 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-
-
+import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class PerformerControllerTest {
+class GarmentControllerTest {
 
     @LocalServerPort
     private int port;
@@ -64,71 +61,73 @@ class PerformerControllerTest {
                 .path("jwt");
     }
 
-
-
     @Test
     @Order(1)
-    void getPerformer() {
+    void createGarment() {
         given()
-                .headers("Authorization", "Bearer " + token)
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .body("""
+                        {
+                        	"name": "Creating a Garment Test",
+                            "description": "description for test"
+                        }
+                        """)
                 .when()
-                .get("/performer")
+                .post("/garments/2")
                 .then()
-                .statusCode(200)
-                .body("firstName", equalTo("John"));
+                .statusCode(200);
     }
 
     @Test
     @Order(2)
-    void updatePerformer() {
+    void updateGarment() {
         given()
                 .contentType("application/json")
-                .headers("Authorization", "Bearer " + token)
+                .header("Authorization", "Bearer " + token)
                 .body("""
                         {
-                            "firstName": "updated-Name",
-                            "lastName": "updated-Name",
-                            "email": "updated-Name",
-                            "phoneNr": "updated-Name",
-                            "department": "updated-Name"
-                        }""")
+                        	"name": "Updating a Garment Test",
+                            "description": "description for test"
+                        }
+                        """)
                 .when()
-                .put("/performer")
+                .put("/garments/2")
                 .then()
-                .statusCode(200)
-                .body("firstName", equalTo("updated-Name"));
+                .statusCode(200);
+    }
+
+    @Test
+    @Order(5)
+    void deleteGarment() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .delete("/garments/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
     @Order(3)
-    void updateMeasurements() {
+    void getGarment() {
         given()
-                .contentType("application/json")
                 .headers("Authorization", "Bearer " + token)
-                .body("""
-                        {
-                             "height": 188,
-                             "shoeSize": 39,
-                             "jacketSize": 50,
-                             "pantSize": 50,
-                             "head": 67
-                         }""")
                 .when()
-                .put("/performer/measurements/")
+                .get("/garments/2")
                 .then()
-                .statusCode(200)
-                .body("measurements.height", equalTo(188.0f));
+                .statusCode(200);
     }
 
     @Test
     @Order(4)
-    void deleteAccount() {
+    void getAllGarments() {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .delete("/performer")
+                .get("/garments/costume/2")
                 .then()
-                .statusCode(200)
-                .body(equalTo("Performer deleted successfully"));
+                .statusCode(200);
     }
 }

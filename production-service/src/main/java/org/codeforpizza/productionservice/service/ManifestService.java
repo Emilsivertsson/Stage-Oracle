@@ -2,10 +2,10 @@ package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.ApplicationUser;
-import org.codeforpizza.productionservice.modell.Manifest;
-import org.codeforpizza.productionservice.modell.ManifestDto;
-import org.codeforpizza.productionservice.modell.Production;
+import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.Manifest;
+import org.codeforpizza.productionservice.modell.DTOs.ManifestDto;
+import org.codeforpizza.productionservice.modell.entitys.Production;
 import org.codeforpizza.productionservice.repository.ManifestRepository;
 import org.codeforpizza.productionservice.repository.UserRepository;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package org.codeforpizza.productionservice.modell;
+package org.codeforpizza.productionservice.modell.DTOs;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,10 +1,14 @@
 package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.ParseException;
-import org.codeforpizza.productionservice.modell.*;
+import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.DTOs.GetPerformerRequestDTO;
+import org.codeforpizza.productionservice.modell.DTOs.PerformerDto;
+import org.codeforpizza.productionservice.modell.DTOs.PerformerResponsDTO;
+import org.codeforpizza.productionservice.modell.entitys.Cast;
+import org.codeforpizza.productionservice.modell.entitys.Performer;
 import org.codeforpizza.productionservice.repository.CastRepository;
 import org.codeforpizza.productionservice.repository.PerformerRepository;
 import org.codeforpizza.productionservice.repository.UserRepository;

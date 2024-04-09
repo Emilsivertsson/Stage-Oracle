@@ -1,7 +1,5 @@
 package org.codeforpizza.productionservice.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -11,9 +9,8 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
-import org.codeforpizza.productionservice.modell.GetPerformerRequestDTO;
-import org.codeforpizza.productionservice.modell.Performer;
-import org.codeforpizza.productionservice.modell.PerformerResponsDTO;
+import org.codeforpizza.productionservice.modell.DTOs.GetPerformerRequestDTO;
+import org.codeforpizza.productionservice.modell.DTOs.PerformerResponsDTO;
 import org.codeforpizza.productionservice.utils.HttpUtils;
 import org.springframework.stereotype.Service;
 

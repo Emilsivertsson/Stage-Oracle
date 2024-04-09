@@ -1,4 +1,4 @@
-package org.codeforpizza.registrationservice.service;
+package org.codeforpizza.productionservice.controller;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
@@ -9,10 +9,12 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
 
+import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class PerformerServiceTest {
+class AuthenticationControllerTest {
 
     @LocalServerPort
     private int port;
@@ -43,20 +45,38 @@ class PerformerServiceTest {
         RestAssured.baseURI = "http://localhost:" + port;
     }
 
-    //TODO if needed, all methodes get tested throu the controller
     @Test
-    void getPerformer() {
+    @Order(1)
+    void registerUser() {
+        given()
+                .contentType("application/json")
+                .body("{\"username\": \"kalle\", \"password\": \"password1\"}")
+                .when()
+                .post("/auth/register")
+                .then()
+                .statusCode(200);
     }
 
     @Test
-    void updatePerformer() {
+    @Order(2)
+    void loginUser() {
+        given()
+                .contentType("application/json")
+                .body("{\"username\": \"kalle\", \"password\": \"password1\"}")
+                .when()
+                .post("/auth/login")
+                .then()
+                .statusCode(200);
     }
 
     @Test
-    void updateMeasurements() {
-    }
-
-    @Test
-    void deleteAccount() {
+    void isAuthenticated() {
+        given()
+                .contentType("application/json")
+                .body("{\"username\": \"kalle\"}")
+                .when()
+                .get("/auth/isAuthenticated")
+                .then()
+                .statusCode(200);
     }
 }

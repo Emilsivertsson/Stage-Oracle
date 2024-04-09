@@ -1,6 +1,5 @@
-package org.codeforpizza.productionservice.modell;
+package org.codeforpizza.productionservice.modell.DTOs;
 
-import jakarta.persistence.Column;
 import lombok.*;
 
 @Getter

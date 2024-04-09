@@ -2,7 +2,11 @@ package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.*;
+import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.DTOs.IsAuthenticatedDTO;
+import org.codeforpizza.productionservice.modell.DTOs.LoginResponseDTO;
+import org.codeforpizza.productionservice.modell.entitys.Production;
+import org.codeforpizza.productionservice.modell.entitys.Role;
 import org.codeforpizza.productionservice.repository.ProductionRepository;
 import org.codeforpizza.productionservice.repository.RoleRepository;
 import org.codeforpizza.productionservice.repository.UserRepository;

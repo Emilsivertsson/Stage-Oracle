@@ -1,4 +1,4 @@
-package org.codeforpizza.productionservice.modell;
+package org.codeforpizza.productionservice.modell.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonCreator;import lombok.*;
 

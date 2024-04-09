@@ -1,4 +1,4 @@
-package org.codeforpizza.productionservice.modell;
+package org.codeforpizza.productionservice.modell.entitys;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -15,26 +15,26 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="costumes")
-public class Costume {
+@Table(name="acts")
+public class Act {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name="title")
+    private String title;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "act_id")
-    private Act act;
+    @JoinColumn(name = "performer_id")
+    private Performer performer;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "costume", cascade = CascadeType.MERGE, orphanRemoval = true)
-    private List<Garment> garments = new ArrayList<>();
+    @OneToMany(mappedBy = "act", cascade = CascadeType.MERGE, orphanRemoval = true)
+    private List<Costume> costumes = new ArrayList<>();
 
-    public Costume(String name) {
-        this.name = name;
+    public Act(String title) {
+        this.title = title;
     }
 }

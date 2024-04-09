@@ -3,12 +3,11 @@ package org.codeforpizza.productionservice.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.Production;
-import org.codeforpizza.productionservice.modell.ProductionDto;
+import org.codeforpizza.productionservice.modell.entitys.Production;
+import org.codeforpizza.productionservice.modell.DTOs.ProductionDto;
 import org.codeforpizza.productionservice.service.ProductionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.RequestScope;
 
 import java.security.Principal;
 import java.util.List;

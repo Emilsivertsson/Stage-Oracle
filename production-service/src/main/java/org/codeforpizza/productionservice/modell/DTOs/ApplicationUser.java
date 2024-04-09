@@ -1,10 +1,12 @@
-package org.codeforpizza.productionservice.modell;
+package org.codeforpizza.productionservice.modell.DTOs;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.codeforpizza.productionservice.modell.entitys.Role;
+import org.codeforpizza.productionservice.modell.entitys.Production;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

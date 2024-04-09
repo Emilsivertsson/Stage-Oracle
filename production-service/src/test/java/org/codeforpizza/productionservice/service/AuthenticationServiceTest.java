@@ -1,12 +1,12 @@
-package org.codeforpizza.registrationservice.service;
+package org.codeforpizza.productionservice.service;
 
 import io.restassured.RestAssured;
-import org.codeforpizza.registrationservice.models.ApplicationUser;
-import org.codeforpizza.registrationservice.models.LoginResponseDTO;
-import org.codeforpizza.registrationservice.repository.MeasurementsRepository;
-import org.codeforpizza.registrationservice.repository.PerformerRepository;
-import org.codeforpizza.registrationservice.repository.RoleRepository;
-import org.codeforpizza.registrationservice.repository.UserRepository;
+import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.DTOs.IsAuthenticatedDTO;
+import org.codeforpizza.productionservice.modell.DTOs.LoginResponseDTO;
+import org.codeforpizza.productionservice.repository.PerformerRepository;
+import org.codeforpizza.productionservice.repository.RoleRepository;
+import org.codeforpizza.productionservice.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +17,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -56,8 +56,7 @@ class AuthenticationServiceTest {
     @Autowired
     private PerformerRepository performerRepository;
 
-    @Autowired
-    private MeasurementsRepository measurementsRepository;
+
 
     @Autowired
     private AuthenticationService authenticationService;
@@ -92,5 +91,17 @@ class AuthenticationServiceTest {
         ResponseEntity<LoginResponseDTO> loggedInUser = authenticationService.loginUser(username, password);
 
         assertEquals(200, loggedInUser.getStatusCode().value());
+    }
+
+    @Test
+    void isAuthenticated() {
+        String username = "username";
+        String password = "password34";
+        authenticationService.registerUser(username, password);
+        IsAuthenticatedDTO isAuthenticatedDTO = new IsAuthenticatedDTO(username);
+        ResponseEntity<Boolean> responseEntity = authenticationService.isAuthenticated(isAuthenticatedDTO);
+        assertEquals(200, responseEntity.getStatusCode().value());
+        assertEquals(true, responseEntity.getBody());
+
     }
 }

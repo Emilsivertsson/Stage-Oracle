@@ -1,7 +1,7 @@
 package org.codeforpizza.productionservice.repository;
 
 
-import org.codeforpizza.productionservice.modell.Role;
+import org.codeforpizza.productionservice.modell.entitys.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

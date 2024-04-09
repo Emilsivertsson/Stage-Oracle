@@ -1,6 +1,6 @@
 package org.codeforpizza.productionservice.repository;
 
-import org.codeforpizza.productionservice.modell.Performer;
+import org.codeforpizza.productionservice.modell.entitys.Performer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

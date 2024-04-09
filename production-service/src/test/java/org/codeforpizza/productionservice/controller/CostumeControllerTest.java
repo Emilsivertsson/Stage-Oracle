@@ -1,8 +1,7 @@
-package org.codeforpizza.registrationservice.controller;
+package org.codeforpizza.productionservice.controller;
 
 import io.restassured.RestAssured;
-
-import org.codeforpizza.registrationservice.repository.UserRepository;
+import org.codeforpizza.productionservice.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,12 +13,11 @@ import org.testcontainers.containers.MySQLContainer;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-
-
+import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class PerformerControllerTest {
+class CostumeControllerTest {
 
     @LocalServerPort
     private int port;
@@ -64,71 +62,54 @@ class PerformerControllerTest {
                 .path("jwt");
     }
 
-
-
     @Test
-    @Order(1)
-    void getPerformer() {
-        given()
-                .headers("Authorization", "Bearer " + token)
-                .when()
-                .get("/performer")
-                .then()
-                .statusCode(200)
-                .body("firstName", equalTo("John"));
-    }
-
-    @Test
-    @Order(2)
-    void updatePerformer() {
+    void createCostume() {
         given()
                 .contentType("application/json")
-                .headers("Authorization", "Bearer " + token)
-                .body("""
-                        {
-                            "firstName": "updated-Name",
-                            "lastName": "updated-Name",
-                            "email": "updated-Name",
-                            "phoneNr": "updated-Name",
-                            "department": "updated-Name"
-                        }""")
+                .header("Authorization", "Bearer " + token)
+                .body("{\"name\": \"Create Costume test\"}")
                 .when()
-                .put("/performer")
+                .post("/costumes/2")
                 .then()
-                .statusCode(200)
-                .body("firstName", equalTo("updated-Name"));
+                .statusCode(200);
     }
 
     @Test
-    @Order(3)
-    void updateMeasurements() {
+    void updateCostume() {
         given()
                 .contentType("application/json")
-                .headers("Authorization", "Bearer " + token)
-                .body("""
-                        {
-                             "height": 188,
-                             "shoeSize": 39,
-                             "jacketSize": 50,
-                             "pantSize": 50,
-                             "head": 67
-                         }""")
+                .header("Authorization", "Bearer " + token)
+                .body("{\"name\": \"Update Costume test\"}")
                 .when()
-                .put("/performer/measurements/")
+                .put("/costumes/2")
                 .then()
-                .statusCode(200)
-                .body("measurements.height", equalTo(188.0f));
+                .statusCode(200);
     }
 
     @Test
-    @Order(4)
-    void deleteAccount() {
+    void deleteCostume() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .delete("/costumes/2")
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
+    void getCostume() {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .delete("/performer")
+                .get("/costumes/2")
                 .then()
                 .statusCode(200)
-                .body(equalTo("Performer deleted successfully"));
+                .body("name", equalTo("Update Costume test"));
+    }
+
+    @Test
+    void getAllCostumes() {
+
     }
 }

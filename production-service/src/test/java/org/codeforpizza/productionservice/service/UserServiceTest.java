@@ -1,13 +1,11 @@
-package org.codeforpizza.registrationservice.service;
+package org.codeforpizza.productionservice.service;
 
 import io.restassured.RestAssured;
-
-import org.codeforpizza.registrationservice.models.ApplicationUser;
-import org.codeforpizza.registrationservice.models.RegistationAndUpdateDTO;
-import org.codeforpizza.registrationservice.repository.MeasurementsRepository;
-import org.codeforpizza.registrationservice.repository.PerformerRepository;
-import org.codeforpizza.registrationservice.repository.RoleRepository;
-import org.codeforpizza.registrationservice.repository.UserRepository;
+import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.DTOs.RegistationAndUpdateDTO;
+import org.codeforpizza.productionservice.repository.PerformerRepository;
+import org.codeforpizza.productionservice.repository.RoleRepository;
+import org.codeforpizza.productionservice.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +18,7 @@ import org.testcontainers.containers.MySQLContainer;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -59,8 +57,6 @@ class UserServiceTest {
     @Autowired
     private PerformerRepository performerRepository;
 
-    @Autowired
-    private MeasurementsRepository measurementsRepository;
 
     @BeforeEach
     void setUp() {
@@ -103,7 +99,7 @@ class UserServiceTest {
     @Test
     @Order(7)
     void shouldDeleteUser() {
-        ApplicationUser expected = new ApplicationUser("username", "password", null);
+        ApplicationUser expected = new ApplicationUser("username", "password", null, null);
         userRepository.save(expected);
         assertEquals(HttpStatusCode.valueOf(200), userService.deleteUser(2L).getStatusCode());
 

@@ -1,8 +1,8 @@
-package org.codeforpizza.registrationservice.controller;
+package org.codeforpizza.productionservice.controller;
 
 import io.restassured.RestAssured;
-
-import org.codeforpizza.registrationservice.repository.UserRepository;
+import org.codeforpizza.productionservice.repository.ProductionRepository;
+import org.codeforpizza.productionservice.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,13 +13,11 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-
-
+import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class PerformerControllerTest {
+class ProductionControllerTest {
 
     @LocalServerPort
     private int port;
@@ -47,6 +45,9 @@ class PerformerControllerTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ProductionRepository productionRepository;
+
     private String token;
 
     @BeforeEach
@@ -64,71 +65,78 @@ class PerformerControllerTest {
                 .path("jwt");
     }
 
-
-
     @Test
     @Order(1)
-    void getPerformer() {
+    void createProduction() {
         given()
-                .headers("Authorization", "Bearer " + token)
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .body("""
+                        {
+                        	"title": "Test Production",
+                            "year": 2008,
+                            "inRotation": true,
+                            "description": "This is a test-Production"
+                        }""")
                 .when()
-                .get("/performer")
+                .post("/productions")
                 .then()
-                .statusCode(200)
-                .body("firstName", equalTo("John"));
+                .statusCode(200);
+
+    }
+
+    @Test
+    @Order(5)
+    void deleteProduction() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .delete("/productions/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
     @Order(2)
-    void updatePerformer() {
+    void updateProduction() {
         given()
                 .contentType("application/json")
-                .headers("Authorization", "Bearer " + token)
+                .header("Authorization", "Bearer " + token)
                 .body("""
                         {
-                            "firstName": "updated-Name",
-                            "lastName": "updated-Name",
-                            "email": "updated-Name",
-                            "phoneNr": "updated-Name",
-                            "department": "updated-Name"
+                        	"title": "Updating Production test",
+                            "year": 2008,
+                            "inRotation": false,
+                            "description": "Updating description for test-Production"
                         }""")
                 .when()
-                .put("/performer")
+                .put("/productions/2")
                 .then()
-                .statusCode(200)
-                .body("firstName", equalTo("updated-Name"));
+                .statusCode(200);
     }
 
     @Test
     @Order(3)
-    void updateMeasurements() {
+    void getProduction() {
         given()
                 .contentType("application/json")
-                .headers("Authorization", "Bearer " + token)
-                .body("""
-                        {
-                             "height": 188,
-                             "shoeSize": 39,
-                             "jacketSize": 50,
-                             "pantSize": 50,
-                             "head": 67
-                         }""")
+                .header("Authorization", "Bearer " + token)
                 .when()
-                .put("/performer/measurements/")
+                .get("/productions/2")
                 .then()
-                .statusCode(200)
-                .body("measurements.height", equalTo(188.0f));
+                .statusCode(200);
     }
 
     @Test
     @Order(4)
-    void deleteAccount() {
+    void getAllProductions() {
         given()
-                .headers("Authorization", "Bearer " + token)
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/performer")
+                .get("/productions")
                 .then()
-                .statusCode(200)
-                .body(equalTo("Performer deleted successfully"));
+                .statusCode(200);
     }
 }
