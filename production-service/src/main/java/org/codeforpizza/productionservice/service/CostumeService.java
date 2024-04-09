@@ -3,7 +3,7 @@ package org.codeforpizza.productionservice.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.entitys.Act;
-import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.entitys.Costume;
 import org.codeforpizza.productionservice.modell.DTOs.CostumeDto;
 import org.codeforpizza.productionservice.repository.ActRepository;

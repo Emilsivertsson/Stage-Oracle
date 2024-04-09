@@ -3,7 +3,7 @@ package org.codeforpizza.productionservice.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.ParseException;
-import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.DTOs.GetPerformerRequestDTO;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerDto;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerResponsDTO;

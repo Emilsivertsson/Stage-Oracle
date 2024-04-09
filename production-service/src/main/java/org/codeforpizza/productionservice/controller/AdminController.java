@@ -2,7 +2,7 @@ package org.codeforpizza.productionservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.DTOs.RegistationAndUpdateDTO;
 import org.codeforpizza.productionservice.service.UserService;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package org.codeforpizza.productionservice;
 
-import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+
 import org.codeforpizza.productionservice.modell.entitys.*;
 import org.codeforpizza.productionservice.repository.*;
 import org.springframework.boot.CommandLineRunner;

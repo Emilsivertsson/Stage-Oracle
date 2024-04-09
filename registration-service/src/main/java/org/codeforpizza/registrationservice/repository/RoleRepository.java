@@ -1,7 +1,7 @@
 package org.codeforpizza.registrationservice.repository;
 
 
-import org.codeforpizza.registrationservice.models.Role;
+import org.codeforpizza.registrationservice.models.entitys.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

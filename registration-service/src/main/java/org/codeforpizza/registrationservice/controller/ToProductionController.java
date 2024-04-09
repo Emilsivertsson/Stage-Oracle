@@ -2,14 +2,13 @@ package org.codeforpizza.registrationservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.registrationservice.models.GetPerformerRequestDTO;
-import org.codeforpizza.registrationservice.models.Performer;
+
+import org.codeforpizza.registrationservice.models.DTOs.GetPerformerRequestDTO;
+import org.codeforpizza.registrationservice.models.entitys.Performer;
 import org.codeforpizza.registrationservice.service.AuthenticationService;
 import org.codeforpizza.registrationservice.service.PerformerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/toProduction")

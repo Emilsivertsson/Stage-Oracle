@@ -63,6 +63,7 @@ class CostumeControllerTest {
     }
 
     @Test
+    @Order(1)
     void createCostume() {
         given()
                 .contentType("application/json")
@@ -75,6 +76,7 @@ class CostumeControllerTest {
     }
 
     @Test
+    @Order(2)
     void updateCostume() {
         given()
                 .contentType("application/json")
@@ -87,6 +89,7 @@ class CostumeControllerTest {
     }
 
     @Test
+    @Order(5)
     void deleteCostume() {
         given()
                 .contentType("application/json")
@@ -98,6 +101,7 @@ class CostumeControllerTest {
     }
 
     @Test
+    @Order(3)
     void getCostume() {
         given()
                 .headers("Authorization", "Bearer " + token)
@@ -109,7 +113,14 @@ class CostumeControllerTest {
     }
 
     @Test
+    @Order(4)
     void getAllCostumes() {
+        given()
+                .headers("Authorization", "Bearer " + token)
+                .when()
+                .get("/costumes/act/2")
+                .then()
+                .statusCode(200);
 
     }
 }

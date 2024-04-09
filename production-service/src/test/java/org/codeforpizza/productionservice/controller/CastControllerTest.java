@@ -62,22 +62,70 @@ class CastControllerTest {
     }
 
     @Test
+    @Order(1)
     void createCast() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .body("""
+                        {
+                        	"name": "Create Cast test"
+                        }
+                        """)
+                .when()
+                .post("/casts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(2)
     void updateCast() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .body("""
+                        {
+                        	"name": "Update Cast test"
+                        }
+                        """)
+                .when()
+                .put("/casts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(5)
     void deleteCast() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .delete("/casts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(3)
     void getCast() {
+        given()
+                .headers("Authorization", "Bearer " + token)
+                .when()
+                .get("/casts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(4)
     void getAllCasts() {
+        given()
+                .headers("Authorization", "Bearer " + token)
+                .when()
+                .get("/casts/manifest/2")
+                .then()
+                .statusCode(200);
     }
 }

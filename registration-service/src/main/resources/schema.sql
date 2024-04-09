@@ -47,5 +47,5 @@ CREATE TABLE if not exists user
     performer_id BIGINT NULL,
     CONSTRAINT pk_user PRIMARY KEY (user_id),
     CONSTRAINT uc_user_username UNIQUE (username),
-    CONSTRAINT fk_user_performer FOREIGN KEY (performer_id) REFERENCES performer (id)
+    CONSTRAINT fk_user_performer FOREIGN KEY (performer_id) REFERENCES performers (id)
 );

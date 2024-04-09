@@ -1,7 +1,7 @@
 package org.codeforpizza.productionservice.controller;
 
 import io.restassured.RestAssured;
-import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -12,7 +12,7 @@ import org.testcontainers.containers.MySQLContainer;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

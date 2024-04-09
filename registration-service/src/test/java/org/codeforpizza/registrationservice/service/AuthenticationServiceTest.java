@@ -1,8 +1,8 @@
 package org.codeforpizza.registrationservice.service;
 
 import io.restassured.RestAssured;
-import org.codeforpizza.registrationservice.models.ApplicationUser;
-import org.codeforpizza.registrationservice.models.LoginResponseDTO;
+import org.codeforpizza.registrationservice.models.entitys.ApplicationUser;
+import org.codeforpizza.registrationservice.models.DTOs.LoginResponseDTO;
 import org.codeforpizza.registrationservice.repository.MeasurementsRepository;
 import org.codeforpizza.registrationservice.repository.PerformerRepository;
 import org.codeforpizza.registrationservice.repository.RoleRepository;

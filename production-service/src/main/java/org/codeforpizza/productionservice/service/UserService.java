@@ -4,7 +4,7 @@ package org.codeforpizza.productionservice.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.DTOs.RegistationAndUpdateDTO;
 import org.codeforpizza.productionservice.repository.UserRepository;
 import org.springframework.http.ResponseEntity;

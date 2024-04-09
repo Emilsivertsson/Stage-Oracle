@@ -1,6 +1,6 @@
 package org.codeforpizza.registrationservice.repository;
 
-import org.codeforpizza.registrationservice.models.ApplicationUser;
+import org.codeforpizza.registrationservice.models.entitys.ApplicationUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

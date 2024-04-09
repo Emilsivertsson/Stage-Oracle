@@ -15,4 +15,6 @@ public class PerformerResponsDTO {
     String email;
     String phoneNr;
     String department;
+
+    MeasurementsDTO measurements;
 }

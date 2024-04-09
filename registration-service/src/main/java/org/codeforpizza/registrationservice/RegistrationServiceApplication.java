@@ -1,9 +1,9 @@
 package org.codeforpizza.registrationservice;
 
-import org.codeforpizza.registrationservice.models.ApplicationUser;
-import org.codeforpizza.registrationservice.models.Measurements;
-import org.codeforpizza.registrationservice.models.Performer;
-import org.codeforpizza.registrationservice.models.Role;
+import org.codeforpizza.registrationservice.models.entitys.ApplicationUser;
+import org.codeforpizza.registrationservice.models.entitys.Measurements;
+import org.codeforpizza.registrationservice.models.entitys.Performer;
+import org.codeforpizza.registrationservice.models.entitys.Role;
 import org.codeforpizza.registrationservice.repository.MeasurementsRepository;
 import org.codeforpizza.registrationservice.repository.PerformerRepository;
 import org.codeforpizza.registrationservice.repository.RoleRepository;

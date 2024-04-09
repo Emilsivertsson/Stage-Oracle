@@ -1,7 +1,7 @@
 package org.codeforpizza.productionservice.service;
 
 import io.restassured.RestAssured;
-import org.codeforpizza.productionservice.modell.DTOs.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.DTOs.IsAuthenticatedDTO;
 import org.codeforpizza.productionservice.modell.DTOs.LoginResponseDTO;
 import org.codeforpizza.productionservice.repository.PerformerRepository;

@@ -1,7 +1,7 @@
 package org.codeforpizza.registrationservice.controller;
 
 import io.restassured.RestAssured;
-import org.codeforpizza.registrationservice.models.ApplicationUser;
+import org.codeforpizza.registrationservice.models.entitys.ApplicationUser;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;

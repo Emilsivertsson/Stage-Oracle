@@ -62,22 +62,70 @@ class ActControllerTest {
     }
 
     @Test
+    @Order(1)
     void createAct() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .body("""
+                        {
+                        	"title": "act creating test"
+                        }
+                        """)
+                .when()
+                .post("/acts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(2)
     void updateAct() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .body("""
+                        {
+                        	"title": "act updating test"
+                        }
+                        """)
+                .when()
+                .put("/acts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(5)
     void deleteAct() {
+        given()
+                .contentType("application/json")
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .delete("/acts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(3)
     void getAct() {
+        given()
+                .headers("Authorization", "Bearer " + token)
+                .when()
+                .get("/acts/2")
+                .then()
+                .statusCode(200);
     }
 
     @Test
+    @Order(4)
     void getAllActs() {
+        given()
+                .headers("Authorization", "Bearer " + token)
+                .when()
+                .get("/acts/performer/1")
+                .then()
+                .statusCode(200);
     }
 }
