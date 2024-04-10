@@ -121,6 +121,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>registration-service</finalName>
     </build>
 
 </project>

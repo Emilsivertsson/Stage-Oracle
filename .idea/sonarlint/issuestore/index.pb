@@ -2219,3 +2219,7 @@ Q.idea/sonarlint/securityhotspotstore/8/e/8ef15423214836b79e4048860314a8d3e51b65
 Q.idea/sonarlint/securityhotspotstore/4/9/490d352a3cdf23724815e32b38bcdabd1fdac63a,1\5\15ecc245d502abd36fe72676b33928ba10b40ccf
 Å
 Q.idea/sonarlint/securityhotspotstore/4/9/499cf86271008d736b38db6efa8906fa96f57bf7,4\6\462c45beaaa1a4cd4d81fb1942845e42d76d2dc7
+O
+registration-service/Dockerfile,7\b\7b7e480d19395cae8a8ba0387fd24ec0a9aeaaaf
+M
+production-service/Dockerfile,a\f\af413afae94b1bf7f9ce75053205ae19d66bffe2
