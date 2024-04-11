@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  registration-service:
+        image: 'wexio/registration-service'
+        build:
+          context: .
+          dockerfile: Dockerfile
+        ports:
+          - "8080:8080"
+        environment:
+          - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/performers
+          - SPRING_DATASOURCE_USERNAME=root
+          - SPRING_DATASOURCE_PASSWORD=root
+
+  production-service:
+      image: 'wexio/production-service'
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - "8081:8081"
+      environment:
+        - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/productions
+        - SPRING_DATASOURCE_USERNAME=root
+        - SPRING_DATASOURCE_PASSWORD=root

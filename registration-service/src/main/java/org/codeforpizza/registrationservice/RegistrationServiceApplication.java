@@ -25,6 +25,7 @@ public class RegistrationServiceApplication {
         SpringApplication.run(RegistrationServiceApplication.class, args);
     }
 
+
     @Bean
     CommandLineRunner run(MeasurementsRepository measurementsRepository, PerformerRepository performerRepository, RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncode) {
         return args -> {
@@ -50,7 +51,9 @@ public class RegistrationServiceApplication {
             ApplicationUser user = new ApplicationUser(2, "user", passwordEncode.encode("password1"), userRoles, performer);
             userRepository.save(user);
 
-
         };
+
+
     }
+
 }

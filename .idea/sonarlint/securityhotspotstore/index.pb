@@ -1911,3 +1911,5 @@ O
 registration-service/Dockerfile,7\b\7b7e480d19395cae8a8ba0387fd24ec0a9aeaaaf
 M
 production-service/Dockerfile,a\f\af413afae94b1bf7f9ce75053205ae19d66bffe2
+C
+Docker-compose.yaml,c\3\c393b8a5a3a8d341c92d5803edaa3870da6e93ee
