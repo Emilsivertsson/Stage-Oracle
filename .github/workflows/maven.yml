@@ -18,5 +18,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
+      - name: Build registration-service with Maven
+        run: mvn -B package --file registration-service/pom.xml
+      - name: Build production-service with Maven
+        run: mvn -B package --file production-service/pom.xml
