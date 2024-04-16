@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -98,6 +99,17 @@ public class PerformerService {
             } else {
                 return ResponseEntity.status(404).build();
             }
+        } catch (Exception e) {
+            return ResponseEntity.status(400).build();
+        }
+    }
+
+    public ResponseEntity<Iterable<Performer>> getAllPerformersToProduction() {
+        try {
+            List<Performer> performers = performerRepository.findAll();
+            performers.removeIf(performer -> performer.getId() == 1);
+            log.info("Returning all performers");
+            return ResponseEntity.ok(performers);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

@@ -1,16 +1,19 @@
 
-	java:S1126"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÏÎÜûë1J$035b05b6-1203-4a2b-8e94-7f452207586c
-	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÏÎÜûë1J$d8630d27-6dd9-4c49-b7c4-5b46f6b7c3ac
-	java:S112Q"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÏÎÜûë1J$5f5177ab-f19b-47e5-a9f6-374a6a44b1de
-	java:S112_"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÏÎÜûë1J$92196cd5-9b4d-445f-99f7-0da9a08e1e02
-	java:S112q"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÏÎÜûë1J$4fe103d5-86eb-412c-a489-91ea682adfac
+	java:S1127"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷Ç¼¹î1J$41edf1b9-1d98-442a-a36f-8c9d81e24814
+	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷Ç¼¹î1J$db55f217-aabf-4441-a744-dc34bb2c0b0f
+	java:S112R"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷Ç¼¹î1J$8ef19914-dd11-474d-90e1-ffec204ac66c
+	java:S112`"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷Ç¼¹î1J$ab749991-81a5-4541-8f6a-0928adbf6282
+	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8øÇ¼¹î1J$77d197e2-5a11-4038-8582-fbd44ba7edd6
+	java:S112ˆ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8øÇ¼¹î1J$cd7fba6c-56e5-4ba6-a036-d55275424fab
 x
-java:S1172+"0Remove this unused method parameter "principal".(‚œ°ûùÿÿÿÿ8×ÎÜûë1J$a523421c-81a2-4ca2-b70b-42aa07a28ba4
+java:S1172,"0Remove this unused method parameter "principal".(‚œ°ûùÿÿÿÿ8È¼¹î1J$c7a375a7-7aef-4ba9-831d-ed9da2d52fa1
 s
-java:S1172;"0Remove this unused method parameter "principal".(—øà°8ÙÎÜûë1J$d4347860-7f8e-43ba-895b-f18b4fc9374d
+java:S1172<"0Remove this unused method parameter "principal".(—øà°8„È¼¹î1J$021afeab-52fe-4d1a-a074-a8831a6d090e
 s
-java:S1172I"0Remove this unused method parameter "principal".(ò£Æ›8ÛÎÜûë1J$a49d70a7-7ab3-4c78-b16f-d3f39787b690
+java:S1172J"0Remove this unused method parameter "principal".(ò£Æ›8…È¼¹î1J$d980fc4d-3ad1-428c-8a03-bd4d4c2982fa
 x
-java:S1172W"0Remove this unused method parameter "principal".(Òı»™ÿÿÿÿÿ8ÜÎÜûë1J$4f74ab94-ecdc-4506-abb6-c0da7024cf7e
+java:S1172X"0Remove this unused method parameter "principal".(Òı»™ÿÿÿÿÿ8‡È¼¹î1J$8651cae2-c489-4b86-b68c-a674ffb3091d
 x
-java:S1172d"0Remove this unused method parameter "principal".(óÛäÖøÿÿÿÿ8ÜÎÜûë1J$c79c41eb-131a-48b9-bc4a-8c689ee04fdf
+java:S1172e"0Remove this unused method parameter "principal".(óÛäÖøÿÿÿÿ8ˆÈ¼¹î1J$26145458-3914-4e09-9abc-0e0fae41735c
+…
+java:S1117}"=Rename "performer" which hides the field declared at line 38.(Ù¾ÙĞÿÿÿÿÿ8ŒÈ¼¹î1J$5eb50182-1010-4fc5-9769-d0c1cd5705b0

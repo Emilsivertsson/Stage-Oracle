@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -112,6 +113,27 @@ public class PerformerService {
             log.info("Error creating performer: " + e);
             throw new RuntimeException(e);
 
+        }
+    }
+
+    public ResponseEntity<List<Performer>> getAllPerformersFromRegistry(GetPerformerRequestDTO getPerformerRequestDTO) {
+        try {
+            List<PerformerResponsDTO> performersFromRegistry = httpService.getAllPerformers(getPerformerRequestDTO);
+            List<Performer> performers = new ArrayList<>();
+            log.info("Performers from registry: " + performersFromRegistry);
+            for (PerformerResponsDTO performerResponsDTO : performersFromRegistry) {
+                Performer performer = new Performer();
+                performer.setId(performerResponsDTO.getId());
+                performer.setFirstName(performerResponsDTO.getFirstName());
+                performer.setLastName(performerResponsDTO.getLastName());
+                performers.add(performer);
+            }
+            log.info("Performers created from registry: " + performers);
+            log.info("Performers retrieved successfully");
+            return ResponseEntity.ok(performers);
+        } catch (Exception e) {
+            log.error("Error retrieving performers from registry: " + e);
+            throw new RuntimeException(e);
         }
     }
 }

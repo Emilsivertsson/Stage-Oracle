@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/toProduction")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:8081")
 @Slf4j
 public class ToProductionController {
 
@@ -37,4 +37,22 @@ public class ToProductionController {
             return ResponseEntity.status(400).build();
         }
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<Iterable<Performer>> getAllPerformersToProduction(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO) {
+        try {
+            log.info("recived request to get all performers to production");
+            Boolean isAuthenticated = authenticationService.isAuthenticated(getPerformerRequestDTO.getUsername());
+            log.info("isAuthenticated: " + isAuthenticated);
+            if(isAuthenticated.equals(true)){
+                log.info("Getting all performers");
+                return performerService.getAllPerformersToProduction();
+            } else {
+                return ResponseEntity.status(401).build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(400).build();
+        }
+    }
+
 }
