@@ -123,6 +123,7 @@ public class PerformerService {
             log.info("Performers from registry: " + performersFromRegistry);
             for (PerformerResponsDTO performerResponsDTO : performersFromRegistry) {
                 Performer performer = new Performer();
+
                 performer.setId(performerResponsDTO.getId());
                 performer.setFirstName(performerResponsDTO.getFirstName());
                 performer.setLastName(performerResponsDTO.getLastName());
@@ -132,7 +133,7 @@ public class PerformerService {
             log.info("Performers retrieved successfully");
             return ResponseEntity.ok(performers);
         } catch (Exception e) {
-            log.error("Error retrieving performers from registry: " + e);
+            log.error("Error retrieving performers from registry: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }

@@ -100,6 +100,7 @@ public class PerformerService {
                 return ResponseEntity.status(404).build();
             }
         } catch (Exception e) {
+            log.error(e.getMessage());
             return ResponseEntity.status(400).build();
         }
     }

@@ -73,10 +73,12 @@ public class PerformerController {
     }
 
     @GetMapping("/registry")
-    public ResponseEntity<List<Performer>> getAllPerformersFromRegistry(GetPerformerRequestDTO GetPerformerRequestDTO) {
+    public ResponseEntity<List<Performer>> getAllPerformersFromRegistry(GetPerformerRequestDTO getPerformerRequestDTO) {
         try {
-            return performerService.getAllPerformersFromRegistry(GetPerformerRequestDTO);
+            log.info(getPerformerRequestDTO.toString());
+            return performerService.getAllPerformersFromRegistry(getPerformerRequestDTO);
         } catch (Exception e) {
+            log.error(e.getMessage());
             return ResponseEntity.status(400).build();
         }
     }
