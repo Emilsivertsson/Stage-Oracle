@@ -351,8 +351,6 @@ Q.idea/sonarlint/securityhotspotstore/c/8/c825d588cab00377efa9bf31de06ad077d0902
 Q.idea/sonarlint/securityhotspotstore/c/9/c993cf236fa3357e23f6bd099dae6d22ac422efd,3\2\32c5334a9dda3c4782045e64a19f0dcf499dc074
 å
 \production-service/src/main/java/org/codeforpizza/productionservice/service/HttpService.java,4\4\4466a58abbd2500e73104945468b664fda3b1287
-ê
-`registration-service/src/main/java/org/codeforpizza/registrationservice/service/HttpService.java,b\0\b0e467644022bfbe7e930b2058dd65baa3f35cc7
 à
 Xproduction-service/src/main/java/org/codeforpizza/productionservice/utils/HttpUtils.java,e\7\e7b8df369123749183b8ce4d9253cedae613d660
 û

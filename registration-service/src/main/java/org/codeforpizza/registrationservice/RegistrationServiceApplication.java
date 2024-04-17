@@ -48,7 +48,7 @@ public class RegistrationServiceApplication {
             measurementsRepository.save(measurements);
             Performer performer = new Performer("John", "Doe", "john@gmail.com", "123456789", "Dancer", measurements);
             performerRepository.save(performer);
-            ApplicationUser user = new ApplicationUser(2, "user", passwordEncode.encode("password1"), userRoles, performer);
+            ApplicationUser user = new ApplicationUser(2L, "user", passwordEncode.encode("password1"), userRoles, performer);
             userRepository.save(user);
 
         };

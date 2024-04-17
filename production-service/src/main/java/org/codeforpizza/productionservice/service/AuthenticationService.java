@@ -74,11 +74,13 @@ public class AuthenticationService {
                 log.error("no user found");
                 return ResponseEntity.status(400).build();
             }
+            ApplicationUser user = userRepository.findByUsername(username);
+
             Authentication auth = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username, password));
 
             String token = tokenService.generateJwt(auth);
-            LoginResponseDTO loggedUser = new LoginResponseDTO(username,token);
+            LoginResponseDTO loggedUser = new LoginResponseDTO(user.getUserId(),username,token);
 
             log.info("User logged in successfully");
             return ResponseEntity.ok(loggedUser);
