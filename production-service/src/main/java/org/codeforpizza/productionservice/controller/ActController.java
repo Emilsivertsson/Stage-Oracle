@@ -22,10 +22,10 @@ public class ActController {
     private final ActService actService;
 
     @PostMapping("/{performerId}")
-    public ResponseEntity<String> createAct(@Valid @RequestBody ActDto act, Principal principal,@PathVariable Long performerId) {
+    public ResponseEntity<String> createAct(@Valid @RequestBody ActDto act, @PathVariable Long performerId) {
         try {
             log.info("Creating act");
-            return ResponseEntity.ok(actService.createAct(act, principal,performerId));
+            return ResponseEntity.ok(actService.createAct(act,performerId));
         } catch (Exception e) {
             log.error("Error creating act", e);
             return ResponseEntity.badRequest().build();
@@ -33,10 +33,10 @@ public class ActController {
     }
 
     @PutMapping("/{actId}")
-    public ResponseEntity<String> updateAct(@PathVariable Long actId, Principal principal, @Valid @RequestBody ActDto actDto) {
+    public ResponseEntity<String> updateAct(@PathVariable Long actId, @Valid @RequestBody ActDto actDto) {
         try {
             log.info("Updating act");
-            return ResponseEntity.ok(actService.updateAct(actId, principal, actDto));
+            return ResponseEntity.ok(actService.updateAct(actId, actDto));
         } catch (Exception e) {
             log.error("Error updating act", e);
             return ResponseEntity.badRequest().build();
@@ -44,10 +44,10 @@ public class ActController {
     }
 
     @DeleteMapping("/{actId}")
-    public ResponseEntity<String> deleteAct(@PathVariable Long actId, Principal principal) {
+    public ResponseEntity<String> deleteAct(@PathVariable Long actId) {
         try {
             log.info("Deleting act");
-            return actService.deleteAct(actId, principal);
+            return actService.deleteAct(actId);
         } catch (Exception e) {
             log.error("Error deleting act", e);
             return ResponseEntity.badRequest().build();
@@ -55,10 +55,10 @@ public class ActController {
     }
 
     @GetMapping("/{actId}")
-    public ResponseEntity<Act> getAct(@PathVariable Long actId, Principal principal) {
+    public ResponseEntity<Act> getAct(@PathVariable Long actId) {
         try {
             log.info("Getting act");
-            return actService.getAct(actId, principal);
+            return actService.getAct(actId);
         } catch (Exception e) {
             log.error("Error getting act", e);
             return ResponseEntity.badRequest().build();
@@ -66,10 +66,10 @@ public class ActController {
     }
 
     @GetMapping("/performer/{performerId}")
-    public ResponseEntity<List<Act>> getAllActs(Principal principal,@PathVariable Long performerId) {
+    public ResponseEntity<List<Act>> getAllActs(@PathVariable Long performerId) {
         try {
             log.info("Getting acts");
-            return actService.getActs(principal,performerId);
+            return actService.getActs(performerId);
         } catch (Exception e) {
             log.error("Error getting acts", e);
             return ResponseEntity.badRequest().build();

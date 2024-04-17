@@ -45,7 +45,6 @@ public class AuthenticationService {
 
     private final MeasurementsRepository measurementsRepository;
 
-    private final HttpService httpService;
 
     public ResponseEntity<String> registerUser(String username, String password) {
         try {
@@ -94,9 +93,5 @@ public class AuthenticationService {
             log.error("User login failed");
             return ResponseEntity.status(401).build();
         }
-    }
-
-    public Boolean isAuthenticated(String username) throws IOException {
-        return httpService.isAuthenticated(username);
     }
 }

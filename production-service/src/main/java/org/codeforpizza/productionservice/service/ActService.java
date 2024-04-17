@@ -22,7 +22,6 @@ public class ActService {
 
     private final ActRepository actRepository;
 
-
     private final PerformerRepository performerRepository;
 
     private Act act;

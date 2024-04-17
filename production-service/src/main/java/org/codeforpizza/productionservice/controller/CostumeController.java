@@ -22,45 +22,45 @@ public class CostumeController {
     private final CostumeService costumeService;
 
     @PostMapping("/{actId}")
-    public ResponseEntity<String> createCostume(@Valid @RequestBody CostumeDto costumeDto, Principal principal,@PathVariable Long actId) {
+    public ResponseEntity<String> createCostume(@Valid @RequestBody CostumeDto costumeDto,@PathVariable Long actId) {
         try {
-            return costumeService.createCostume(costumeDto, principal, actId);
+            return costumeService.createCostume(costumeDto, actId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @PutMapping("/{costumeId}")
-    public ResponseEntity<String> updateCostume(@PathVariable Long costumeId, @Valid @RequestBody CostumeDto costumeDto, Principal principal) {
+    public ResponseEntity<String> updateCostume(@PathVariable Long costumeId, @Valid @RequestBody CostumeDto costumeDto) {
         try {
-            return costumeService.updateCostume(costumeId, costumeDto, principal);
+            return costumeService.updateCostume(costumeId, costumeDto);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @DeleteMapping("/{costumeId}")
-    public ResponseEntity<String> deleteCostume(@PathVariable Long costumeId, Principal principal) {
+    public ResponseEntity<String> deleteCostume(@PathVariable Long costumeId) {
         try {
-            return costumeService.deleteCostume(costumeId,principal);
+            return costumeService.deleteCostume(costumeId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("/{costumeId}")
-    public ResponseEntity<Costume> getCostume(@PathVariable Long costumeId, Principal principal) {
+    public ResponseEntity<Costume> getCostume(@PathVariable Long costumeId) {
         try {
-            return costumeService.getCostume(costumeId, principal);
+            return costumeService.getCostume(costumeId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("/act/{actId}")
-    public ResponseEntity<List<Costume>> getAllCostumes(Principal principal,@PathVariable Long actId) {
+    public ResponseEntity<List<Costume>> getAllCostumes(@PathVariable Long actId) {
         try {
-            return costumeService.getAllCostumes(principal, actId);
+            return costumeService.getAllCostumes(actId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

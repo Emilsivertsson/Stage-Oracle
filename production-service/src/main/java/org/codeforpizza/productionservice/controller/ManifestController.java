@@ -21,10 +21,10 @@ public class ManifestController {
 
     private final ManifestService manifestService;
 
-    @PostMapping("/{ProductionId}")
-    public ResponseEntity<String> createManifest(@Valid @RequestBody ManifestDto manifestDto, Principal principal,@PathVariable Long ProductionId) {
+    @PostMapping("/{productionId}")
+    public ResponseEntity<String> createManifest(@Valid @RequestBody ManifestDto manifestDto, Principal principal,@PathVariable Long productionId) {
         try {
-            return ResponseEntity.ok(manifestService.createManifest(principal, manifestDto, ProductionId));
+            return ResponseEntity.ok(manifestService.createManifest(principal, manifestDto, productionId));
         } catch (Exception e) {
         return ResponseEntity.status(400).build();
         }
@@ -49,9 +49,9 @@ public class ManifestController {
     }
 
     @GetMapping("/{manifestId}")
-    public ResponseEntity<Manifest> getManifest(@PathVariable Long manifestId, Principal principal) {
+    public ResponseEntity<Manifest> getManifest(@PathVariable Long manifestId) {
         try {
-            return manifestService.getManifest(manifestId, principal);
+            return manifestService.getManifest(manifestId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

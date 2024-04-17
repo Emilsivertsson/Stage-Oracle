@@ -22,10 +22,10 @@ public class CastController {
     private final CastService castService;
 
     @PostMapping("/{manifestId}")
-    public ResponseEntity<String> createCast(@Valid @RequestBody CastDto castDto, Principal principal,@PathVariable Long manifestId) {
+    public ResponseEntity<String> createCast(@Valid @RequestBody CastDto castDto,@PathVariable Long manifestId) {
         try {
             log.info("Creating cast in api");
-            return castService.createCast(castDto, principal, manifestId);
+            return castService.createCast(castDto, manifestId);
         } catch (Exception e) {
             log.error("Error creating cast in api");
             return ResponseEntity.status(400).build();
@@ -33,36 +33,36 @@ public class CastController {
     }
 
     @PutMapping("/{castId}")
-    public ResponseEntity<String> updateCast(@PathVariable Long castId, Principal principal, @Valid @RequestBody CastDto castDto) {
+    public ResponseEntity<String> updateCast(@PathVariable Long castId, @Valid @RequestBody CastDto castDto) {
         try {
-            return castService.updateCast(castId, principal, castDto);
+            return castService.updateCast(castId, castDto);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @DeleteMapping("/{castId}")
-    public ResponseEntity<String> deleteCast(@PathVariable Long castId, Principal principal) {
+    public ResponseEntity<String> deleteCast(@PathVariable Long castId) {
         try {
-            return castService.deleteCast(castId, principal);
+            return castService.deleteCast(castId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("/{castId}")
-    public ResponseEntity<Cast> getCast(@PathVariable Long castId, Principal principal) {
+    public ResponseEntity<Cast> getCast(@PathVariable Long castId) {
         try {
-            return castService.getCast(castId, principal);
+            return castService.getCast(castId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("/manifest/{ManifestId}")
-    public ResponseEntity<List<Cast>> getAllCasts(Principal principal,@PathVariable Long ManifestId) {
+    public ResponseEntity<List<Cast>> getAllCasts(@PathVariable Long ManifestId) {
         try {
-            return castService.getAllCasts(principal, ManifestId);
+            return castService.getAllCasts( ManifestId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

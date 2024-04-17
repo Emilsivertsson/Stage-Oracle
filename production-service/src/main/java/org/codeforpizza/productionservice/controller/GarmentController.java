@@ -22,10 +22,10 @@ public class GarmentController {
     private final GarmentService garmentService;
 
     @PostMapping("/{costumeId}")
-    public ResponseEntity<String> createGarment(@Valid @RequestBody GarmentDto garment, Principal principal,@PathVariable Long costumeId) {
+    public ResponseEntity<String> createGarment(@Valid @RequestBody GarmentDto garment,@PathVariable Long costumeId) {
         try {
             log.info("Creating garment");
-            return garmentService.createGarment(garment, principal, costumeId);
+            return garmentService.createGarment(garment, costumeId);
         } catch (Exception e) {
             log.error("Error creating garment", e);
             return ResponseEntity.badRequest().build();
@@ -33,10 +33,10 @@ public class GarmentController {
     }
 
     @PutMapping("/{garmentId}")
-    public ResponseEntity<String> updateGarment(@PathVariable Long garmentId, Principal principal, @Valid @RequestBody GarmentDto garmentDto) {
+    public ResponseEntity<String> updateGarment(@PathVariable Long garmentId, @Valid @RequestBody GarmentDto garmentDto) {
         try {
             log.info("Updating garment");
-            return garmentService.updateGarment(garmentId, principal, garmentDto);
+            return garmentService.updateGarment(garmentId, garmentDto);
         } catch (Exception e) {
             log.error("Error updating garment", e);
             return ResponseEntity.badRequest().build();
@@ -44,10 +44,10 @@ public class GarmentController {
     }
 
     @DeleteMapping("/{garmentId}")
-    public ResponseEntity<String> deleteGarment(@PathVariable Long garmentId, Principal principal) {
+    public ResponseEntity<String> deleteGarment(@PathVariable Long garmentId) {
         try {
             log.info("Deleting garment");
-            return garmentService.deleteGarment(garmentId, principal);
+            return garmentService.deleteGarment(garmentId);
         } catch (Exception e) {
             log.error("Error deleting garment", e);
             return ResponseEntity.badRequest().build();
@@ -55,10 +55,10 @@ public class GarmentController {
     }
 
     @GetMapping("/{garmentId}")
-    public ResponseEntity<Garment> getGarment(@PathVariable Long garmentId, Principal principal) {
+    public ResponseEntity<Garment> getGarment(@PathVariable Long garmentId) {
         try {
             log.info("Getting garment");
-            return garmentService.getGarment(garmentId, principal);
+            return garmentService.getGarment(garmentId);
         } catch (Exception e) {
             log.error("Error getting garment", e);
             return ResponseEntity.badRequest().build();
@@ -66,10 +66,10 @@ public class GarmentController {
     }
 
     @GetMapping("/costume/{costumeId}")
-    public ResponseEntity<List<Garment>> getAllGarments(Principal principal,@PathVariable Long costumeId) {
+    public ResponseEntity<List<Garment>> getAllGarments(@PathVariable Long costumeId) {
         try {
             log.info("Getting all garments");
-            return garmentService.getAllGarments(principal, costumeId);
+            return garmentService.getAllGarments(costumeId);
         } catch (Exception e) {
             log.error("Error getting all garments", e);
             return ResponseEntity.badRequest().build();

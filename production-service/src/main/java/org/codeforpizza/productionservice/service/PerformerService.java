@@ -111,17 +111,23 @@ public class PerformerService {
         }
     }
 
-    public ResponseEntity<List<Performer>> getAllPerformersFromRegistry(GetPerformerRequestDTO getPerformerRequestDTO) {
+    public ResponseEntity<List<Performer>> getAllPerformersFromRegistry(GetPerformerRequestDTO getPerformerRequestDTO, Long castId) {
         try {
+            List<Performer> performersInCast = castRepository.findById(castId).orElse(null).getPerformers();
+
             List<PerformerResponsDTO> performersFromRegistry = httpService.getAllPerformers(getPerformerRequestDTO);
             List<Performer> performers = new ArrayList<>();
             log.info("Performers from registry: " + performersFromRegistry);
+
             for (PerformerResponsDTO performerResponsDTO : performersFromRegistry) {
                 performer = new Performer();
                 performer.setId(performerResponsDTO.getId());
                 performer.setFirstName(performerResponsDTO.getFirstName());
                 performer.setLastName(performerResponsDTO.getLastName());
-                performers.add(performer);
+                //check if a performer with the same id already exists in the cast
+                if (performersInCast.stream().noneMatch(p -> p.getId().equals(performer.getId()))) {
+                    performers.add(performer);
+                }
             }
             log.info("Performers created from registry: " + performers);
             log.info("Performers retrieved successfully");
