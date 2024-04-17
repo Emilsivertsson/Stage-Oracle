@@ -28,7 +28,6 @@ class UserServiceTest {
     @LocalServerPort
     private int port;
 
-
     static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8.0.26");
 
     @BeforeAll
@@ -50,13 +49,6 @@ class UserServiceTest {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
-    private PerformerRepository performerRepository;
-
 
     @BeforeEach
     void setUp() {

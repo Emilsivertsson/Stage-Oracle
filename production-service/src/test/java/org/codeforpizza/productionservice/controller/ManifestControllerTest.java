@@ -41,9 +41,6 @@ class ManifestControllerTest {
         registry.add("spring.datasource.password", mySQLContainer::getPassword);
     }
 
-    @Autowired
-    private UserRepository userRepository;
-
     private String token;
 
     @BeforeEach

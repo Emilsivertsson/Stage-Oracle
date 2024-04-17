@@ -41,7 +41,7 @@ public class ProductionService {
             log.info("Creating production");
             return ResponseEntity.ok("Production created");
         } catch (Exception e) {
-            log.error("Error creating production");
+            log.error(e.getMessage());
             return ResponseEntity.badRequest().body("Error creating production");
         }
 
@@ -58,36 +58,36 @@ public class ProductionService {
             log.info("Deleting production");
             return ResponseEntity.ok("Production deleted");
         } catch (Exception e) {
-            log.error("Error deleting production");
+            log.error(e.getMessage());
             return ResponseEntity.badRequest().body("Error deleting production");
         }
     }
 
-    public Production getProduction(Long id, Principal principal) {
+    public ResponseEntity<Production> getProduction(Long id, Principal principal) {
         try {
             user = userRepository.findByUsername(principal.getName());
-            return user.getProductions()
+            return ResponseEntity.ok(user.getProductions()
                     .stream()
-                    .filter(production -> production.getId().equals(id))
+                    .filter(p -> p.getId().equals(id))
                     .findFirst()
-                    .orElse(null);
+                    .orElse(null));
         } catch (Exception e) {
-            log.error("Error getting production");
-            return null;
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().build();
         }
     }
 
-    public List<Production> getAllProductions(Principal principal) {
+    public ResponseEntity<List<Production>> getAllProductions(Principal principal) {
         try {
             user = userRepository.findByUsername(principal.getName());
-            return user.getProductions();
+            return ResponseEntity.ok(user.getProductions());
         } catch (Exception e) {
-            log.error("Error getting all productions");
-            return Collections.emptyList();
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().build();
         }
     }
 
-    public String updateProduction(Long id, ProductionDto productionDto, Principal principal) {
+    public ResponseEntity<String> updateProduction(Long id, ProductionDto productionDto, Principal principal) {
         try {
             user = userRepository.findByUsername(principal.getName());
             Production production = user.getProductions()
@@ -102,14 +102,14 @@ public class ProductionService {
                 production.setInRotation(productionDto.getInRotation());
                 productionRepository.save(production);
                 log.info("Updating production");
-                return "Production updated";
+                return ResponseEntity.ok("Production updated");
             } else {
                 log.error("Error updating production");
-                return "Error updating production";
+                return ResponseEntity.badRequest().body("Error updating production");
             }
         } catch (Exception e) {
-            log.error("Error getting production");
-            return "Error updating production";
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().body("Error updating production");
         }
     }
 }

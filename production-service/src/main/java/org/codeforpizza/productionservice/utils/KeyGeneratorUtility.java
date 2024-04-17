@@ -5,7 +5,6 @@ import java.security.KeyPairGenerator;
 
 public class KeyGeneratorUtility {
 
-
     /**
      * This method is used to generate a RSA key pair with a key size of 2048
      *

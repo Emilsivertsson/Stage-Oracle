@@ -24,10 +24,10 @@ public class PerformerController {
 
 
     @PostMapping("/{castId}")
-    public ResponseEntity<String> createPerformer(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, @PathVariable Long castId) {
+    public ResponseEntity<String> createPerformer(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO, @PathVariable Long castId) {
         try {
-            log.info("recived request to create performer");
-            return performerService.createPerformer(getPerformerRequestDTO, principal, castId);
+            log.info("received request to create performer");
+            return performerService.createPerformer(getPerformerRequestDTO, castId);
         } catch (Exception e) {
             log.info("failed to recive request to create performer");
             log.info(e.getMessage() + " " + e.getCause());
@@ -35,38 +35,38 @@ public class PerformerController {
         }
     }
 
-    //TODO might not be used
+    //TODO Not used, but might be in the future
     @PutMapping("/{performerId}")
-    public ResponseEntity<String> updatePerformer(@PathVariable Long performerId, @Valid @RequestBody PerformerDto performerDto, Principal principal) {
+    public ResponseEntity<String> updatePerformer(@PathVariable Long performerId, @Valid @RequestBody PerformerDto performerDto) {
         try {
-            return ResponseEntity.ok(performerService.updatePerformer(performerId, performerDto, principal));
+            return performerService.updatePerformer(performerId, performerDto);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @DeleteMapping("/{performerId}")
-    public ResponseEntity<String> deletePerformer(@PathVariable Long performerId, Principal principal) {
+    public ResponseEntity<String> deletePerformer(@PathVariable Long performerId) {
         try {
-            return ResponseEntity.ok(performerService.deletePerformer(performerId, principal));
+            return performerService.deletePerformer(performerId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("/{performerId}")
-    public ResponseEntity<Performer> getPerformer(@PathVariable Long performerId, Principal principal) {
+    public ResponseEntity<Performer> getPerformer(@PathVariable Long performerId ) {
         try {
-            return performerService.getPerformer(performerId, principal);
+            return performerService.getPerformer(performerId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
     }
 
     @GetMapping("/cast/{castId}")
-    public ResponseEntity<List<Performer>> getAllPerformers(Principal principal,@PathVariable Long castId) {
+    public ResponseEntity<List<Performer>> getAllPerformers(@PathVariable Long castId) {
         try {
-            return performerService.getAllPerformers(principal,castId);
+            return performerService.getAllPerformers(castId);
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }

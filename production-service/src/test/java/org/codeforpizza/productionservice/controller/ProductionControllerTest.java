@@ -42,12 +42,6 @@ class ProductionControllerTest {
         registry.add("spring.datasource.password", mySQLContainer::getPassword);
     }
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private ProductionRepository productionRepository;
-
     private String token;
 
     @BeforeEach

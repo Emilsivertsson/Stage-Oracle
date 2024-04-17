@@ -75,6 +75,4 @@ public class ActController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-
 }

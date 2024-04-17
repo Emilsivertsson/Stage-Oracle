@@ -2,13 +2,11 @@ package org.codeforpizza.productionservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.entitys.Costume;
 import org.codeforpizza.productionservice.modell.entitys.Garment;
 import org.codeforpizza.productionservice.modell.DTOs.GarmentDto;
 import org.codeforpizza.productionservice.repository.CostumeRepository;
 import org.codeforpizza.productionservice.repository.GarmentRepository;
-import org.codeforpizza.productionservice.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +22,7 @@ public class GarmentService {
 
     private final GarmentRepository garmentRepository;
 
-    private final UserRepository userRepository;
-
     private final CostumeRepository costumeRepository;
-
-    private ApplicationUser user;
 
     private Garment garment;
 
@@ -36,7 +30,7 @@ public class GarmentService {
 
 
 
-    public ResponseEntity<String> createGarment(GarmentDto garmentDTO, Principal principal, Long costumeId) {
+    public ResponseEntity<String> createGarment(GarmentDto garmentDTO, Long costumeId) {
         try {
             costume = costumeRepository.findById(costumeId).orElse(null);
             if (costume != null) {
@@ -50,11 +44,12 @@ public class GarmentService {
                 return ResponseEntity.badRequest().build();
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().build();
         }
     }
 
-    public ResponseEntity<String> updateGarment(Long id, Principal principal, GarmentDto garmentDto) {
+    public ResponseEntity<String> updateGarment(Long id, GarmentDto garmentDto) {
         try {
             garment = garmentRepository.findById(id).orElse(null);
             if (garment != null) {
@@ -64,12 +59,12 @@ public class GarmentService {
                 return ResponseEntity.ok("Garment updated successfully");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
         }
         return ResponseEntity.badRequest().build();
     }
 
-    public ResponseEntity<String> deleteGarment(Long id, Principal principal) {
+    public ResponseEntity<String> deleteGarment(Long id) {
         try {
             garment = garmentRepository.findById(id).orElse(null);
             if (garment != null) {
@@ -77,24 +72,24 @@ public class GarmentService {
                 return ResponseEntity.ok("Garment deleted successfully");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
         }
         return ResponseEntity.badRequest().build();
     }
 
-    public ResponseEntity<Garment> getGarment(Long id, Principal principal) {
+    public ResponseEntity<Garment> getGarment(Long id) {
         try {
             garment = garmentRepository.findById(id).orElse(null);
             if (garment != null) {
                 return ResponseEntity.ok(garment);
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
         }
         return ResponseEntity.badRequest().build();
     }
 
-    public ResponseEntity<List<Garment>> getAllGarments(Principal principal, Long costumeId) {
+    public ResponseEntity<List<Garment>> getAllGarments(Long costumeId) {
         try {
             costume = costumeRepository.findById(costumeId).orElse(null);
             if (costume != null) {
@@ -103,7 +98,8 @@ public class GarmentService {
                 return ResponseEntity.badRequest().build();
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().build();
         }
     }
 }

@@ -21,7 +21,6 @@ class AdminControllerTest {
     @LocalServerPort
     private int port;
 
-
     static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8.0.26");
 
     @BeforeAll
@@ -40,7 +39,6 @@ class AdminControllerTest {
         registry.add("spring.datasource.username", mySQLContainer::getUsername);
         registry.add("spring.datasource.password", mySQLContainer::getPassword);
     }
-
 
     @BeforeEach
     void setUp() {

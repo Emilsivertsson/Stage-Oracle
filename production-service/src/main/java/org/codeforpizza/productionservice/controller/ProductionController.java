@@ -24,9 +24,8 @@ public class ProductionController {
     @PostMapping("")
     public ResponseEntity<String> createProduction(Principal principal,@Valid @RequestBody ProductionDto productionDto) {
         try {
-            productionService.createProduction(productionDto, principal);
             log.info("Creating production");
-            return ResponseEntity.ok("Production created");
+            return productionService.createProduction(productionDto, principal);
         } catch (Exception e) {
             log.error("Error creating production");
             return ResponseEntity.badRequest().body("Error creating production");
@@ -48,7 +47,7 @@ public class ProductionController {
     public ResponseEntity<String> updateProduction(@PathVariable Long id,@Valid @RequestBody ProductionDto productionDto, Principal principal) {
         try {
             log.info("Updating production");
-            return ResponseEntity.ok(productionService.updateProduction(id, productionDto, principal));
+            return productionService.updateProduction(id, productionDto, principal);
         } catch (Exception e) {
             log.error("Error updating production");
             return ResponseEntity.badRequest().body("Error updating production");
@@ -59,7 +58,7 @@ public class ProductionController {
     public ResponseEntity<Production> getProduction(@PathVariable Long id, Principal principal) {
         try {
             log.info("Getting production");
-            return ResponseEntity.ok(productionService.getProduction(id, principal));
+            return productionService.getProduction(id, principal);
         } catch (Exception e) {
             log.error("Error getting production");
             return ResponseEntity.badRequest().build();
@@ -70,7 +69,7 @@ public class ProductionController {
     public ResponseEntity<List<Production>> getAllProductions(Principal principal) {
         try {
             log.info("Getting all productions");
-            return ResponseEntity.ok(productionService.getAllProductions(principal));
+            return productionService.getAllProductions(principal);
         } catch (Exception e) {
             log.error("Error getting all productions");
             return ResponseEntity.badRequest().build();

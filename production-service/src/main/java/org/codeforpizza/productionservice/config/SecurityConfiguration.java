@@ -57,6 +57,7 @@ public class SecurityConfiguration {
         return new ProviderManager(daoProvider);
     }
 
+    //This is the filter chain used for production
     @Profile("!test")
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -91,6 +92,7 @@ public class SecurityConfiguration {
         return http.build();
     }
 
+    //This is the filter chain used for testing
     @Profile("test")
     @Bean
     public SecurityFilterChain testfilterChain(HttpSecurity http) throws Exception {

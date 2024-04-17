@@ -51,14 +51,6 @@ class AuthenticationServiceTest {
     private UserRepository userRepository;
 
     @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
-    private PerformerRepository performerRepository;
-
-
-
-    @Autowired
     private AuthenticationService authenticationService;
 
     @BeforeEach

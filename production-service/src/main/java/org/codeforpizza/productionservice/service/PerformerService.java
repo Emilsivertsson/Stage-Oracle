@@ -29,11 +29,7 @@ public class PerformerService {
 
     private final PerformerRepository performerRepository;
 
-    private final UserRepository userRepository;
-
     private final CastRepository castRepository;
-
-    private ApplicationUser user;
 
     private Performer performer;
 
@@ -41,7 +37,7 @@ public class PerformerService {
 
     private final HttpService httpService;
 
-    public String updatePerformer(Long id, PerformerDto performerDto, Principal principal) {
+    public ResponseEntity<String> updatePerformer(Long id, PerformerDto performerDto) {
         try {
             performer = performerRepository.findById(id).orElse(null);
             if (performer != null) {
@@ -49,29 +45,29 @@ public class PerformerService {
                 performer.setLastName(performerDto.getLastName());
                 performerRepository.save(performer);
                 log.info("Performer updated successfully");
-                return "Performer updated successfully";
+                return ResponseEntity.ok("Performer updated successfully");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
         }
-        return "Performer update failed";
+        return ResponseEntity.status(400).build();
     }
 
-    public String deletePerformer(Long id, Principal principal) {
+    public ResponseEntity<String> deletePerformer(Long id) {
         try {
             performer = performerRepository.findById(id).orElse(null);
             if (performer != null) {
                 performerRepository.delete(performer);
                 log.info("Performer deleted successfully");
-                return "Performer deleted successfully";
+                return ResponseEntity.ok("Performer deleted successfully");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
         }
-        return "Performer deletion failed";
+        return ResponseEntity.status(400).build();
     }
 
-    public ResponseEntity<Performer> getPerformer(Long id, Principal principal) {
+    public ResponseEntity<Performer> getPerformer(Long id) {
         try {
             performer = performerRepository.findById(id).orElse(null);
             if (performer != null) {
@@ -79,13 +75,13 @@ public class PerformerService {
                 return ResponseEntity.ok(performer);
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }
 
 
-    public ResponseEntity<List<Performer>> getAllPerformers(Principal principal, Long castId) {
+    public ResponseEntity<List<Performer>> getAllPerformers( Long castId) {
         try {
             cast = castRepository.findById(castId).orElse(null);
             if (cast != null) {
@@ -93,12 +89,12 @@ public class PerformerService {
                 return ResponseEntity.ok(cast.getPerformers());
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }
 
-    public ResponseEntity<String> createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Principal principal, Long castId) throws IOException, ParseException {
+    public ResponseEntity<String> createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Long castId) throws IOException, ParseException {
         try {
             PerformerResponsDTO performerRespons =  httpService.getPerformer(getPerformerRequestDTO);
             log.info("performerRespons in service:" + performerRespons);
@@ -111,8 +107,7 @@ public class PerformerService {
             return ResponseEntity.ok("Performer created successfully");
         } catch (Exception e) {
             log.info("Error creating performer: " + e);
-            throw new RuntimeException(e);
-
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -122,8 +117,7 @@ public class PerformerService {
             List<Performer> performers = new ArrayList<>();
             log.info("Performers from registry: " + performersFromRegistry);
             for (PerformerResponsDTO performerResponsDTO : performersFromRegistry) {
-                Performer performer = new Performer();
-
+                performer = new Performer();
                 performer.setId(performerResponsDTO.getId());
                 performer.setFirstName(performerResponsDTO.getFirstName());
                 performer.setLastName(performerResponsDTO.getLastName());
@@ -133,8 +127,8 @@ public class PerformerService {
             log.info("Performers retrieved successfully");
             return ResponseEntity.ok(performers);
         } catch (Exception e) {
-            log.error("Error retrieving performers from registry: " + e.getMessage());
-            throw new RuntimeException(e);
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().build();
         }
     }
 }

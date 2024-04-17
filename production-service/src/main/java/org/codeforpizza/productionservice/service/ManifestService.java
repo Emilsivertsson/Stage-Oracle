@@ -48,7 +48,7 @@ public class ManifestService {
                 return "Production not found";
             }
         } catch (Exception e) {
-            log.error("Error creating manifest");
+            log.error(e.getMessage());
             return "Error creating manifest";
         }
     }
@@ -62,7 +62,7 @@ public class ManifestService {
             manifestRepository.save(manifest);
             return "Manifest updated";
         } catch (Exception e) {
-            log.error("Error updating manifest");
+            log.info(e.getMessage());
             return "Error updating manifest";
         }
     }
@@ -73,17 +73,17 @@ public class ManifestService {
             manifestRepository.delete(manifest);
             return "Manifest deleted";
         } catch (Exception e) {
-            log.error("Error deleting manifest");
+            log.error(e.getMessage());
             return "Error deleting manifest";
         }
     }
 
-    public ResponseEntity<Manifest> getManifest(Long id, Principal principal) {
+    public ResponseEntity<Manifest> getManifest(Long id) {
         try {
             manifest = manifestRepository.findById(id).orElse(null);
             return ResponseEntity.ok(manifest);
         } catch (Exception e) {
-            log.error("Error getting manifest");
+            log.error(e.getMessage());
             return ResponseEntity.status(400).build();
         }
     }
@@ -99,7 +99,7 @@ public class ManifestService {
                 return ResponseEntity.status(400).build();
             }
         } catch (Exception e) {
-            log.error("Error getting all manifests");
+            log.error(e.getMessage());
             return ResponseEntity.status(400).build();
         }
     }

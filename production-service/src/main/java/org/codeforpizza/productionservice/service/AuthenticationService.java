@@ -39,8 +39,6 @@ public class AuthenticationService {
 
     private final TokenService tokenService;
 
-    private final ProductionRepository productionRepository;
-
 
     public ResponseEntity<String> registerUser(String username, String password) {
         try{
@@ -57,9 +55,8 @@ public class AuthenticationService {
 
         List<Production> productions = List.of();
 
-
         ApplicationUser newUser = new ApplicationUser(username, encodedPassword, authorities,productions);
-        ApplicationUser savedUser = userRepository.save(newUser);
+        userRepository.save(newUser);
         log.info("User registered successfully");
 
         return ResponseEntity.ok("User registered successfully");
@@ -68,8 +65,6 @@ public class AuthenticationService {
             log.error("User registration failed");
             return ResponseEntity.status(400).body("User registration failed");
         }
-
-
     }
 
     public ResponseEntity<LoginResponseDTO> loginUser(String username, String password) {

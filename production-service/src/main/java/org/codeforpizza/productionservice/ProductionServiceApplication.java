@@ -27,6 +27,7 @@ public class ProductionServiceApplication {
                         , ActRepository actRepository, CastRepository castRepository
                         , ManifestRepository manifestRepository,CostumeRepository costumeRepository,GarmentRepository garmentRepository
     ,PerformerRepository performerRepository) {
+
         return args -> {
 
             if (roleRepository.findByAuthority("ADMIN").isPresent()) return;

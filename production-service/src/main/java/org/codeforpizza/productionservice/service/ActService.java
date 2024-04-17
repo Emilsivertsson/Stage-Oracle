@@ -4,11 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.entitys.Act;
 import org.codeforpizza.productionservice.modell.DTOs.ActDto;
-import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.entitys.Performer;
 import org.codeforpizza.productionservice.repository.ActRepository;
 import org.codeforpizza.productionservice.repository.PerformerRepository;
-import org.codeforpizza.productionservice.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,17 +22,14 @@ public class ActService {
 
     private final ActRepository actRepository;
 
-    private final UserRepository userRepository;
 
     private final PerformerRepository performerRepository;
-
-    private ApplicationUser user;
 
     private Act act;
 
     private Performer performer;
 
-    public String createAct(ActDto actDTO, Principal principal, Long performerId) {
+    public String createAct(ActDto actDTO, Long performerId) {
         try{
             performer = performerRepository.findById(performerId).orElse(null);
             if(performer != null){
@@ -47,11 +42,12 @@ public class ActService {
                 return "Performer not found";
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.info(e.getMessage());
+            return "Act creation failed";
         }
     }
 
-    public String updateAct(Long id, Principal principal, ActDto actDto) {
+    public String updateAct(Long id, ActDto actDto) {
         try {
             act = actRepository.findById(id).orElse(null);
             if (act != null) {
@@ -60,12 +56,12 @@ public class ActService {
                 return "Act updated successfully";
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.info(e.getMessage());
         }
         return "Act update failed";
     }
 
-    public ResponseEntity<String> deleteAct(Long id, Principal principal) {
+    public ResponseEntity<String> deleteAct(Long id) {
         try {
             act = actRepository.findById(id).orElse(null);
             if (act != null) {
@@ -73,25 +69,25 @@ public class ActService {
                 return ResponseEntity.ok("Act deleted successfully");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.info(e.getMessage());
         }
         return ResponseEntity.badRequest().build();
     }
 
-    public ResponseEntity<Act> getAct(Long id, Principal principal) {
+    public ResponseEntity<Act> getAct(Long id) {
         try {
             act = actRepository.findById(id).orElse(null);
             if (act != null) {
                 return ResponseEntity.ok(act);
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.info(e.getMessage());
         }
         return ResponseEntity.notFound().build();
     }
 
 
-    public ResponseEntity<List<Act>> getActs(Principal principal, Long performerId) {
+    public ResponseEntity<List<Act>> getActs( Long performerId) {
         try {
             performer = performerRepository.findById(performerId).orElse(null);
             if (performer != null) {
@@ -100,6 +96,7 @@ public class ActService {
                 return ResponseEntity.notFound().build();
             }
         } catch (Exception e) {
+            log.info(e.getMessage());
     }
         return ResponseEntity.notFound().build();
     }

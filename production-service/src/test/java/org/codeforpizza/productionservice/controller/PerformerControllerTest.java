@@ -55,9 +55,6 @@ class PerformerControllerTest {
     @MockBean
     private HttpService httpService;
 
-    @Autowired
-    private UserRepository userRepository;
-
     private String token;
 
     @BeforeEach
@@ -95,12 +92,6 @@ class PerformerControllerTest {
                 .post("/performers/2")
                 .then()
                 .statusCode(200);
-    }
-
-    // Not Used
-    @Test
-    @Order(2)
-    void updatePerformer() {
     }
 
     @Test

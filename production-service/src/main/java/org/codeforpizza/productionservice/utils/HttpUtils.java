@@ -14,7 +14,6 @@ public class HttpUtils {
     public static StringEntity createPayload(Object object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         StringEntity payload = new StringEntity(mapper.writeValueAsString(object), ContentType.APPLICATION_JSON);
-
         return payload;
     }
 }
