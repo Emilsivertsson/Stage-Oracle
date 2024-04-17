@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+/**
+ * Service for making HTTP requests to the Production service and checking if a user is authenticated
+ */
+
 @Service
 public class HttpService {
 
@@ -24,6 +28,7 @@ public class HttpService {
         IsAuthenticatedDTO isAuthenticatedDTO = new IsAuthenticatedDTO(username);
         request.setEntity(new StringEntity(mapper.writeValueAsString(isAuthenticatedDTO), ContentType.APPLICATION_JSON));
         CloseableHttpResponse response = httpClient.execute(request);
+        //TODO
         if (response.getCode() == 200) {
             return true;
         } else {

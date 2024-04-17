@@ -47,42 +47,37 @@ public class AuthenticationService {
 
     private final HttpService httpService;
 
-    public ResponseEntity<String> registerUser(String username, String password){
-        try{
-        if(userRepository.existsByUsername(username)){
-            log.error("User already exists");
-            return ResponseEntity.status(400).body("User already exists");
-        }
+    public ResponseEntity<String> registerUser(String username, String password) {
+        try {
+            if (userRepository.existsByUsername(username)) {
+                log.error("User already exists");
+                return ResponseEntity.status(400).body("User already exists");
+            }
 
-        String encodedPassword = passwordEncoder.encode(password);
-        Role userRole = roleRepository.findByAuthority("USER").get();
-        Set<Role> authorities = new HashSet<>();
-        authorities.add(userRole);
-        log.info("User role created");
+            String encodedPassword = passwordEncoder.encode(password);
+            Role userRole = roleRepository.findByAuthority("USER").get();
+            Set<Role> authorities = new HashSet<>();
+            authorities.add(userRole);
 
-        Measurements measurements = new Measurements(0,0,0,0,0);
-        measurementsRepository.save(measurements);
-        log.info("Measurements created");
+            Measurements measurements = new Measurements(0, 0, 0, 0, 0);
+            measurementsRepository.save(measurements);
 
-        Performer performer = new Performer("", "","","","", measurements);
-        performerRepository.save(performer);
-        log.info("Performer created");
+            Performer performer = new Performer("", "", "", "", "", measurements);
+            performerRepository.save(performer);
 
-        ApplicationUser newUser = new ApplicationUser(username, encodedPassword, authorities, performer);
-        userRepository.save(newUser);
-        log.info("User registered successfully");
-
-        return ResponseEntity.ok("User registered successfully");
-
-        } catch (Exception e){
+            ApplicationUser newUser = new ApplicationUser(username, encodedPassword, authorities, performer);
+            userRepository.save(newUser);
+            log.info("User registered successfully");
+            return ResponseEntity.ok("User registered successfully");
+        } catch (Exception e) {
             log.error("User registration failed");
             return ResponseEntity.status(400).body("User registration failed");
         }
     }
 
-    public ResponseEntity <LoginResponseDTO> loginUser(String username, String password){
-        try{
-            if(!userRepository.existsByUsername(username)){
+    public ResponseEntity<LoginResponseDTO> loginUser(String username, String password) {
+        try {
+            if (!userRepository.existsByUsername(username)) {
                 log.error("no user found");
                 return ResponseEntity.status(400).build();
             }
@@ -95,7 +90,7 @@ public class AuthenticationService {
             log.info("User logged in successfully");
             return ResponseEntity.ok(loggedUser);
 
-        } catch(AuthenticationException e){
+        } catch (AuthenticationException e) {
             log.error("User login failed");
             return ResponseEntity.status(401).build();
         }
@@ -103,6 +98,5 @@ public class AuthenticationService {
 
     public Boolean isAuthenticated(String username) throws IOException {
         return httpService.isAuthenticated(username);
-        //TODO Call other Service , send username and get boolean response
     }
 }

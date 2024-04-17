@@ -31,8 +31,6 @@ public class PerformerController {
         }
     }
 
-
-
     @PutMapping("")
     public ResponseEntity <Performer> updatePerformer(Principal principal, @RequestBody PerformerDTO performer) {
         try {
@@ -58,6 +56,5 @@ public class PerformerController {
         } catch (Exception e) {
             return ResponseEntity.status(400).build();
         }
-
     }
 }

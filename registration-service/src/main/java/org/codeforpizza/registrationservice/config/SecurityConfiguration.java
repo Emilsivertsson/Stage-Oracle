@@ -33,7 +33,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.http.HttpMethod.GET;
 
 /**
- * This class is responsible for the security configuration
+ * This class is responsible for the security configuration of the application
  */
 
 @Configuration
@@ -45,7 +45,6 @@ public class SecurityConfiguration {
     public SecurityConfiguration(RSAKeyProperties keys) {
         this.keys = keys;
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -60,6 +59,7 @@ public class SecurityConfiguration {
         return new ProviderManager(daoProvider);
     }
 
+    //production filter chain
     @Profile("!test")
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -89,6 +89,7 @@ public class SecurityConfiguration {
         return http.build();
     }
 
+    //test filter chain
     @Profile("test")
     @Bean
     public SecurityFilterChain testfilterChain(HttpSecurity http) throws Exception {

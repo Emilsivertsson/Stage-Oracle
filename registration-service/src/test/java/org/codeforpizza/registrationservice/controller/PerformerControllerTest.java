@@ -44,8 +44,6 @@ class PerformerControllerTest {
         registry.add("spring.datasource.password", mySQLContainer::getPassword);
     }
 
-    @Autowired
-    private UserRepository userRepository;
 
     private String token;
 
@@ -63,8 +61,6 @@ class PerformerControllerTest {
                 .extract()
                 .path("jwt");
     }
-
-
 
     @Test
     @Order(1)

@@ -26,7 +26,6 @@ public class PerformerService {
 
     private final UserRepository userRepository;
 
-
     public ResponseEntity<Optional<Performer>> getPerformer(Principal principal) {
         if (userRepository.existsByUsername(principal.getName())) {
             ApplicationUser user = userRepository.findByUsername(principal.getName());
@@ -87,9 +86,7 @@ public class PerformerService {
                 log.info("Performer not found");
                 return ResponseEntity.status(404).build();
             }
-
     }
-
 
     public ResponseEntity<Performer> getPerformerToProduction(Long performerId) {
         try {

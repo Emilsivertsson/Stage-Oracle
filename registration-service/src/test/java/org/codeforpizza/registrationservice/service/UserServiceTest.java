@@ -53,15 +53,6 @@ class UserServiceTest {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
-    private PerformerRepository performerRepository;
-
-    @Autowired
-    private MeasurementsRepository measurementsRepository;
-
     @BeforeEach
     void setUp() {
         RestAssured.baseURI = "http://localhost:" + port;

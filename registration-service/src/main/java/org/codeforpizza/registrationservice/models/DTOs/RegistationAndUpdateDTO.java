@@ -14,7 +14,6 @@ import lombok.*;
 @ToString
 public class RegistationAndUpdateDTO {
 
-
     @NotBlank
     @NotNull
     private String username;

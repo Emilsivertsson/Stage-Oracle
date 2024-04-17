@@ -21,8 +21,6 @@ public class TokenService {
 
     private final JwtDecoder jwtDecoder;
 
-
-
     public String generateJwt(Authentication auth){
         Instant now = Instant.now();
 

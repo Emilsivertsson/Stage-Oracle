@@ -10,6 +10,11 @@ import org.codeforpizza.registrationservice.service.PerformerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Controller for getting performers to the production service
+ it doesn't use authentication so thats why its CORS is set to only localhost:8081
+ */
+
 @RestController
 @RequestMapping("/toProduction")
 @RequiredArgsConstructor
@@ -26,11 +31,11 @@ public class ToProductionController {
         try {
             log.info("recived request to get performer to production");
             Boolean isAuthenticated = authenticationService.isAuthenticated(getPerformerRequestDTO.getUsername());
-            log.info("isAuthenticated: " + isAuthenticated);
             if(isAuthenticated.equals(true)){
                 log.info("Getting performer by username");
                 return performerService.getPerformerToProduction(getPerformerRequestDTO.getPerformerId());
             } else {
+                log.info("User is not authenticated");
                 return ResponseEntity.status(401).build();
             }
         } catch (Exception e) {
@@ -41,7 +46,7 @@ public class ToProductionController {
     @GetMapping("/all")
     public ResponseEntity<Iterable<Performer>> getAllPerformersToProduction(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO) {
         try {
-            log.info("recived request to get all performers to production");
+            log.info("received request to get all performers to production");
             Boolean isAuthenticated = authenticationService.isAuthenticated(getPerformerRequestDTO.getUsername());
             log.info("isAuthenticated: " + isAuthenticated);
             if(isAuthenticated.equals(true)){

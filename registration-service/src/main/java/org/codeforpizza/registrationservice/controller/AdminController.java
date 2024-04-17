@@ -1,6 +1,5 @@
 package org.codeforpizza.registrationservice.controller;
 
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.registrationservice.models.entitys.ApplicationUser;
@@ -8,7 +7,6 @@ import org.codeforpizza.registrationservice.models.DTOs.RegistationAndUpdateDTO;
 import org.codeforpizza.registrationservice.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 

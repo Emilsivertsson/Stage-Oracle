@@ -3,9 +3,6 @@ package org.codeforpizza.registrationservice.service;
 import io.restassured.RestAssured;
 import org.codeforpizza.registrationservice.models.entitys.ApplicationUser;
 import org.codeforpizza.registrationservice.models.DTOs.LoginResponseDTO;
-import org.codeforpizza.registrationservice.repository.MeasurementsRepository;
-import org.codeforpizza.registrationservice.repository.PerformerRepository;
-import org.codeforpizza.registrationservice.repository.RoleRepository;
 import org.codeforpizza.registrationservice.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,14 +47,6 @@ class AuthenticationServiceTest {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
-    private PerformerRepository performerRepository;
-
-    @Autowired
-    private MeasurementsRepository measurementsRepository;
 
     @Autowired
     private AuthenticationService authenticationService;
