@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "81955973-48cc-43cf-b10c-f2f10ce4bf20",
+		"name": "Registation  Performers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27137666-81955973-48cc-43cf-b10c-f2f10ce4bf20"
+	},
+	"item": [
+		{
+			"name": "get one performer",
+			"id": "fc250bee-7e41-4a10-a02a-a09e7f1feaa2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{8080}}/performer",
+					"host": [
+						"{{8080}}"
+					],
+					"path": [
+						"performer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update performer",
+			"id": "a74ae1ef-bd10-4f4d-a018-747e18056cb1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"updated-Name\",\r\n    \"lastName\": \"updated-Name\",\r\n    \"email\": \"updated-Name\",\r\n    \"phoneNr\": \"updated-Name\",\r\n    \"department\": \"updated-Name\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{8080}}/performer",
+					"host": [
+						"{{8080}}"
+					],
+					"path": [
+						"performer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update performer measurements",
+			"id": "19d25bd0-05ab-4776-8066-2314c2a9151a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"height\": 188,\r\n    \"shoeSize\": 39,\r\n    \"jacketSize\": 50,\r\n    \"pantSize\": 50,\r\n    \"head\": 67\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{8080}}/performer/measurements/",
+					"host": [
+						"{{8080}}"
+					],
+					"path": [
+						"performer",
+						"measurements",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account",
+			"id": "b741f886-0776-4c3d-aa0f-d81eba00646b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{8080}}/performer",
+					"host": [
+						"{{8080}}"
+					],
+					"path": [
+						"performer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get on performer to produktion",
+			"id": "6a67f9bb-522e-4d15-9696-2e99396a72e1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"performerId\": \"2\",\r\n    \"username\": \"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{8080}}/toProduction",
+					"host": [
+						"{{8080}}"
+					],
+					"path": [
+						"toProduction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all performers to produktion",
+			"id": "4b7fc421-2650-4121-96c8-10eeb2015a99",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"performerId\": \"0\",\r\n    \"username\": \"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{8080}}/toProduction/all",
+					"host": [
+						"{{8080}}"
+					],
+					"path": [
+						"toProduction",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
