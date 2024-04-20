@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -35,7 +34,7 @@ public class CastService {
             if (manifest != null) {
                 log.info("creating cast");
                 cast = new Cast();
-                cast.setName(castDto.getName());
+                cast.setName(castDto.name());
                 cast.setManifest(manifest);
                 castRepository.save(cast);
                 log.info("Cast created successfully");
@@ -52,7 +51,7 @@ public class CastService {
         try {
             cast = castRepository.findById(id).orElse(null);
             if (cast != null) {
-                cast.setName(castDto.getName());
+                cast.setName(castDto.name());
                 castRepository.save(cast);
                 return ResponseEntity.ok("Cast updated successfully");
             }

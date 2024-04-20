@@ -13,19 +13,9 @@ import java.io.Serializable;
  * DTO for {@link Manifest}
  */
 
-@Getter
-@Setter
-@ToString
-public class ManifestDto implements Serializable {
-    @NotNull(message = "Title can´t be empty")
-    @NotEmpty(message = "Title can´t be empty")
-    @NotBlank
-    private final String title;
-    private final long year;
 
-    @JsonCreator
-    public ManifestDto(String title, long year) {
-        this.title = title;
-        this.year = year;
-    }
+public record ManifestDto(
+        @NotNull(message = "Title can´t be empty") @NotEmpty(message = "Title can´t be empty") @NotBlank String title,
+        long year) implements Serializable {
+
 }

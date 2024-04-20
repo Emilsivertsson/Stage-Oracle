@@ -14,15 +14,10 @@ import java.io.Serializable;
  * DTO for {@link Garment}
  */
 
-@Getter
-@ToString
-public class GarmentDto implements Serializable {
-    @NotNull(message = "Name can´t be empty")
-    @NotEmpty(message = "Name can´t be empty")
-    @NotBlank
-    private final String name;
-    private final String description;
 
+public record GarmentDto(
+        @NotNull(message = "Name can´t be empty") @NotEmpty(message = "Name can´t be empty") @NotBlank String name,
+        String description) implements Serializable {
     @JsonCreator
     public GarmentDto(String name, String description) {
         this.name = name;

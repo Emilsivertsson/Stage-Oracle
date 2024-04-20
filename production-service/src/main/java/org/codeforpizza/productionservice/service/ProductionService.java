@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -31,10 +30,10 @@ public class ProductionService {
         try {
             user = userRepository.findByUsername(principal.getName());
             Production production = new Production();
-            production.setTitle(productionDto.getTitle());
-            production.setYear(productionDto.getYear());
-            production.setDescription(productionDto.getDescription());
-            production.setInRotation(productionDto.getInRotation());
+            production.setTitle(productionDto.title());
+            production.setYear(productionDto.year());
+            production.setDescription(productionDto.description());
+            production.setInRotation(productionDto.inRotation());
             production.setApplicationUser(user);
             productionRepository.save(production);
             user.getProductions().add(production);
@@ -96,10 +95,10 @@ public class ProductionService {
                     .findFirst()
                     .orElse(null);
             if (production != null) {
-                production.setTitle(productionDto.getTitle());
-                production.setYear(productionDto.getYear());
-                production.setDescription(productionDto.getDescription());
-                production.setInRotation(productionDto.getInRotation());
+                production.setTitle(productionDto.title());
+                production.setYear(productionDto.year());
+                production.setDescription(productionDto.description());
+                production.setInRotation(productionDto.inRotation());
                 productionRepository.save(production);
                 log.info("Updating production");
                 return ResponseEntity.ok("Production updated");

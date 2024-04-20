@@ -15,15 +15,9 @@ import java.io.Serializable;
  * DTO for {@link Cast}
  */
 
-@Getter
-@Setter
-@ToString
-public class CastDto implements Serializable {
-    @NotNull(message = "Name can´t be empty")
-    @NotEmpty(message = "Name can´t be empty")
-    @NotBlank
-    private final String name;
 
+public record CastDto(
+        @NotNull(message = "Name can´t be empty") @NotEmpty(message = "Name can´t be empty") @NotBlank String name) implements Serializable {
     @JsonCreator
     public CastDto(String name) {
         this.name = name;

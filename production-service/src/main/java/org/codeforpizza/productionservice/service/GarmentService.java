@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -35,8 +34,8 @@ public class GarmentService {
             costume = costumeRepository.findById(costumeId).orElse(null);
             if (costume != null) {
                 garment = new Garment();
-                garment.setName(garmentDTO.getName());
-                garment.setDescription(garmentDTO.getDescription());
+                garment.setName(garmentDTO.name());
+                garment.setDescription(garmentDTO.description());
                 garment.setCostume(costume);
                 garmentRepository.save(garment);
                 return ResponseEntity.ok("Garment created successfully");
@@ -53,8 +52,8 @@ public class GarmentService {
         try {
             garment = garmentRepository.findById(id).orElse(null);
             if (garment != null) {
-                garment.setName(garmentDto.getName());
-                garment.setDescription(garmentDto.getDescription());
+                garment.setName(garmentDto.name());
+                garment.setDescription(garmentDto.description());
                 garmentRepository.save(garment);
                 return ResponseEntity.ok("Garment updated successfully");
             }

@@ -14,14 +14,8 @@ import java.io.Serializable;
  * DTO for {@link Costume}
  */
 
-@Getter
-@ToString
-public class CostumeDto implements Serializable {
-    @NotNull(message = "Name can´t be empty")
-    @NotEmpty(message = "Name can´t be empty")
-    @NotBlank
-    private final String name;
-
+public record CostumeDto(
+        @NotNull(message = "Name can´t be empty") @NotEmpty(message = "Name can´t be empty") @NotBlank String name) implements Serializable {
     @JsonCreator
     public CostumeDto(String name) {
         this.name = name;

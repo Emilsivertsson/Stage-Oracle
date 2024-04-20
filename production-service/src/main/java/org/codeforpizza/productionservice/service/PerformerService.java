@@ -3,7 +3,6 @@ package org.codeforpizza.productionservice.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.ParseException;
-import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.DTOs.GetPerformerRequestDTO;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerDto;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerResponsDTO;
@@ -11,13 +10,11 @@ import org.codeforpizza.productionservice.modell.entitys.Cast;
 import org.codeforpizza.productionservice.modell.entitys.Performer;
 import org.codeforpizza.productionservice.repository.CastRepository;
 import org.codeforpizza.productionservice.repository.PerformerRepository;
-import org.codeforpizza.productionservice.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,8 +38,8 @@ public class PerformerService {
         try {
             performer = performerRepository.findById(id).orElse(null);
             if (performer != null) {
-               performer.setFirstName(performerDto.getFirstName());
-                performer.setLastName(performerDto.getLastName());
+               performer.setFirstName(performerDto.firstName());
+                performer.setLastName(performerDto.lastName());
                 performerRepository.save(performer);
                 log.info("Performer updated successfully");
                 return ResponseEntity.ok("Performer updated successfully");

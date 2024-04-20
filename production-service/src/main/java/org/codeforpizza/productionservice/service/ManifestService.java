@@ -40,8 +40,8 @@ public class ManifestService {
             if (production.isPresent()) {
                 manifest = new Manifest();
                 manifest.setProduction(production.get());
-                manifest.setTitle(manifestDto.getTitle());
-                manifest.setYear(manifestDto.getYear());
+                manifest.setTitle(manifestDto.title());
+                manifest.setYear(manifestDto.year());
                 manifestRepository.save(manifest);
                 return "Manifest created";
             } else {
@@ -57,8 +57,8 @@ public class ManifestService {
         try {
             user = userRepository.findByUsername(principal.getName());
             manifest = manifestRepository.findById(id).orElse(null);
-            manifest.setTitle(manifestDto.getTitle());
-            manifest.setYear(manifestDto.getYear());
+            manifest.setTitle(manifestDto.title());
+            manifest.setYear(manifestDto.year());
             manifestRepository.save(manifest);
             return "Manifest updated";
         } catch (Exception e) {

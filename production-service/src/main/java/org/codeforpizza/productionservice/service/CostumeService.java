@@ -3,17 +3,14 @@ package org.codeforpizza.productionservice.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.entitys.Act;
-import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.entitys.Costume;
 import org.codeforpizza.productionservice.modell.DTOs.CostumeDto;
 import org.codeforpizza.productionservice.repository.ActRepository;
 import org.codeforpizza.productionservice.repository.CostumeRepository;
-import org.codeforpizza.productionservice.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -35,7 +32,7 @@ public class CostumeService {
             act = actRepository.findById(actId).orElse(null);
             if (act != null) {
                 costume = new Costume();
-                costume.setName(costumeDto.getName());
+                costume.setName(costumeDto.name());
                 costume.setAct(act);
                 costumeRepository.save(costume);
                 return ResponseEntity.ok("Costume created successfully");
@@ -52,7 +49,7 @@ public class CostumeService {
         try {
             costume = costumeRepository.findById(id).orElse(null);
             if (costume != null) {
-                costume.setName(costumeDto.getName());
+                costume.setName(costumeDto.name());
                 costumeRepository.save(costume);
                 return ResponseEntity.ok("Costume updated successfully");
             }

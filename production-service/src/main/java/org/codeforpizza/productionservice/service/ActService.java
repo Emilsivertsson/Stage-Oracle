@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -33,7 +32,7 @@ public class ActService {
             performer = performerRepository.findById(performerId).orElse(null);
             if(performer != null){
                 act = new Act();
-                act.setTitle(actDTO.getTitle());
+                act.setTitle(actDTO.title());
                 act.setPerformer(performer);
                 actRepository.save(act);
                 return "Act created successfully";
@@ -50,7 +49,7 @@ public class ActService {
         try {
             act = actRepository.findById(id).orElse(null);
             if (act != null) {
-                act.setTitle(actDto.getTitle());
+                act.setTitle(actDto.title());
                 actRepository.save(act);
                 return "Act updated successfully";
             }
