@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.codeforpizza.productionservice.modell.entitys.Cast;
 
 import java.io.Serializable;
@@ -18,9 +15,4 @@ import java.io.Serializable;
 
 public record CastDto(
         @NotNull(message = "Name can´t be empty") @NotEmpty(message = "Name can´t be empty") @NotBlank String name) implements Serializable {
-    @JsonCreator
-    public CastDto(String name) {
-        this.name = name;
-    }
-
 }

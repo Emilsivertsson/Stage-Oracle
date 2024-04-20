@@ -91,7 +91,7 @@ public class PerformerService {
         return ResponseEntity.status(400).build();
     }
 
-    public ResponseEntity<String> createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Long castId) throws IOException, ParseException {
+    public ResponseEntity<String> createPerformer(GetPerformerRequestDTO getPerformerRequestDTO, Long castId) {
         try {
             PerformerResponsDTO performerRespons =  httpService.getPerformer(getPerformerRequestDTO);
             log.info("performerRespons in service:" + performerRespons);
