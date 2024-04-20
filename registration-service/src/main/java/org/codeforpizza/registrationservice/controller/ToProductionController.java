@@ -37,7 +37,7 @@ public class ToProductionController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Iterable<Performer>> getAllPerformersToProduction(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO) {
+    public ResponseEntity<Iterable<Performer>> getAllPerformersToProduction() {
         try {
             log.info("received request to get all performers to production");
             return performerService.getAllPerformersToProduction();

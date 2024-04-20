@@ -1,8 +1,2 @@
 
-›	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ô—ít8„˜’“ì1J$5adb2c46-d0d7-4d20-af52-23d0304a778c
-ˆ
-java:S6207"ERemove this redundant constructor which is the same as a default one.(¢«Ú8ÊÚĞäï1J$768ed521-a8a1-40aa-a7ec-e8b1151be752
-m
-java:S1128"*Remove this unused import 'lombok.Getter'.(ùÒµÙ8ÍÚĞäï1J$63b6be9e-c3fa-4b82-9177-d8cec6642112
-o
-java:S1128",Remove this unused import 'lombok.ToString'.(¹ÂÄÓ8ÍÚĞäï1J$21fde53f-4a97-4c26-acb4-2cc514f8577a
+›	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ô—ít8„˜’“ì1J$234d0b99-8966-4c98-a43b-96f066559731

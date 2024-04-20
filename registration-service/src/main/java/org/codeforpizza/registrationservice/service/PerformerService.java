@@ -48,6 +48,7 @@ public class PerformerService {
                 performerToUpdate.get().setEmail(performer.getEmail());
                 performerToUpdate.get().setPhoneNr(performer.getPhoneNr());
                 performerToUpdate.get().setEmail(performer.getEmail());
+                performerToUpdate.get().setDepartment(performer.getDepartment());
 
                 log.info("Performer updated successfully");
                 return ResponseEntity.ok(performerRepository.save(performerToUpdate.get()));

@@ -108,30 +108,29 @@ public class PerformerService {
         }
     }
 
-    public ResponseEntity<List<Performer>> getAllPerformersFromRegistry(GetPerformerRequestDTO getPerformerRequestDTO, Long castId) {
+    public ResponseEntity<List<PerformerResponsDTO>> getAllPerformersFromRegistry( Long castId) {
         try {
             List<Performer> performersInCast = castRepository.findById(castId).orElse(null).getPerformers();
 
-            List<PerformerResponsDTO> performersFromRegistry = httpService.getAllPerformers(getPerformerRequestDTO);
-            List<Performer> performers = new ArrayList<>();
+            List<PerformerResponsDTO> performersFromRegistry = httpService.getAllPerformers();
+            List<PerformerResponsDTO> performers = new ArrayList<>();
             log.info("Performers from registry: " + performersFromRegistry);
 
-            for (PerformerResponsDTO performerResponsDTO : performersFromRegistry) {
-                performer = new Performer();
-                performer.setId(performerResponsDTO.getId());
-                performer.setFirstName(performerResponsDTO.getFirstName());
-                performer.setLastName(performerResponsDTO.getLastName());
-                //check if a performer with the same id already exists in the cast
-                if (performersInCast.stream().noneMatch(p -> p.getId().equals(performer.getId()))) {
-                    performers.add(performer);
-                }
+            for (PerformerResponsDTO performerFromRegister : performersFromRegistry) {
+                if (performersInCast.stream().noneMatch(p -> p.getId().equals(performerFromRegister.getId()))) {
+                    PerformerResponsDTO performerResponsDTO = performersFromRegistry.stream()
+                            .filter(p -> p.getId().equals(performerFromRegister.getId()))
+                            .findFirst()
+                            .orElse(null);
+                    performers.add(performerResponsDTO);
+                    }
             }
             log.info("Performers created from registry: " + performers);
             log.info("Performers retrieved successfully");
             return ResponseEntity.ok(performers);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return ResponseEntity.badRequest().build();
+        } catch (IOException | ParseException ex) {
+            log.error(ex.getMessage());
+            return ResponseEntity.status(400).build();
         }
     }
 }

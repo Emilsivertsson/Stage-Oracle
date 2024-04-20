@@ -1,8 +1,2 @@
 
-”	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ô—ítJ$e7d1412c-a6c9-403e-8039-2cdf0cff6847
-‘
-java:S1128"IRemove this unused import 'com.fasterxml.jackson.annotation.JsonCreator'.(Ã¸‚×ùÿÿÿÿ8Ÿ÷×äï1J$5528049c-1601-41dd-b69c-8fd1bd876d17
-m
-java:S1128"*Remove this unused import 'lombok.Getter'.(ùÒµÙ8îÃ×äï1J$c749fbd0-55d6-40c7-865f-f3678dcf7794
-o
-java:S1128",Remove this unused import 'lombok.ToString'.(¹ÂÄÓ8îÃ×äï1J$a5fd172d-99d3-4907-8cbe-8d81fad6a22b
+”	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ô—ítJ$e835c0b7-c873-4f6b-b174-da9ddcff0b86

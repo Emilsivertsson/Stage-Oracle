@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.DTOs.GetPerformerRequestDTO;
+import org.codeforpizza.productionservice.modell.DTOs.PerformerResponsDTO;
 import org.codeforpizza.productionservice.modell.entitys.Performer;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerDto;
 import org.codeforpizza.productionservice.service.PerformerService;
@@ -73,10 +74,9 @@ public class PerformerController {
     }
 
     @GetMapping("/registry/{castId}")
-    public ResponseEntity<List<Performer>> getAllPerformersFromRegistry(@PathVariable Long castId, GetPerformerRequestDTO getPerformerRequestDTO) {
+    public ResponseEntity<List<PerformerResponsDTO>> getAllPerformersFromRegistry(@PathVariable Long castId ) {
         try {
-            log.info(getPerformerRequestDTO.toString());
-            return performerService.getAllPerformersFromRegistry(getPerformerRequestDTO, castId);
+            return performerService.getAllPerformersFromRegistry(castId);
         } catch (Exception e) {
             log.error(e.getMessage());
             return ResponseEntity.status(400).build();

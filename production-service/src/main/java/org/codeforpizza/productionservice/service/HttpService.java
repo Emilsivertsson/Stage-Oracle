@@ -48,11 +48,10 @@ public class HttpService {
         }
     }
 
-    public List<PerformerResponsDTO> getAllPerformers(GetPerformerRequestDTO getPerformerRequestDTO) throws IOException, ParseException {
+    public List<PerformerResponsDTO> getAllPerformers( ) throws IOException, ParseException {
         log.info("sending request to get all performers");
         HttpGet request = new HttpGet("http://localhost:8080/toProduction/all");
 
-        request.setEntity(HttpUtils.createPayload(getPerformerRequestDTO));
 
         CloseableHttpResponse response = httpClient.execute(request);
 
