@@ -36,11 +36,12 @@ you will get an error message that the application cant connect to the database.
       Run the following command in your terminal:\
       `docker run -d -p 1025:1025 -p 8025:8025 mailhog/mailhog`
     - You can access the Mailhog web interface at localhost:8025 to see the emails that are sent from the application.
-
+    - more info on Mailhog can be found at https://mailtrap.io/blog/mailhog-explained/#MailHog-features
+   
 3. Clone this repository to your computer and open it in your IDE.
-    - run the applications
-    - The applications will run on localhost:8080 and localhost:8081
-    - The applications use HTTP requests to communicate with each other, so make sure you start them both.
+   - run the applications
+   - The applications will run on localhost:8080 and localhost:8081
+   - The applications use HTTP requests to communicate with each other, so make sure you start them both.
 
 ## Usage
 The APIs are used by the frontend application to manage productions and performers.
@@ -70,6 +71,7 @@ As a Registered Performer you can:
 As a Production team member you can:
 - Perform CRUD operations on a production and its underlying structure with cast and acts
 - Import performers to a production* from the Registration API
+- Send Emails to performers
 
 Both Api:s has Admin roles that can perform all operations, and CRUD operations on the users.
 
