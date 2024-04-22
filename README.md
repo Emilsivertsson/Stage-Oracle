@@ -9,6 +9,9 @@ The Registration API is used for Performers to register their data and manage it
 The Production API is used for the production team to manage the production data and import performers into it. \
 Each of the API:s have their own My-SQL database and their own security solution issuing JWT tokens to users.
 
+Link to the frontend:
+https://github.com/Emilsivertsson/stage-oracle-front
+
 ## What was your motivation?
 This is a part of my degree project for the course "Java integration" at Campus Mölndal. \
 The project as whole is for Opera/theaters to manage their productions and performers. \
@@ -29,7 +32,9 @@ you will get an error message that the application cant connect to the database.
   or this tutorial https://youtu.be/kphq2TsVRIs?si=wS20hxnnLG2CAxr4
 
 2. Clone this repository to your computer and open it in your IDE.
-    - run the application
+    - run the applications
+    - The applications will run on localhost:8080 and localhost:8081
+    - The applications use HTTP requests to communicate with each other, so make sure you start them both.
 
 ## Usage
 The API is used by the frontend application to manage productions and performers.
