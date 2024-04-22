@@ -80,6 +80,10 @@ public class SecurityConfiguration {
                     auth.requestMatchers("/manifest/**").hasAnyRole("ADMIN", "USER");
                     auth.requestMatchers("/garment/**").hasAnyRole("ADMIN", "USER");
 
+                    //Swagger
+                    auth.requestMatchers("/v3/api-docs/**").permitAll();
+                    auth.requestMatchers("/swagger-ui/**").permitAll();
+
                     auth.anyRequest().authenticated();
                 });
 

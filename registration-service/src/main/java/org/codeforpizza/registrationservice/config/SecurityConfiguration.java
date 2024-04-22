@@ -77,6 +77,10 @@ public class SecurityConfiguration {
                     //performer routes
                     auth.requestMatchers("/performer/**").hasAnyRole("ADMIN", "USER");
 
+                    //Swagger
+                    auth.requestMatchers("/v3/api-docs/**").permitAll();
+                    auth.requestMatchers("/swagger-ui/**").permitAll();
+
                     auth.anyRequest().authenticated();
                 });
 
