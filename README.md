@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="/Images/Logo-hanger.png" width="300" height="300">
+<img src="Images/logo-hanger.png" width="300" height="300">
 </p>
 
 ## Description
