@@ -4,11 +4,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.ParseException;
 import org.codeforpizza.productionservice.modell.DTOs.GetPerformerRequestDTO;
+import org.codeforpizza.productionservice.modell.DTOs.MeasurementsDTO;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerDto;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerResponsDTO;
 import org.codeforpizza.productionservice.modell.entitys.Cast;
+import org.codeforpizza.productionservice.modell.entitys.Measurements;
 import org.codeforpizza.productionservice.modell.entitys.Performer;
 import org.codeforpizza.productionservice.repository.CastRepository;
+import org.codeforpizza.productionservice.repository.MeasurementsRepository;
 import org.codeforpizza.productionservice.repository.PerformerRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,6 +30,8 @@ public class PerformerService {
     private final PerformerRepository performerRepository;
 
     private final CastRepository castRepository;
+
+    private final MeasurementsRepository measurementsRepository;
 
     private Performer performer;
 
@@ -96,9 +101,18 @@ public class PerformerService {
             PerformerResponsDTO performerRespons =  httpService.getPerformer(getPerformerRequestDTO);
             log.info("performerRespons in service:" + performerRespons);
             cast = castRepository.findById(castId).orElse(null);
-            performer = new Performer();
-            performer.setFirstName(performerRespons.getFirstName());
-            performer.setLastName(performerRespons.getLastName());
+            performer = new Performer(performerRespons.getFirstName(),
+                    performerRespons.getLastName(),
+                    performerRespons.getEmail(),
+                    performerRespons.getPhoneNr(),
+                    performerRespons.getDepartment());
+            Measurements measurements = new Measurements(performerRespons.getMeasurements().getHeight(),
+                    performerRespons.getMeasurements().getJacketSize(),
+                    performerRespons.getMeasurements().getPantSize(),
+                    performerRespons.getMeasurements().getShoeSize(),
+                    performerRespons.getMeasurements().getHead());
+            performer.setMeasurements(measurements);
+            measurementsRepository.save(measurements);
             performer.setCast(cast);
             performerRepository.save(performer);
             return ResponseEntity.ok("Performer created successfully");

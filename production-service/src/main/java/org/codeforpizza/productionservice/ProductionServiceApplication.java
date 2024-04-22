@@ -24,7 +24,7 @@ public class ProductionServiceApplication {
     @Bean
     CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository
                         , PasswordEncoder passwordEncode, ProductionRepository productionRepository
-                        , ActRepository actRepository, CastRepository castRepository
+                        , ActRepository actRepository, CastRepository castRepository, MeasurementsRepository measurementsRepository
                         , ManifestRepository manifestRepository,CostumeRepository costumeRepository,GarmentRepository garmentRepository
     ,PerformerRepository performerRepository) {
 
@@ -39,7 +39,8 @@ public class ProductionServiceApplication {
             Garment adminGarment = new Garment("Black jacket", "its black");
             Costume adminCostume = new Costume("admin costume");
             Act adminAct = new Act("Act admin");
-            Performer adminPerformer = new Performer("admin", "Doe");
+            Measurements adminMeasurements = new Measurements( 1.0, 1.0, 1.0, 1.0, 1.0);
+            Performer adminPerformer = new Performer("admin", "Doe", "admin@admin.com", "123456789", "admin");
             Cast adminCast = new Cast("admin cast");
             Manifest adminManifest = new Manifest("Manifest admin", 2026);
             Production adminProduction = new Production(2026L, "Production admin",true, "Description admin");
@@ -54,6 +55,8 @@ public class ProductionServiceApplication {
             adminCast.setManifest(adminManifest);
             castRepository.save(adminCast);
             adminPerformer.setCast(adminCast);
+            adminPerformer.setMeasurements(adminMeasurements);
+            measurementsRepository.save(adminMeasurements);
             performerRepository.save(adminPerformer);
             adminAct.setPerformer(adminPerformer);
             actRepository.save(adminAct);
@@ -69,10 +72,12 @@ public class ProductionServiceApplication {
             Garment garment = new Garment("Black jacket", "its black");
             Costume costume = new Costume("Black costume");
             Act act = new Act("Act 1");
-            Performer performer = new Performer("John", "Doe");
-            Cast cast = new Cast("Main cast");
+
+            Measurements measurements = new Measurements( 189, 45, 50, 52, 62);
+            Performer performer = new Performer("Jane", "Doe","Jane@Doe.com", "123456789", "Choir");
+            Cast cast = new Cast("Choir");
             Manifest manifest = new Manifest("Manifest 1", 2021);
-            Production production = new Production(2005L, "Production 1",true, "Description 1");
+            Production production = new Production(2005L, "Hamlet",true, "Producer: William Shakespeare, director: John Doe");
             List<Production> productions = new ArrayList<>();
             ApplicationUser user = new ApplicationUser( "user", passwordEncode.encode("password1"), userRoles, productions);
 
@@ -84,6 +89,8 @@ public class ProductionServiceApplication {
             cast.setManifest(manifest);
             castRepository.save(cast);
             performer.setCast(cast);
+            performer.setMeasurements(measurements);
+            measurementsRepository.save(measurements);
             performerRepository.save(performer);
             act.setPerformer(performer);
             actRepository.save(act);
