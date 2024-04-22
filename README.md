@@ -37,7 +37,7 @@ you will get an error message that the application cant connect to the database.
     - The applications use HTTP requests to communicate with each other, so make sure you start them both.
 
 ## Usage
-The API is used by the frontend application to manage productions and performers.
+The APIs are used by the frontend application to manage productions and performers.
 
 ## Third party credits
 Thanks to ChatGpt, copilot and my rubber-ducks for helping when things got stuck.
