@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * Controller for getting performers to the production service
- it doesn't use authentication so thats why its CORS is set to only localhost:8081
+ *  its CORS is set to only localhost:8081 to prevent unauthorized access
  */
 
 @RestController
@@ -23,8 +23,6 @@ import org.springframework.web.bind.annotation.*;
 public class ToProductionController {
 
     private final PerformerService performerService;
-
-    private final AuthenticationService authenticationService;
 
     @GetMapping("")
     public ResponseEntity<Performer> getPerformerToProduction(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO) {

@@ -1,10 +1,39 @@
 version: "3.8"
 services:
+
+  mysql-performers:
+        image: mysql:8.0
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: performers
+          MYSQL_USER: root
+          MYSQL_PASSWORD: root
+        ports:
+        - 3306:3306
+
+  mysql-productions:
+        image: mysql:8.0
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: productions
+          MYSQL_USER: root
+          MYSQL_PASSWORD: root
+        ports:
+        - 3307:3306
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: always
+    ports:
+      - 1025:1025
+      - 8025:8025
+
   registration-service:
         image: 'wexio/registration-service'
-        build:
-          context: .
-          dockerfile: Dockerfile
+        depends_on:
+          - mysql-performers
         ports:
           - "8080:8080"
         environment:
@@ -14,12 +43,18 @@ services:
 
   production-service:
       image: 'wexio/production-service'
-      build:
-        context: .
-        dockerfile: Dockerfile
+      depends_on:
+        - mysql-productions
+        - mailhog
       ports:
         - "8081:8081"
       environment:
-        - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/productions
+        - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3307/productions
         - SPRING_DATASOURCE_USERNAME=root
         - SPRING_DATASOURCE_PASSWORD=root
+        - registration.service.url=http://registration-service:8080
+
+  Stage-Oracle:
+    image: 'wexio/so-front'
+    ports:
+      - "3000:3000"

@@ -5375,3 +5375,9 @@ W
 dproduction-service/src/main/java/org/codeforpizza/productionservice/modell/entitys/Measurements.java,d\d\dd2795b2166a00c9ea51e2374cd847290d41db6b
 ö
 jproduction-service/src/main/java/org/codeforpizza/productionservice/repository/MeasurementsRepository.java,e\6\e6f8fbb1c0b71f0670130e2478800b228aa0bde0
+ì
+cproduction-service/src/main/java/org/codeforpizza/productionservice/controller/EmailController.java,a\5\a5cc8d0b77802a608a6a18ed527e60f3622f8682
+ç
+]production-service/src/main/java/org/codeforpizza/productionservice/service/EmailService.java,7\9\79a726ec569fcf8a0eaa4c76ef1c3a90481dac6d
+ä
+Zproduction-service/src/main/java/org/codeforpizza/productionservice/modell/DTOs/Email.java,6\0\60a143ccd256d355944b8916caea382cc129c69d

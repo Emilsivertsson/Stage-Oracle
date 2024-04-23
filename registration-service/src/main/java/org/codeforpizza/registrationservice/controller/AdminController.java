@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
+/**
+ * This class is the controller for the admin. it lets the admin perform CRUD operations on the users.
+ */
 
 @RestController
 @RequestMapping("/admin")

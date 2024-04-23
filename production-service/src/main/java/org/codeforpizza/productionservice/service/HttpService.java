@@ -12,11 +12,16 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.codeforpizza.productionservice.modell.DTOs.GetPerformerRequestDTO;
 import org.codeforpizza.productionservice.modell.DTOs.PerformerResponsDTO;
 import org.codeforpizza.productionservice.utils.HttpUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+
+/**
+ * Service class for sending http requests to performer service, for getting all performers and getting one performer.
+ */
 
 @Slf4j
 @Service
@@ -26,9 +31,12 @@ public class HttpService {
 
     Gson gson = new Gson();
 
+    @Value("${registration.service.url}")
+    private String registrationServiceUrl;
+
     public PerformerResponsDTO getPerformer(GetPerformerRequestDTO getPerformerRequestDTO) throws IOException, ParseException {
         log.info("sending request to performer service");
-        HttpGet request = new HttpGet("http://localhost:8080/toProduction");
+        HttpGet request = new HttpGet(registrationServiceUrl + "/toProduction");
 
         request.setEntity(HttpUtils.createPayload(getPerformerRequestDTO));
 

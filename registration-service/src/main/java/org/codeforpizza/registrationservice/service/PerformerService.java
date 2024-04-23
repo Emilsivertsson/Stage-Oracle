@@ -89,6 +89,12 @@ public class PerformerService {
             }
     }
 
+    /**
+     * This method is used to get a performer to the production service
+     * @param performerId the id of the performer wanted
+     * @return the performer
+     */
+
     public ResponseEntity<Performer> getPerformerToProduction(Long performerId) {
         try {
             if (performerRepository.existsById(performerId)) {
@@ -102,6 +108,11 @@ public class PerformerService {
             return ResponseEntity.status(400).build();
         }
     }
+
+    /**
+     * This method is used to get all performers to the production service
+     * @return all performers
+     */
 
     public ResponseEntity<Iterable<Performer>> getAllPerformersToProduction() {
         try {
