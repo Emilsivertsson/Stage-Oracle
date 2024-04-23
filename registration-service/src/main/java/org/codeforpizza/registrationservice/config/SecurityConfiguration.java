@@ -33,7 +33,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.http.HttpMethod.GET;
 
 /**
- * This class is responsible for the security configuration of the application
+ * This class is responsible for the security configuration of the registration service.
+ * It sets up the security filter chain for production and test environments.
  */
 
 @Configuration

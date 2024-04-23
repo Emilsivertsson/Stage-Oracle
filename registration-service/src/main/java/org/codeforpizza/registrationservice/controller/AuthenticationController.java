@@ -9,6 +9,9 @@ import org.codeforpizza.registrationservice.service.AuthenticationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * This class is the controller for the authentication. it lets the user register and login.
+ */
 
 @RestController
 @RequestMapping("/auth")

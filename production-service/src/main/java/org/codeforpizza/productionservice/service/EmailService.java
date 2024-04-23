@@ -13,16 +13,16 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 
     @Value("${email.from}")
-    private String fromadress;
+    private String fromAdress;
 
     private final JavaMailSender javaMailSender;
 
     public ResponseEntity<String> sendEmail(Email email) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom(fromadress);
+        simpleMailMessage.setFrom(fromAdress);
         simpleMailMessage.setTo(email.adress());
         simpleMailMessage.setSubject(email.subject());
-        simpleMailMessage.setText(email.body());
+        simpleMailMessage.setText(email.body() + "\n This is sent from Stage Oracle Application, You cant answer this email. " );
         javaMailSender.send(simpleMailMessage);
         return ResponseEntity.ok("Email sent");
     }

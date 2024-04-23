@@ -11,7 +11,6 @@ import org.codeforpizza.productionservice.service.PerformerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,6 +22,12 @@ public class PerformerController {
 
     private final PerformerService performerService;
 
+    /**
+     * Create a performer in the production-service, this sends a request to the registry-service
+     * @param getPerformerRequestDTO
+     * @param castId
+     * @return ResponseEntity<String>
+     */
 
     @PostMapping("/{castId}")
     public ResponseEntity<String> createPerformer(@RequestBody GetPerformerRequestDTO getPerformerRequestDTO, @PathVariable Long castId) {
@@ -72,6 +77,12 @@ public class PerformerController {
             return ResponseEntity.status(400).build();
         }
     }
+
+    /**
+     * Get all performers from the registry, this re-directs a request to the registry-service
+     * @param castId
+     * @return List of PerformerResponsDTO
+     */
 
     @GetMapping("/registry/{castId}")
     public ResponseEntity<List<PerformerResponsDTO>> getAllPerformersFromRegistry(@PathVariable Long castId ) {

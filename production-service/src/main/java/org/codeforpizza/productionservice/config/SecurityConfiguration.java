@@ -31,6 +31,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * This class is responsible for the security configuration
+ * it is used to configure the securitychain for production and testing
  */
 
 @Configuration

@@ -13,6 +13,11 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
+/**
+ * This class is responsible for generating and decoding JWT tokens.
+ * it sets the token time to 24 hours.
+ */
+
 @RequiredArgsConstructor
 @Service
 public class TokenService {

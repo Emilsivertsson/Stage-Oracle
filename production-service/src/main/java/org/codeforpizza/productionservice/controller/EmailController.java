@@ -7,6 +7,11 @@ import org.codeforpizza.productionservice.service.EmailService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * This class is the controller for the email
+ * It is responsible for handling the requests sending emails to performers
+ */
+
 @RestController
 @RequestMapping("/email")
 @RequiredArgsConstructor

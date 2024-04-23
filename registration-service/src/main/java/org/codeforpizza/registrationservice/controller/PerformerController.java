@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.Optional;
 
+/**
+ * This class is the controller for the performer. it lets the performers perform CRUD operations on their account.
+ */
+
 @RestController
 @RequestMapping("/performer")
 @RequiredArgsConstructor
