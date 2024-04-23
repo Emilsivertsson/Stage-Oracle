@@ -2,7 +2,7 @@ version: "3.8"
 services:
 
   mysql-performers:
-        image: mysql:5.7
+        image: mysql:8.0
         restart: always
         environment:
           MYSQL_ROOT_PASSWORD: root
@@ -13,7 +13,7 @@ services:
         - 3306:3306
 
   mysql-productions:
-        image: mysql:5.7
+        image: mysql:8.0
         restart: always
         environment:
           MYSQL_ROOT_PASSWORD: root
