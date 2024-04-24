@@ -5381,3 +5381,5 @@ cproduction-service/src/main/java/org/codeforpizza/productionservice/controller/
 ]production-service/src/main/java/org/codeforpizza/productionservice/service/EmailService.java,7\9\79a726ec569fcf8a0eaa4c76ef1c3a90481dac6d
 Š
 Zproduction-service/src/main/java/org/codeforpizza/productionservice/modell/DTOs/Email.java,6\0\60a143ccd256d355944b8916caea382cc129c69d
+7
+LICENSE,0\3\0398ccd0f49298b10a3d76a47800d2ebecd49859
