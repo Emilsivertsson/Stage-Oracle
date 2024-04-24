@@ -1,28 +1,13 @@
 version: "3.8"
 services:
 
-  mysql-performers:
+  mysql:
         image: mysql:8.0
         restart: always
         environment:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: performers
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
         ports:
         - 3306:3306
-
-  mysql-productions:
-        image: mysql:8.0
-        restart: always
-        environment:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: productions
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
-        ports:
-        - 3307:3306
-
   mailhog:
     image: mailhog/mailhog:latest
     restart: always
@@ -32,24 +17,26 @@ services:
 
   registration-service:
         image: 'wexio/registration-service'
+        restart: always
         depends_on:
-          - mysql-performers
+          - mysql
         ports:
           - "8080:8080"
         environment:
-          - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-performers:3306/performers
+          - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/performers?createDatabaseIfNotExist=true
           - SPRING_DATASOURCE_USERNAME=root
           - SPRING_DATASOURCE_PASSWORD=root
 
   production-service:
       image: 'wexio/production-service'
+      restart: always
       depends_on:
-        - mysql-productions
+        - mysql
         - mailhog
       ports:
         - "8081:8081"
       environment:
-        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-productions:3307/productions
+        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/productions?createDatabaseIfNotExist=true
         - SPRING_DATASOURCE_USERNAME=root
         - SPRING_DATASOURCE_PASSWORD=root
         - registration.service.url=http://registration-service:8080

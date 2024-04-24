@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * Controller for getting performers to the production service
- *  its CORS is set to only localhost:8081 to prevent unauthorized access
+ *
  */
 
 @RestController
 @RequestMapping("/toProduction")
 @RequiredArgsConstructor
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("*")
 @Slf4j
 public class ToProductionController {
 
