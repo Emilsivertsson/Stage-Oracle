@@ -37,7 +37,7 @@ services:
         ports:
           - "8080:8080"
         environment:
-          - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/performers
+          - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-performers:3306/performers
           - SPRING_DATASOURCE_USERNAME=root
           - SPRING_DATASOURCE_PASSWORD=root
 
@@ -49,7 +49,7 @@ services:
       ports:
         - "8081:8081"
       environment:
-        - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3307/productions
+        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-productions:3307/productions
         - SPRING_DATASOURCE_USERNAME=root
         - SPRING_DATASOURCE_PASSWORD=root
         - registration.service.url=http://registration-service:8080
@@ -58,3 +58,11 @@ services:
     image: 'wexio/so-front'
     ports:
       - "3000:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - registration-service
+      - production-service
+    environment:
+        - VITE_REGISTRATION_API_URL=http://registration-service:8080
+        - VITE_PRODUCTION_API_URL=http://production-service:8081

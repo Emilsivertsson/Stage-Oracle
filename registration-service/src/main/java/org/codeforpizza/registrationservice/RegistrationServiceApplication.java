@@ -33,23 +33,39 @@ public class RegistrationServiceApplication {
 
             Set<Role> adminRoles = new HashSet<>();
             adminRoles.add(adminRole);
+
             ApplicationUser admin = new ApplicationUser("admin", passwordEncode.encode("password2"), adminRoles);
             Measurements adminMeasurements = new Measurements(0, 0, 0, 0, 0);
-            measurementsRepository.save(adminMeasurements);
+            if (!measurementsRepository.existsById(adminMeasurements.getId())) {
+                measurementsRepository.save(adminMeasurements);
+            }
             Performer adminPerformer = new Performer("Admin", "", "", "", "", adminMeasurements);
-            performerRepository.save(adminPerformer);
-            userRepository.save(admin);
+            if (!performerRepository.existsById(1l)) {
+                performerRepository.save(adminPerformer);
+            }
+            if (!userRepository.existsById(1l)) {
+                userRepository.save(admin);
+            }
 
             Role userRole = roleRepository.save(new Role("USER"));
             Set<Role> userRoles = new HashSet<>();
             userRoles.add(userRole);
             Measurements measurements = new Measurements(179, 43, 50, 50, 44);
-            measurementsRepository.save(measurements);
+            if (!measurementsRepository.existsById(measurements.getId())) {
+                measurementsRepository.save(measurements);
+            }
             Performer performer = new Performer("John", "Doe", "john@gmail.com", "123456789", "Dancer", measurements);
-            performerRepository.save(performer);
+            if (!performerRepository.existsById(2l)) {
+                performerRepository.save(performer);
+            }
             ApplicationUser user = new ApplicationUser(2L, "user", passwordEncode.encode("password1"), userRoles, performer);
-            userRepository.save(user);
+            if (!userRepository.existsById(2l)) {
+                userRepository.save(user);
+            }
 
         };
+
+
     }
+
 }

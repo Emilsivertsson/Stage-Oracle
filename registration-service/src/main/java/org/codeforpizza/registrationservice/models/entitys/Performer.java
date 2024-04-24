@@ -17,7 +17,7 @@ public class Performer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
 
     @Column(name = "first_name")
     String firstName;
