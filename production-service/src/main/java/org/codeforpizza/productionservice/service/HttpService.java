@@ -36,6 +36,7 @@ public class HttpService {
 
     public PerformerResponsDTO getPerformer(GetPerformerRequestDTO getPerformerRequestDTO) throws IOException, ParseException {
         log.info("sending request to performer service");
+        log.info("url: " + registrationServiceUrl + "/toProduction");
         HttpGet request = new HttpGet(registrationServiceUrl + "/toProduction");
 
         request.setEntity(HttpUtils.createPayload(getPerformerRequestDTO));

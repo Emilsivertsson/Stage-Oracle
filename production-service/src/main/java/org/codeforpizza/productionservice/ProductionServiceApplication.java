@@ -30,6 +30,7 @@ public class ProductionServiceApplication {
 
         return args -> {
 
+
             if (roleRepository.findByAuthority("ADMIN").isPresent()) return;
             Role adminRole = roleRepository.save(new Role("ADMIN"));
 
