@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mail-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mail-pod
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: mail-pod
+        tier: backend
+    spec:
+      containers:
+        - name: mail-pod
+          image: mailhog/mailhog:latest
+          imagePullPolicy: Always
+
+            

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registration-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+          app: registration-pod
+          tier: backend
+    template:
+        metadata:
+          labels:
+            app: registration-pod
+            tier: backend
+        spec:
+          containers:
+          - name: registration-pod
+            image: wexio/registration-service:latest
+            imagePullPolicy: Always
+            env:
+              - name: SPRING_DATASOURCE_URL
+                value: jdbc:mysql://mysql:3306/performers?createDatabaseIfNotExist=true
+              - name: SPRING_DATASOURCE_USERNAME
+                value: root
+              - name: SPRING_DATASOURCE_PASSWORD
+                value: root
