@@ -13,6 +13,6 @@ import java.io.Serializable;
 
 public record GarmentDto(
         @NotNull(message = "Name can´t be empty") @NotEmpty(message = "Name can´t be empty") @NotBlank String name,
-        String description) implements Serializable {
+        String description, Boolean isDone) implements Serializable {
 
 }

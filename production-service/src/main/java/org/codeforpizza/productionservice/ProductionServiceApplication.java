@@ -37,7 +37,7 @@ public class ProductionServiceApplication {
             Set<Role> adminRoles = new HashSet<>();
             adminRoles.add(adminRole);
 
-            Garment adminGarment = new Garment("Black jacket", "its black");
+            Garment adminGarment = new Garment("Black jacket", "its black", false);
             Costume adminCostume = new Costume("admin costume");
             Act adminAct = new Act("Act admin");
             Measurements adminMeasurements = new Measurements( 1.0, 1.0, 1.0, 1.0, 1.0);
@@ -70,7 +70,7 @@ public class ProductionServiceApplication {
             Role userRole = roleRepository.save(new Role("USER"));
             Set<Role> userRoles = new HashSet<>();
             userRoles.add(userRole);
-            Garment garment = new Garment("Black jacket", "its black");
+            Garment garment = new Garment("Black jacket", "its black", true);
             Costume costume = new Costume("Black costume");
             Act act = new Act("Act 1");
 

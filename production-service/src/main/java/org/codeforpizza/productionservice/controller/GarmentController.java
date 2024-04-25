@@ -31,6 +31,17 @@ public class GarmentController {
         }
     }
 
+    @PatchMapping("/{garmentId}")
+    public ResponseEntity<String> updateGarmentStatus(@PathVariable Long garmentId) {
+        try {
+            log.info("Updating garment status");
+            return garmentService.updateGarmentStatus(garmentId);
+        } catch (Exception e) {
+            log.error("Error updating garment status", e);
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
     @PutMapping("/{garmentId}")
     public ResponseEntity<String> updateGarment(@PathVariable Long garmentId, @Valid @RequestBody GarmentDto garmentDto) {
         try {
@@ -74,5 +85,7 @@ public class GarmentController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+
 
 }

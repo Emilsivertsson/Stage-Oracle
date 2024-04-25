@@ -3,6 +3,7 @@ package org.codeforpizza.productionservice.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
+import org.codeforpizza.productionservice.modell.entitys.Garment;
 import org.codeforpizza.productionservice.modell.entitys.Production;
 import org.codeforpizza.productionservice.modell.DTOs.ProductionDto;
 import org.codeforpizza.productionservice.repository.ProductionRepository;
@@ -12,7 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -109,6 +113,29 @@ public class ProductionService {
         } catch (Exception e) {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body("Error updating production");
+        }
+    }
+
+    public List<Garment> getAllGarmentsTodo(Principal principal, Long productionId) {
+        try {
+            Optional<Production> productionOptional = productionRepository.findById(productionId);
+            if (productionOptional.isPresent()) {
+                Production production = productionOptional.get();
+                return production.getManifests().stream()
+                        .flatMap(manifest -> manifest.getCasts().stream())
+                        .flatMap(cast -> cast.getPerformers().stream())
+                        .flatMap(performer -> performer.getActs().stream())
+                        .flatMap(act -> act.getCostumes().stream())
+                        .flatMap(costume -> costume.getGarments().stream())
+                        .filter(garment -> !Optional.ofNullable(garment.getIsDone()).orElse(true))
+                        .collect(Collectors.toList());
+
+            } else {
+                return Collections.emptyList();
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return null;
         }
     }
 }

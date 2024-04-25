@@ -1,3 +1,9 @@
 
 ¢
-java:S1192j"ZDefine a constant instead of duplicating this literal "Error updating production" 3 times.(“¯ûšúÿÿÿÿ8ÄìåÚî1J$09569e20-0aa1-4438-9fa8-51bede738a99
+java:S1192n"ZDefine a constant instead of duplicating this literal "Error updating production" 3 times.(“¯ûšúÿÿÿÿ8øÌÕŠñ1J$aedd3f9e-2c2b-4992-bdd3-688be4107215
+s
+java:S1172w"0Remove this unused method parameter "principal".(Ìúì›8ÍÕŠñ1J$fd7ba862-3cf2-4226-ad80-04942f61096d
+–
+java:S6204ƒ"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Ç‚ØŠñ1J$582888a7-633f-410b-ab7c-8e79ad1a32b2
+o
+java:S1168Š"+Return an empty collection instead of null.(¥¹ï8é§ÖŠñ1J$67c80bdd-c2ee-499f-ab6b-57c5f86ec6d5

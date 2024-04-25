@@ -3,6 +3,7 @@ package org.codeforpizza.productionservice.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.codeforpizza.productionservice.modell.entitys.Garment;
 import org.codeforpizza.productionservice.modell.entitys.Production;
 import org.codeforpizza.productionservice.modell.DTOs.ProductionDto;
 import org.codeforpizza.productionservice.service.ProductionService;
@@ -72,6 +73,18 @@ public class ProductionController {
             return productionService.getAllProductions(principal);
         } catch (Exception e) {
             log.error("Error getting all productions");
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/allGarmentsTodo/{productionId}")
+    public ResponseEntity<List<Garment>> getAllGarmentsTodo(Principal principal, @PathVariable Long productionId) {
+        try {
+            log.info("Getting all garments to do");
+            List<Garment> garments =  productionService.getAllGarmentsTodo(principal, productionId);
+            return ResponseEntity.ok(garments);
+        } catch (Exception e) {
+            log.error("Error getting all garments to do");
             return ResponseEntity.badRequest().build();
         }
     }

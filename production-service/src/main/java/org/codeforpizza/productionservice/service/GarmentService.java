@@ -34,6 +34,7 @@ public class GarmentService {
                 garment = new Garment();
                 garment.setName(garmentDTO.name());
                 garment.setDescription(garmentDTO.description());
+                garment.setIsDone(garmentDTO.isDone());
                 garment.setCostume(costume);
                 garmentRepository.save(garment);
                 return ResponseEntity.ok("Garment created successfully");
@@ -52,6 +53,7 @@ public class GarmentService {
             if (garment != null) {
                 garment.setName(garmentDto.name());
                 garment.setDescription(garmentDto.description());
+                garment.setIsDone(garmentDto.isDone());
                 garmentRepository.save(garment);
                 return ResponseEntity.ok("Garment updated successfully");
             }
@@ -98,5 +100,19 @@ public class GarmentService {
             log.error(e.getMessage());
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    public ResponseEntity<String> updateGarmentStatus(Long garmentId) {
+        try {
+            log.info("Updating garment status");
+            garment = garmentRepository.findById(garmentId).orElse(null);
+            if (garment != null) {
+                garment.setIsDone(garment.getIsDone() ? false : true);
+            }
+            return ResponseEntity.ok("Garment status updated successfully");
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+        return ResponseEntity.badRequest().build();
     }
 }

@@ -25,13 +25,17 @@ public class Garment {
     @Column(name="description")
     private String description;
 
+    @Column(name="is_done")
+    private Boolean isDone;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "costume_id")
     private Costume costume;
 
-    public Garment(String name, String description) {
+    public Garment(String name, String description, Boolean isDone) {
         this.name = name;
         this.description = description;
+        this.isDone = isDone;
     }
 }

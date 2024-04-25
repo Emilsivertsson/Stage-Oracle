@@ -43,6 +43,17 @@ you will get an error message that the application cant connect to the database.
    - The applications will run on localhost:8080 and localhost:8081
    - The applications use HTTP requests to communicate with each other, so make sure you start them both.
 
+### OR
+You can run the applications in Docker.\
+To do this you need to have Docker installed on your computer.\
+run the following command in you terminal in the root folder of the project:\
+`docker compose up`\
+and wait until the applications are up and running.\
+The applications will run on 8080, 8081 and 8081, 8025, 3000 and 3306.\
+you cant have a local MySQL database running on your computer or else the applications will not start.\
+when its up and running you can access the applications at localhost:3000 in your browser.\
+to check the emails that are sent from the application you can access Mailhog at localhost:8025.
+
 ## Usage
 The APIs are used by the frontend application to manage productions and performers.
 
