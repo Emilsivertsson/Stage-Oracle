@@ -18,6 +18,9 @@ spec:
         - name: mysql-pod
           image: mysql:8.0
           imagePullPolicy: Always
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
 
 ---
 

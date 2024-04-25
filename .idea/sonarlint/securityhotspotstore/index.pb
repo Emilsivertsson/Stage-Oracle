@@ -5383,8 +5383,6 @@ cproduction-service/src/main/java/org/codeforpizza/productionservice/controller/
 Zproduction-service/src/main/java/org/codeforpizza/productionservice/modell/DTOs/Email.java,6\0\60a143ccd256d355944b8916caea382cc129c69d
 7
 LICENSE,0\3\0398ccd0f49298b10a3d76a47800d2ebecd49859
->
-deloyment.yaml,5\3\53198301d1a1cf77bb11bd992f6a26749390528b
 T
 $kubenetes/production-deployment.yaml,f\8\f89767cd97c65724fd3257758e6ef4e42280212f
 Q
@@ -5395,15 +5393,11 @@ V
 &kubenetes/registration-deployment.yaml,1\f\1f03ebbe0ee3f434e23c9db2a3e74ad8eb38ad52
 N
 kubenetes/mail-deployment.yaml,9\4\94660aedd101473ab79b160e2fe82289654ca9e6
-J
-kubenetes/mysql-deployment,2\2\22950afc0c38f5db9f3269946fe8974bec8601f1
 K
 kubenetes/mail-service.yaml,1\7\178f1ceaea618bdc11c13dbf8df00c7f982cc88d
 L
 kubenetes/mysql-service.yaml,2\f\2ffc7103dc9e9423111d1e5696b85a3d28260e04
 O
 kubenetes/mysql-deployment.yaml,a\2\a2379eeafadef19541f7bc03f6127181b6aa76de
-O
-kubenetes/masterdepolyment.yaml,5\2\5230c7f486d14dd8ec4c691b62ab0f148acb9f56
 P
  kubenetes/master-deployment.yaml,a\8\a84ae34256df0f6011d884bfa55a0484d64366cf
