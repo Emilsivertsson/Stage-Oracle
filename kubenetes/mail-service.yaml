@@ -7,10 +7,12 @@ spec:
         app: mail-pod
         tier: backend
     ports:
-        - protocol: TCP
+        - name: smtp
+          protocol: TCP
           port: 1025
           targetPort: 1025
-        - protocol: TCP
+        - name: http
+          protocol: TCP
           port: 8025
           targetPort: 8025
     type: LoadBalancer

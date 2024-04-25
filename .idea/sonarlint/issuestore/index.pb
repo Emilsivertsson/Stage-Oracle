@@ -5403,3 +5403,7 @@ L
 kubenetes/mysql-service.yaml,2\f\2ffc7103dc9e9423111d1e5696b85a3d28260e04
 O
 kubenetes/mysql-deployment.yaml,a\2\a2379eeafadef19541f7bc03f6127181b6aa76de
+O
+kubenetes/masterdepolyment.yaml,5\2\5230c7f486d14dd8ec4c691b62ab0f148acb9f56
+P
+ kubenetes/master-deployment.yaml,a\8\a84ae34256df0f6011d884bfa55a0484d64366cf
