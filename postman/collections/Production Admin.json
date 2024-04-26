@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "7035f924-7d26-40f4-ad62-1407604da07e",
+		"_postman_id": "d0dfe71f-0caf-4aba-b704-ed10d9bfdfa7",
 		"name": "Production Admin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "27137666-7035f924-7d26-40f4-ad62-1407604da07e"
+		"_uid": "27137666-d0dfe71f-0caf-4aba-b704-ed10d9bfdfa7"
 	},
 	"item": [
 		{
 			"name": "get one user",
-			"id": "82e5dad7-e3a5-4abc-97fd-fd883010c3ca",
+			"id": "3e99ce77-45ff-4341-b7b0-b04a8f6d7b43",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -18,7 +18,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTIyMTc1MjksImlhdCI6MTcxMjEzMTEyOSwicm9sZXMiOiJBRE1JTiJ9.Gk47yS9ilxYMF_Gf1SB7XzAShQ-5iy5MD-dbjEXpDLSS8ctSwCDs6nsKqUCodtOKiaHv-xSOsywAuEQ90HyoFcLU58_15NLo6NVozwo3oxoIJ-H-HXQzuIwKDONbnIlWpylSPJAPysUGcg0ViMt_8TiiYvj43QK2Qk_r-3PJYtUmiN1o2QbVOitJNImYOL5OIeoA81hYYh_FSyYsgI1fbCOsXLiSiVg3lvnnAM0NZz1o7ZUk7BjHYmwlurrkb4mvPKY5mARlHjFPALtVKq5KIrdJ1_r49qcNhVkINfaNwDNRBRe15nGSXJPqIeyf32FSEjEWhUl0V8vUUt3rwRWuEw",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTI2NTA2MDMsImlhdCI6MTcxMjU2NDIwMywicm9sZXMiOiJBRE1JTiJ9.Uu-bz91Y4OlPyuzlKLS7f16mqkBSUfhdT8AaS2N4KM9RmploQjhtWTzwYfe-V8Q3gXN_rqHQQexZGSsiBud_zpE41qiRS5khvAuFwxXW_KaawlVZptf0lJ7Ka22bT5ft3kxtM3brSqPEVHcrXMgLKwjNCI3qmsVunEuUboCMij0gRMs3DtPLeC_gdhpmmO8Nrj-SVA7QGXEGl_V2wlXBq5VoS2r7jxkhWSgjYQ0HjFS37ATYWZ8sNVGNCwoGR_ax0dWcaOyozHkewG1Iu55PDauDmMo8aW2g4C-LM7XgZd0_bMd2lATuUF2FNsCdVXYLwdiU9gWJZvP-9Pay71H3GQ",
 							"type": "string"
 						}
 					]
@@ -26,11 +26,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/admin/2",
+					"raw": "{{8081}}/production-api/admin/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"admin",
 						"2"
 					]
@@ -40,7 +41,7 @@
 		},
 		{
 			"name": "get all users",
-			"id": "ea7c7508-34b1-4149-b38c-402c471271f7",
+			"id": "bd8b6ab1-aaa8-4bdd-87a3-842af0b52041",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -50,7 +51,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTIyMzQwOTEsImlhdCI6MTcxMjE0NzY5MSwicm9sZXMiOiJBRE1JTiJ9.mIT_z84Z6Y463vJ-9TEWQF10jkSMX3nWFcZEvk28b3232TASSgCS0zq0NK4o9MgrpEX1XCPu1IJiMUQSJ9py8qzi69mTO4aIF2ouN7biKrIa0WwTTlyZ-3I__fwtofFanEoaOeDNdKy1j8Hpjm2GxIXh85IMww4eLlgUYzJi9u2OExys2t4lalw43gLyP5GgA5BL6lfwZsgbIJ6SDVu2mfoWcJHVWOmCip3wG0kpJlmNhSR8rm6N-3RhtUmRIHA1x9Kg4n_aTfTF_z93mqy0EnCJrYHWgmLaSmEs_Ic5chgQ9pSD6ANDLjzS0p4fvs4ZXkQ_zZbRsOoW_20q7MQdEQ",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTI2NTA2MDMsImlhdCI6MTcxMjU2NDIwMywicm9sZXMiOiJBRE1JTiJ9.Uu-bz91Y4OlPyuzlKLS7f16mqkBSUfhdT8AaS2N4KM9RmploQjhtWTzwYfe-V8Q3gXN_rqHQQexZGSsiBud_zpE41qiRS5khvAuFwxXW_KaawlVZptf0lJ7Ka22bT5ft3kxtM3brSqPEVHcrXMgLKwjNCI3qmsVunEuUboCMij0gRMs3DtPLeC_gdhpmmO8Nrj-SVA7QGXEGl_V2wlXBq5VoS2r7jxkhWSgjYQ0HjFS37ATYWZ8sNVGNCwoGR_ax0dWcaOyozHkewG1Iu55PDauDmMo8aW2g4C-LM7XgZd0_bMd2lATuUF2FNsCdVXYLwdiU9gWJZvP-9Pay71H3GQ",
 							"type": "string"
 						}
 					]
@@ -58,11 +59,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/admin/",
+					"raw": "{{8081}}/production-api/admin/",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"admin",
 						""
 					]
@@ -72,7 +74,7 @@
 		},
 		{
 			"name": "update user",
-			"id": "66c613ba-c3d3-48fa-b943-8bdbda0cfb86",
+			"id": "5a9b851a-e53c-4a93-bac0-59d19d0f4e19",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -82,7 +84,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTIyMTc1MjksImlhdCI6MTcxMjEzMTEyOSwicm9sZXMiOiJBRE1JTiJ9.Gk47yS9ilxYMF_Gf1SB7XzAShQ-5iy5MD-dbjEXpDLSS8ctSwCDs6nsKqUCodtOKiaHv-xSOsywAuEQ90HyoFcLU58_15NLo6NVozwo3oxoIJ-H-HXQzuIwKDONbnIlWpylSPJAPysUGcg0ViMt_8TiiYvj43QK2Qk_r-3PJYtUmiN1o2QbVOitJNImYOL5OIeoA81hYYh_FSyYsgI1fbCOsXLiSiVg3lvnnAM0NZz1o7ZUk7BjHYmwlurrkb4mvPKY5mARlHjFPALtVKq5KIrdJ1_r49qcNhVkINfaNwDNRBRe15nGSXJPqIeyf32FSEjEWhUl0V8vUUt3rwRWuEw",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTI2NTA2MDMsImlhdCI6MTcxMjU2NDIwMywicm9sZXMiOiJBRE1JTiJ9.Uu-bz91Y4OlPyuzlKLS7f16mqkBSUfhdT8AaS2N4KM9RmploQjhtWTzwYfe-V8Q3gXN_rqHQQexZGSsiBud_zpE41qiRS5khvAuFwxXW_KaawlVZptf0lJ7Ka22bT5ft3kxtM3brSqPEVHcrXMgLKwjNCI3qmsVunEuUboCMij0gRMs3DtPLeC_gdhpmmO8Nrj-SVA7QGXEGl_V2wlXBq5VoS2r7jxkhWSgjYQ0HjFS37ATYWZ8sNVGNCwoGR_ax0dWcaOyozHkewG1Iu55PDauDmMo8aW2g4C-LM7XgZd0_bMd2lATuUF2FNsCdVXYLwdiU9gWJZvP-9Pay71H3GQ",
 							"type": "string"
 						}
 					]
@@ -99,11 +101,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/admin/2",
+					"raw": "{{8081}}/production-api/admin/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"admin",
 						"2"
 					]
@@ -113,7 +116,7 @@
 		},
 		{
 			"name": "delete user",
-			"id": "0bb53350-1fb7-4f92-b799-b91fad655a49",
+			"id": "38f88d55-c0e1-4251-8d9a-b3223a9b72c9",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -123,7 +126,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTIyMTc1MjksImlhdCI6MTcxMjEzMTEyOSwicm9sZXMiOiJBRE1JTiJ9.Gk47yS9ilxYMF_Gf1SB7XzAShQ-5iy5MD-dbjEXpDLSS8ctSwCDs6nsKqUCodtOKiaHv-xSOsywAuEQ90HyoFcLU58_15NLo6NVozwo3oxoIJ-H-HXQzuIwKDONbnIlWpylSPJAPysUGcg0ViMt_8TiiYvj43QK2Qk_r-3PJYtUmiN1o2QbVOitJNImYOL5OIeoA81hYYh_FSyYsgI1fbCOsXLiSiVg3lvnnAM0NZz1o7ZUk7BjHYmwlurrkb4mvPKY5mARlHjFPALtVKq5KIrdJ1_r49qcNhVkINfaNwDNRBRe15nGSXJPqIeyf32FSEjEWhUl0V8vUUt3rwRWuEw",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3MTI2NTA2MDMsImlhdCI6MTcxMjU2NDIwMywicm9sZXMiOiJBRE1JTiJ9.Uu-bz91Y4OlPyuzlKLS7f16mqkBSUfhdT8AaS2N4KM9RmploQjhtWTzwYfe-V8Q3gXN_rqHQQexZGSsiBud_zpE41qiRS5khvAuFwxXW_KaawlVZptf0lJ7Ka22bT5ft3kxtM3brSqPEVHcrXMgLKwjNCI3qmsVunEuUboCMij0gRMs3DtPLeC_gdhpmmO8Nrj-SVA7QGXEGl_V2wlXBq5VoS2r7jxkhWSgjYQ0HjFS37ATYWZ8sNVGNCwoGR_ax0dWcaOyozHkewG1Iu55PDauDmMo8aW2g4C-LM7XgZd0_bMd2lATuUF2FNsCdVXYLwdiU9gWJZvP-9Pay71H3GQ",
 							"type": "string"
 						}
 					]
@@ -131,11 +134,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/admin/2",
+					"raw": "{{8081}}/production-api/admin/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"admin",
 						"2"
 					]

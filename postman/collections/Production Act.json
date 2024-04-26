@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "8c31d7a3-79c2-4bd9-9b82-34c14d1a95f5",
+		"_postman_id": "aebd0f98-fadb-44fb-813c-9f52969eaaf9",
 		"name": "Production Act",
 		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "27137666-8c31d7a3-79c2-4bd9-9b82-34c14d1a95f5"
+		"_uid": "27137666-aebd0f98-fadb-44fb-813c-9f52969eaaf9"
 	},
 	"item": [
 		{
@@ -13,7 +13,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "81b33212-90b1-461f-98ec-8af1922c673f",
+						"id": "ccb3a0f5-d938-42f0-bd5a-210b3c9d9d8d",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -24,7 +24,7 @@
 					}
 				}
 			],
-			"id": "50dce98d-c76e-4222-b563-3c043edb0ac3",
+			"id": "0db7baad-ff66-4dad-aa8d-a11543434243",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -34,7 +34,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{UserToken}}",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxMzM4MTUwMCwiaWF0IjoxNzEzMjk1MTAwLCJyb2xlcyI6IlVTRVIifQ.m1MVgcrTSFEegedzTuJ2C0orPkso_trldO8sFH3BmKqvOI67YrtarJYBBc51O2U9pdmEBNnWD2eTCk6iYHi3PpSYL0YB9u5CvkzDOS0AQlxfQeegkpN0BFpbHDyaP6eIFplqH2huutG3qXWCgZiG-bLEWmj69NO8IpP0jcNRPcFISbZ9eoo1sxsmY_e0im1gIxQekPY4pTgxqN1QqnUfJ346tzqPGnLdqmc-uigdOQg9FZbHg77F2g-Hjar99muldXLhC7FKIWU3cPgghBs7gAPsv3pxTNX3W9Xko7Zm46e5_r-ZTJM3D_395POGjs6MeiucS1MxMaQYIFpUyorV9A",
 							"type": "string"
 						}
 					]
@@ -42,11 +42,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/acts/performer/1",
+					"raw": "{{8081}}/production-api/acts/performer/1",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"acts",
 						"performer",
 						"1"
@@ -62,7 +63,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7f8e760a-f463-4313-a0c1-73d3e135e04a",
+						"id": "efdd85e0-34e1-45ea-8428-540a09625d83",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -73,7 +74,7 @@
 					}
 				}
 			],
-			"id": "f35e3761-5a37-40df-9edd-5f2938270db9",
+			"id": "e44c1d02-0698-4c35-a07e-c1ca69ab2b20",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -91,11 +92,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/acts/1",
+					"raw": "{{8081}}/production-api/acts/1",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"acts",
 						"1"
 					]
@@ -110,7 +112,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "50a0ef87-d0ef-4437-b6f1-99f8449da169",
+						"id": "590cf633-07c4-4aad-83de-2538fbd7f7a3",
 						"exec": [
 							"pm.test(\"Successful POST request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
@@ -122,7 +124,7 @@
 					}
 				}
 			],
-			"id": "e80a56db-b3de-41dd-b379-0009c626026b",
+			"id": "af53ddd1-9895-473d-ad03-427e479467dd",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -149,11 +151,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/acts/1",
+					"raw": "{{8081}}/production-api/acts/1",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"acts",
 						"1"
 					]
@@ -168,7 +171,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "12afa1ce-a19b-4677-a863-1231960aa1ed",
+						"id": "d04be28c-af75-40ee-94b2-ded82130865a",
 						"exec": [
 							"pm.test(\"Successful PUT request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
@@ -180,7 +183,7 @@
 					}
 				}
 			],
-			"id": "51b29d9f-25d9-4bb7-97fe-8756f91ab3bc",
+			"id": "a86fca6f-6bd6-427f-9367-69bcc7664227",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -207,11 +210,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/acts/3",
+					"raw": "{{8081}}/production-api/acts/3",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"acts",
 						"3"
 					]
@@ -226,7 +230,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7da09c85-898b-4692-9885-12a7748fa3a6",
+						"id": "ac4aae65-16c1-422e-894a-258c4cdbca2e",
 						"exec": [
 							"pm.test(\"Successful DELETE request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
@@ -238,7 +242,7 @@
 					}
 				}
 			],
-			"id": "487e6c35-28e6-460a-b7a3-f647becad16e",
+			"id": "441143d7-e920-432b-a11a-7efd6be63c04",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -265,11 +269,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/acts/3",
+					"raw": "{{8081}}/production-api/acts/3",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"acts",
 						"3"
 					]
@@ -287,7 +292,7 @@
 				"exec": [
 					""
 				],
-				"id": "0f356eb4-97af-4f18-b75b-085dc0c742f8"
+				"id": "718fa025-ce52-4c3a-8bb1-42d7ac825e29"
 			}
 		},
 		{
@@ -297,18 +302,18 @@
 				"exec": [
 					""
 				],
-				"id": "1e237912-0440-4c72-83b3-05336134148e"
+				"id": "85d80285-bc52-4ad2-82a2-59fac151ef85"
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "2ae0d871-ef50-4255-a130-dec379bf39a5",
+			"id": "0e7dfc06-c619-49d0-8eee-8ea4c7a20019",
 			"key": "id",
 			"value": "1"
 		},
 		{
-			"id": "a20025e8-2198-451d-b3a0-e005f7fe9367",
+			"id": "3d871ddc-04be-457a-a349-a65c8d67166a",
 			"key": "base_url",
 			"value": "https://postman-rest-api-learner.glitch.me/"
 		}

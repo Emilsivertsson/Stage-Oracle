@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6988ed25-7d65-49d0-977f-eae898546fae",
+		"_postman_id": "8f83a633-b7af-4102-8a27-50eb94beabb4",
 		"name": "Production Auth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "27137666-6988ed25-7d65-49d0-977f-eae898546fae"
+		"_uid": "27137666-8f83a633-b7af-4102-8a27-50eb94beabb4"
 	},
 	"item": [
 		{
@@ -12,7 +12,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "301bb71d-3adc-472f-8ca2-0ac818ecd3c3",
+						"id": "eb2e1d20-4244-4aa2-b052-3343be1e3f90",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -23,7 +23,7 @@
 					}
 				}
 			],
-			"id": "06b91e73-98ff-41bd-ae76-e160dcbef11c",
+			"id": "9474a413-d061-4b4d-b974-6b06ce10ddc7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -40,11 +40,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/auth/register",
+					"raw": "{{8081}}/production-api/auth/register",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"auth",
 						"register"
 					]
@@ -59,7 +60,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f655e76c-3029-4058-955d-404fa4b72461",
+						"id": "0f9a3d21-03d4-4176-8caf-0fec45f6e400",
 						"exec": [
 							"pm.test(\"Successful POST request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
@@ -71,7 +72,7 @@
 					}
 				}
 			],
-			"id": "501377ca-4be0-4de5-9b32-dacd58864350",
+			"id": "d91b05d8-0019-41b3-8474-78c0f1ac7d77",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -88,11 +89,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/auth/login",
+					"raw": "{{8081}}/production-api/auth/login",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"auth",
 						"login"
 					]
@@ -107,7 +109,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "488c354c-aa0f-4020-8d9f-94f437746f9a",
+						"id": "e8daff01-ce46-43cd-a37f-8dc18f524541",
 						"exec": [
 							"pm.test(\"Successful POST request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
@@ -119,7 +121,7 @@
 					}
 				}
 			],
-			"id": "39ac5889-3fa1-40a1-9146-92ad1377a1bc",
+			"id": "773a63b0-b62e-4d3b-87fc-44f5cd9ab80c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -136,11 +138,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/auth/login",
+					"raw": "{{8081}}/production-api/auth/login",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"auth",
 						"login"
 					]
@@ -151,7 +154,7 @@
 		},
 		{
 			"name": "Is Authenticated",
-			"id": "b14855a3-270e-4487-9ef2-d3f4f05e6313",
+			"id": "00e7a79b-9e01-434d-9ad0-a0aac81bdad8",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -168,11 +171,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/auth/isAuthenticated",
+					"raw": "{{8081}}/production-api/auth/isAuthenticated",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"auth",
 						"isAuthenticated"
 					]
@@ -195,7 +199,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "38cc270f-4856-434f-9a1d-ab9b45c85494",
+				"id": "c824b63a-2038-4474-9da6-03ff0fc9105f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -206,7 +210,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fd216ddb-25e9-4e88-8186-34c053554a76",
+				"id": "a8258ecb-f404-4bc1-a46b-ba5f88cc4706",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -217,7 +221,7 @@
 	],
 	"variable": [
 		{
-			"id": "9a301362-832f-40ba-9de3-d7c9633424c9",
+			"id": "bc494e07-db1c-4acf-b50a-1a9e92f45e63",
 			"key": "id",
 			"value": "2",
 			"type": "string"

@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "e0c03b84-7fa1-4663-a465-b2ead650a81f",
+		"_postman_id": "a9d8b02e-b9f1-4720-adbd-c3574fda6b8b",
 		"name": "Registation Admin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "27137666-e0c03b84-7fa1-4663-a465-b2ead650a81f"
+		"_uid": "27137666-a9d8b02e-b9f1-4720-adbd-c3574fda6b8b"
 	},
 	"item": [
 		{
 			"name": "get one user",
-			"id": "493426da-ff7e-4993-8baa-60fdc75a1526",
+			"id": "f7dc8a93-0f4f-42d9-a8ff-4d7d54fd70c5",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -26,11 +26,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8080}}/admin/3",
+					"raw": "{{8080}}/registration-api/admin/3",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"admin",
 						"3"
 					]
@@ -40,7 +41,7 @@
 		},
 		{
 			"name": "get all users",
-			"id": "0a94cd9c-0543-4ebf-b3f0-2fc4b41abe07",
+			"id": "34f742cc-e9be-4b1c-9ad6-bdb6d4e0a30e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -58,11 +59,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8080}}/admin/",
+					"raw": "{{8080}}/registration-api/admin/",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"admin",
 						""
 					]
@@ -72,7 +74,7 @@
 		},
 		{
 			"name": "update user",
-			"id": "8dd979bb-7ab6-4bdb-99a8-78caccafee8e",
+			"id": "891264c9-a26f-4d89-8b35-a794bce01af0",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -99,11 +101,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8080}}/admin/3",
+					"raw": "{{8080}}/registration-api/admin/3",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"admin",
 						"3"
 					]
@@ -113,7 +116,7 @@
 		},
 		{
 			"name": "delete user",
-			"id": "12ca84be-e578-473d-bac0-7d8a4e6e0269",
+			"id": "e71ca4fb-e00c-430f-b3a3-fbb168c14564",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -131,11 +134,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{8080}}/admin/3",
+					"raw": "{{8080}}/registration-api/admin/3",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"admin",
 						"3"
 					]
