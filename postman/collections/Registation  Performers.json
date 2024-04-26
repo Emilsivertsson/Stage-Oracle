@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "81955973-48cc-43cf-b10c-f2f10ce4bf20",
+		"_postman_id": "aeadea6e-e8d6-42bb-9c4b-7165cd84e7dc",
 		"name": "Registation  Performers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "27137666-81955973-48cc-43cf-b10c-f2f10ce4bf20"
+		"_uid": "27137666-aeadea6e-e8d6-42bb-9c4b-7165cd84e7dc"
 	},
 	"item": [
 		{
 			"name": "get one performer",
-			"id": "fc250bee-7e41-4a10-a02a-a09e7f1feaa2",
+			"id": "c4125707-d0f3-45fd-8c75-9488192d7d11",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -18,7 +18,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{Token}}",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxMzI2NjY2NSwiaWF0IjoxNzEzMTgwMjY1LCJyb2xlcyI6IlVTRVIifQ.UrvVyKrw_0ZN4iBpymZsfRza5KRSYjchvATocncXaC3DPTbnhi-v9S3XEc28sgncYgyooNx6kpiow6BIy-viuvAE3jiKPk8HfsjA_xrc8Rt6-yZAgwvNAyBCFxF2XbBpHaO8zvOm9x2h77ZdsAHXJYv089voOHze0WeyXFsisiQQDUp2Ez8OL7HBTOwEF_FY57fWH0ZjbomrJHOGsRv-kYYlsvkrblYBkXd8nLd8jW7QM-RNaPZ44mkaegW0_zdUGAKBFfGSldkfo4Q1ldNm1ilOd2ZnYzgIzxQpiErn8GTubgpiU3LhT5DpbbyQS3t9OO56blYcVPSgEyZnojBFRw",
 							"type": "string"
 						}
 					]
@@ -26,11 +26,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8080}}/performer",
+					"raw": "{{8080}}/registration-api/performer",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"performer"
 					]
 				}
@@ -39,7 +40,7 @@
 		},
 		{
 			"name": "update performer",
-			"id": "a74ae1ef-bd10-4f4d-a018-747e18056cb1",
+			"id": "92f6c918-2222-4233-93e8-a84c00d094ce",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -49,7 +50,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{Token}}",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxMjc0NjA2NSwiaWF0IjoxNzEyNjU5NjY1LCJyb2xlcyI6IlVTRVIifQ.WRKABIdsmchxSybpTvqiKjFx-eRQABEt9uuBqa8d7BHODUK2nCSYB9GsaoW4hj9estr3fSrW4i7UvPzH2Y8fq95s7UrXFbqU1Z2Tzh4U5lwq3Hmh4ruGANZ7VCvNBlVhmtSRbeicaPD2vWU8kl_CCSG7O61N2yL5D4TalPgFg-nAVVH-QayrujBxKJF-__7Kw9wvszl7iSRREVXmkELi-rgQ88gNMJP3cLtDc1U020qZ50dEvp8je43SpCDaCA73ztPIxY1oiUwmvKHPYeoUl-yZkPQintMIRHFRNqR79KQuGl6VreSmcNMpZjxYNrH2QhdydVVsP1HaKQ5P-JQSyA",
 							"type": "string"
 						}
 					]
@@ -66,11 +67,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8080}}/performer",
+					"raw": "{{8080}}/registration-api/performer",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"performer"
 					]
 				}
@@ -79,7 +81,7 @@
 		},
 		{
 			"name": "update performer measurements",
-			"id": "19d25bd0-05ab-4776-8066-2314c2a9151a",
+			"id": "5ec9eb68-383c-4113-9291-6c8ee0a27864",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -89,7 +91,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{Token}}",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxMjc0NjU2MCwiaWF0IjoxNzEyNjYwMTYwLCJyb2xlcyI6IlVTRVIifQ.JgZipZOMfFWTAUd_RGsytDxY0morYmqOTaLVl-7373H6aH-2GcIzlzwSVnZ25Lgc21WAQpuiaiEs6UEGibqre8qlARzs5T2D0dolg-i7xg9DHfwr6zu1c2ecMN5AwU1FSnrIIULbWgUOwktfj_y5Y3Pkfgq299kmZ0HMnEwS_UPu4HcZ0mZ2bm8bre1tqewhd11t-PcoxJ5RijFic_ePu4h-ZP2mqZyGyL7MsRJHT6cmNtr2zBX7sGTcrhrUYrdecJkBqf-woKMcYozLYnZ77PMUuTSkVD5Pg9l8kq-w9l0GuGAN6n7s9JTIh4XosGTQqDNe9eOnQssCP-W1EO1bxg",
 							"type": "string"
 						}
 					]
@@ -106,11 +108,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8080}}/performer/measurements/",
+					"raw": "{{8080}}/registration-api/performer/measurements/",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"performer",
 						"measurements",
 						""
@@ -121,7 +124,7 @@
 		},
 		{
 			"name": "Delete account",
-			"id": "b741f886-0776-4c3d-aa0f-d81eba00646b",
+			"id": "aee9cc95-a193-44d5-8e9c-95b062bff90f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -139,12 +142,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{8080}}/performer",
+					"raw": "{{8080}}/registration-api/performer/measurements/",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
-						"performer"
+						"registration-api",
+						"performer",
+						"measurements",
+						""
 					]
 				}
 			},
@@ -152,7 +158,7 @@
 		},
 		{
 			"name": "get on performer to produktion",
-			"id": "6a67f9bb-522e-4d15-9696-2e99396a72e1",
+			"id": "91bc5564-2eb8-4fc8-b6aa-e66f7f3ed413",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -169,11 +175,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8080}}/toProduction",
+					"raw": "{{8080}}/registration-api/toProduction",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"toProduction"
 					]
 				}
@@ -182,7 +189,7 @@
 		},
 		{
 			"name": "get all performers to produktion",
-			"id": "4b7fc421-2650-4121-96c8-10eeb2015a99",
+			"id": "ddb87a11-abe3-469f-8abf-5c58feb4beb3",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -194,7 +201,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"performerId\": \"0\",\r\n    \"username\": \"user\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -202,11 +209,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8080}}/toProduction/all",
+					"raw": "{{8080}}/registration-api/toProduction/all",
 					"host": [
 						"{{8080}}"
 					],
 					"path": [
+						"registration-api",
 						"toProduction",
 						"all"
 					]
