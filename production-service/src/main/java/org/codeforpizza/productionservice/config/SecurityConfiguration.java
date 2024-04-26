@@ -79,7 +79,7 @@ public class SecurityConfiguration {
                     auth.requestMatchers("/production-api/costume/**").hasAnyRole("ADMIN", "USER");
                     auth.requestMatchers("/production-api/cast/**").hasAnyRole("ADMIN", "USER");
                     auth.requestMatchers("/production-api/manifest/**").hasAnyRole("ADMIN", "USER");
-                    auth.requestMatchers("/production-api/garment/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/garments/**").hasAnyRole("ADMIN", "USER");
 
                     //Swagger
                     auth.requestMatchers("/v3/api-docs/**").permitAll();

@@ -98,6 +98,7 @@ As a Production team member you can:
 - Perform CRUD operations on a production and its underlying structure with cast and acts
 - Import performers to a production* from the Registration API
 - Send Emails to performers
+- see all your unfinished Garments
 
 Both Api:s has Admin roles that can perform all operations, and CRUD operations on the users.
 

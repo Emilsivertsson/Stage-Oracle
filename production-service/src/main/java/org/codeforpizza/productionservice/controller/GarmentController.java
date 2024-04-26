@@ -31,7 +31,7 @@ public class GarmentController {
         }
     }
 
-    @PatchMapping("/{garmentId}")
+    @PutMapping("/garmentStatus/{garmentId}")
     public ResponseEntity<String> updateGarmentStatus(@PathVariable Long garmentId) {
         try {
             log.info("Updating garment status");
