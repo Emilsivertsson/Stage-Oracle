@@ -54,6 +54,21 @@ you cant have a local MySQL database running on your computer or else the applic
 when its up and running you can access the applications at localhost:3000 in your browser.\
 to check the emails that are sent from the application you can access Mailhog at localhost:8025.
 
+## Kubernetes
+The applications can be run in Kubernetes.\
+To do this you need to have a running Kubernetes cluster like Minikube for local development.\
+You also need to have Kubectl installed on your computer.\
+You can run the following commands in the kubernetes folder:
+- `kubectl apply -f master-deployment.yaml`\
+  This will create the deployments and services for the applications.
+- `minikube service production-service`\
+  To start the production-service tunnel and give outside access to the service.
+- `minikube service registration-service`\
+  To start the registration-service tunnel and give outside access to the service.\
+
+you can then update the frontend with the new IP addresses of the services, since the frontend is not running in the cluster.
+
+
 ## Usage
 The APIs are used by the frontend application to manage productions and performers.
 
