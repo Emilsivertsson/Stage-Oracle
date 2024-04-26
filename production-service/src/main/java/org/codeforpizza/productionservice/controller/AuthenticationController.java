@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/production-api/auth")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 @Slf4j

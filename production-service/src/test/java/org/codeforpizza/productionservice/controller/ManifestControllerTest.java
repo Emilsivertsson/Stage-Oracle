@@ -51,7 +51,7 @@ class ManifestControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -71,7 +71,7 @@ class ManifestControllerTest {
                         }
                         """)
                 .when()
-                .post("/manifests/2")
+                .post("/production-api/manifests/2")
                 .then()
                 .statusCode(200);
     }
@@ -89,7 +89,7 @@ class ManifestControllerTest {
                         }
                         """)
                 .when()
-                .put("/manifests/2")
+                .put("/production-api/manifests/2")
                 .then()
                 .statusCode(200);
     }
@@ -101,7 +101,7 @@ class ManifestControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/manifests/2")
+                .delete("/production-api/manifests/2")
                 .then()
                 .statusCode(200);
     }
@@ -112,7 +112,7 @@ class ManifestControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/manifests/2")
+                .get("/production-api/manifests/2")
                 .then()
                 .statusCode(200);
     }
@@ -123,7 +123,7 @@ class ManifestControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/manifests/production/2")
+                .get("/production-api/manifests/production/2")
                 .then()
                 .statusCode(200);
     }

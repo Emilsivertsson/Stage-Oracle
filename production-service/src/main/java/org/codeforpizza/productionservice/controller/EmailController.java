@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @RestController
-@RequestMapping("/email")
+@RequestMapping("/production-api/email")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin("*")

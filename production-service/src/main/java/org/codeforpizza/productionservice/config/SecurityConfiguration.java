@@ -67,19 +67,19 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
 
                     //registation and login
-                    auth.requestMatchers("/auth/**").permitAll();
+                    auth.requestMatchers("/production-api/auth/**").permitAll();
 
                     //admin routes
-                    auth.requestMatchers("/admin/**").hasRole("ADMIN");
+                    auth.requestMatchers("/production-api/admin/**").hasRole("ADMIN");
 
                     //user routes
-                    auth.requestMatchers("/performer/**").hasAnyRole("ADMIN", "USER");
-                    auth.requestMatchers("/production/**").hasAnyRole("ADMIN", "USER");
-                    auth.requestMatchers("/act/**").hasAnyRole("ADMIN", "USER");
-                    auth.requestMatchers("/costume/**").hasAnyRole("ADMIN", "USER");
-                    auth.requestMatchers("/cast/**").hasAnyRole("ADMIN", "USER");
-                    auth.requestMatchers("/manifest/**").hasAnyRole("ADMIN", "USER");
-                    auth.requestMatchers("/garment/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/performer/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/production/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/act/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/costume/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/cast/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/manifest/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/production-api/garment/**").hasAnyRole("ADMIN", "USER");
 
                     //Swagger
                     auth.requestMatchers("/v3/api-docs/**").permitAll();

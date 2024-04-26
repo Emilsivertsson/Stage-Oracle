@@ -50,7 +50,7 @@ class AdminControllerTest {
     void getOneUser() {
         given()
                 .when()
-                .get("/admin/1")
+                .get("/production-api/admin/1")
                 .then()
                 .statusCode(200)
                 .body("username", equalTo("admin"));
@@ -61,7 +61,7 @@ class AdminControllerTest {
     void getAllUsers() {
         given()
                 .when()
-                .get("/admin/")
+                .get("/production-api/admin/")
                 .then()
                 .statusCode(200)
                 .body("size()", equalTo(2));
@@ -75,7 +75,7 @@ class AdminControllerTest {
                 .contentType("application/json")
                 .body(user)
                 .when()
-                .put("/admin/2")
+                .put("/production-api/admin/2")
                 .then()
                 .statusCode(200)
                 .body("username", equalTo("Ben Deg"));
@@ -86,7 +86,7 @@ class AdminControllerTest {
     void deleteUser() {
         given()
                 .when()
-                .delete("/admin/2")
+                .delete("/production-api/admin/2")
                 .then()
                 .statusCode(200)
                 .body(equalTo("User deleted successfully"));

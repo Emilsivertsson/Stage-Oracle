@@ -13,7 +13,7 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/manifests")
+@RequestMapping("/production-api/manifests")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin("*")

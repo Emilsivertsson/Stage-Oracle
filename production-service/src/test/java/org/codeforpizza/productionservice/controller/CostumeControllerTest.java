@@ -51,7 +51,7 @@ class CostumeControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -66,7 +66,7 @@ class CostumeControllerTest {
                 .header("Authorization", "Bearer " + token)
                 .body("{\"name\": \"Create Costume test\"}")
                 .when()
-                .post("/costumes/2")
+                .post("/production-api/costumes/2")
                 .then()
                 .statusCode(200);
     }
@@ -79,7 +79,7 @@ class CostumeControllerTest {
                 .header("Authorization", "Bearer " + token)
                 .body("{\"name\": \"Update Costume test\"}")
                 .when()
-                .put("/costumes/2")
+                .put("/production-api/costumes/2")
                 .then()
                 .statusCode(200);
     }
@@ -91,7 +91,7 @@ class CostumeControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/costumes/2")
+                .delete("/production-api/costumes/2")
                 .then()
                 .statusCode(200);
     }
@@ -102,7 +102,7 @@ class CostumeControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/costumes/2")
+                .get("/production-api/costumes/2")
                 .then()
                 .statusCode(200)
                 .body("name", equalTo("Update Costume test"));
@@ -114,7 +114,7 @@ class CostumeControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/costumes/act/2")
+                .get("/production-api/costumes/act/2")
                 .then()
                 .statusCode(200);
 

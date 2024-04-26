@@ -37,7 +37,7 @@ public class HttpService {
     public PerformerResponsDTO getPerformer(GetPerformerRequestDTO getPerformerRequestDTO) throws IOException, ParseException {
         log.info("sending request to performer service");
         log.info("url: {}/toProduction", registrationServiceUrl);
-        HttpGet request = new HttpGet(registrationServiceUrl + "/toProduction");
+        HttpGet request = new HttpGet(registrationServiceUrl + "/registration-api/toProduction");
 
         request.setEntity(HttpUtils.createPayload(getPerformerRequestDTO));
 
@@ -59,7 +59,7 @@ public class HttpService {
 
     public List<PerformerResponsDTO> getAllPerformers( ) throws IOException, ParseException {
         log.info("sending request to get all performers");
-        HttpGet request = new HttpGet( registrationServiceUrl + "/toProduction/all");
+        HttpGet request = new HttpGet( registrationServiceUrl + "/registration-api/toProduction/all");
 
 
         CloseableHttpResponse response = httpClient.execute(request);

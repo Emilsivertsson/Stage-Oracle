@@ -52,7 +52,7 @@ class AuthenticationControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"kalle\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/register")
+                .post("/production-api/auth/register")
                 .then()
                 .statusCode(200);
     }
@@ -64,7 +64,7 @@ class AuthenticationControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"kalle\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200);
     }
@@ -75,7 +75,7 @@ class AuthenticationControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"kalle\"}")
                 .when()
-                .get("/auth/isAuthenticated")
+                .get("/production-api/auth/isAuthenticated")
                 .then()
                 .statusCode(200);
     }

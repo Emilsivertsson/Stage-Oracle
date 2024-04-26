@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/performers")
+@RequestMapping("/production-api/performers")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin("*")

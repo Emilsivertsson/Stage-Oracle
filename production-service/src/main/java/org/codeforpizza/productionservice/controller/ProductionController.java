@@ -14,7 +14,7 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/productions")
+@RequestMapping("/production-api/productions")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin("*")

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/production-api/admin")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin("*")

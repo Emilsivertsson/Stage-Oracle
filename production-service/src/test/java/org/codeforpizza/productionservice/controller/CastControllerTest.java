@@ -51,7 +51,7 @@ class CastControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -70,7 +70,7 @@ class CastControllerTest {
                         }
                         """)
                 .when()
-                .post("/casts/2")
+                .post("/production-api/casts/2")
                 .then()
                 .statusCode(200);
     }
@@ -87,7 +87,7 @@ class CastControllerTest {
                         }
                         """)
                 .when()
-                .put("/casts/2")
+                .put("/production-api/casts/2")
                 .then()
                 .statusCode(200);
     }
@@ -99,7 +99,7 @@ class CastControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/casts/2")
+                .delete("/production-api/casts/2")
                 .then()
                 .statusCode(200);
     }
@@ -110,7 +110,7 @@ class CastControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/casts/2")
+                .get("/production-api/casts/2")
                 .then()
                 .statusCode(200);
     }
@@ -121,7 +121,7 @@ class CastControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/casts/manifest/2")
+                .get("/production-api/casts/manifest/2")
                 .then()
                 .statusCode(200);
     }

@@ -52,7 +52,7 @@ class ProductionControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -73,7 +73,7 @@ class ProductionControllerTest {
                             "description": "This is a test-Production"
                         }""")
                 .when()
-                .post("/productions")
+                .post("/production-api/productions")
                 .then()
                 .statusCode(200);
 
@@ -86,7 +86,7 @@ class ProductionControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/productions/2")
+                .delete("/production-api/productions/2")
                 .then()
                 .statusCode(200);
     }
@@ -105,7 +105,7 @@ class ProductionControllerTest {
                             "description": "Updating description for test-Production"
                         }""")
                 .when()
-                .put("/productions/2")
+                .put("/production-api/productions/2")
                 .then()
                 .statusCode(200);
     }
@@ -117,7 +117,7 @@ class ProductionControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .get("/productions/2")
+                .get("/production-api/productions/2")
                 .then()
                 .statusCode(200);
     }
@@ -129,7 +129,7 @@ class ProductionControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .get("/productions")
+                .get("/production-api/productions")
                 .then()
                 .statusCode(200);
     }

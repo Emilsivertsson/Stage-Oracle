@@ -50,7 +50,7 @@ class GarmentControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -70,7 +70,7 @@ class GarmentControllerTest {
                         }
                         """)
                 .when()
-                .post("/garments/2")
+                .post("/production-api/garments/2")
                 .then()
                 .statusCode(200);
     }
@@ -88,7 +88,7 @@ class GarmentControllerTest {
                         }
                         """)
                 .when()
-                .put("/garments/2")
+                .put("/production-api/garments/2")
                 .then()
                 .statusCode(200);
     }
@@ -100,7 +100,7 @@ class GarmentControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/garments/2")
+                .delete("/production-api/garments/2")
                 .then()
                 .statusCode(200);
     }
@@ -111,7 +111,7 @@ class GarmentControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/garments/2")
+                .get("/production-api/garments/2")
                 .then()
                 .statusCode(200);
     }
@@ -122,7 +122,7 @@ class GarmentControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/garments/costume/2")
+                .get("/production-api/garments/costume/2")
                 .then()
                 .statusCode(200);
     }

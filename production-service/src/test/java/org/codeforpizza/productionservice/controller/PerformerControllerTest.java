@@ -65,7 +65,7 @@ class PerformerControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -89,7 +89,7 @@ class PerformerControllerTest {
                         }
                         """)
                 .when()
-                .post("/performers/2")
+                .post("/production-api/performers/2")
                 .then()
                 .statusCode(200);
     }
@@ -100,7 +100,7 @@ class PerformerControllerTest {
         given()
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/performers/2")
+                .delete("/production-api/performers/2")
                 .then()
                 .statusCode(200);
     }
@@ -111,7 +111,7 @@ class PerformerControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/performers/2")
+                .get("/production-api/performers/2")
                 .then()
                 .statusCode(200);
     }
@@ -122,7 +122,7 @@ class PerformerControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/performers/cast/2")
+                .get("/production-api/performers/cast/2")
                 .then()
                 .statusCode(200);
     }

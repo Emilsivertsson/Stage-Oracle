@@ -52,7 +52,7 @@ class ActControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/production-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -71,7 +71,7 @@ class ActControllerTest {
                         }
                         """)
                 .when()
-                .post("/acts/2")
+                .post("/production-api/acts/2")
                 .then()
                 .statusCode(200);
     }
@@ -88,7 +88,7 @@ class ActControllerTest {
                         }
                         """)
                 .when()
-                .put("/acts/2")
+                .put("/production-api/acts/2")
                 .then()
                 .statusCode(200);
     }
@@ -100,7 +100,7 @@ class ActControllerTest {
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .delete("/acts/2")
+                .delete("/production-api/acts/2")
                 .then()
                 .statusCode(200);
     }
@@ -111,7 +111,7 @@ class ActControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/acts/2")
+                .get("/production-api/acts/2")
                 .then()
                 .statusCode(200);
     }
@@ -122,7 +122,7 @@ class ActControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/acts/performer/1")
+                .get("/production-api/acts/performer/1")
                 .then()
                 .statusCode(200);
     }
