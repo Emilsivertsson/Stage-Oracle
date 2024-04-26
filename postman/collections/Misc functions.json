@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "11d52fff-e2c8-4f2a-8544-f01f86454046",
+		"name": "Misc functions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27137666-11d52fff-e2c8-4f2a-8544-f01f86454046"
+	},
+	"item": [
+		{
+			"name": "send email",
+			"id": "0c64beb0-0510-44d7-a218-758c19492377",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxNDA0NTI4OSwiaWF0IjoxNzEzOTU4ODg5LCJyb2xlcyI6IlVTRVIifQ.glLbz5-CEopZUWNkZrr4SWuFN0-Qv14GAKGOsmfSQIlu6rVeDjlc-ubcsny1j4HGqG0cSTJAQB5rauGMom-gXad4RBN9UllRmTVBgph20Zqo9WOzgzLsi_W68MeWEAV2XBUcqDrAF6Q032uID4cJo0Kt3e_JbIpR4uk6BKoW2fcpOs9CCw3k1UUxUt9STYEneE_Fl4LT-CW5ENJfn2NRgR4BXwS07TJw0hV0EIH8g7MIlXP3iSMecEic8nU5A985ScmZh_8GIKafbGRTlltxbYcVRzUeDaXqH1zizGYjVBwsbYF4quTxXKXdGrjiah9-dXVuS8jOlvthK_lSQsLY7A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"adress\": \"test@test.com\",\r\n    \"subject\": \"please come to us!\",\r\n    \"body\": \"we want your attention\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{8081}}/production-api/email/send",
+					"host": [
+						"{{8081}}"
+					],
+					"path": [
+						"production-api",
+						"email",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all garments in produktion",
+			"id": "ce28dca5-d3de-4485-b6b8-cf08ed47a739",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxNDA3MDkxOCwiaWF0IjoxNzEzOTg0NTE4LCJyb2xlcyI6IlVTRVIifQ.ie2bovKke469hB_5_CDWH0ER60tfLpMqEamkRHPH1xGuz8hTl5rXiwY93z1CIAPBAgWZMtohNnHOCUyob6WO3XmSXhQpimLhkUejT_ZwBaRVfoSMyhVesIDExsKeev2TL5PhGE5-mVVBVEhyd-R2Mtn3jH-tju6eCGnsh5c9BVfPpWwxWpDzdSzBezu3zkiqBpYGQDcqoCPxFWfRv5ksY-YQhimp43GAA7C1GmMynhEG5sQ15CN9kcoenhvDzdaGnpUDNem4znnC0_Uty1vVR6HNMCPKD4D5INJ--PnVV8By72xbYYgM2fR52WZ_hPRSsfjL24SOFQpsse3Fc9M4bA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{8081}}/production-api/productions/allGarmentsTodo/2",
+					"host": [
+						"{{8081}}"
+					],
+					"path": [
+						"production-api",
+						"productions",
+						"allGarmentsTodo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "toggle garment done",
+			"id": "ebf03afa-4855-4749-9c78-82f26b908640",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxNDA3MDkxOCwiaWF0IjoxNzEzOTg0NTE4LCJyb2xlcyI6IlVTRVIifQ.ie2bovKke469hB_5_CDWH0ER60tfLpMqEamkRHPH1xGuz8hTl5rXiwY93z1CIAPBAgWZMtohNnHOCUyob6WO3XmSXhQpimLhkUejT_ZwBaRVfoSMyhVesIDExsKeev2TL5PhGE5-mVVBVEhyd-R2Mtn3jH-tju6eCGnsh5c9BVfPpWwxWpDzdSzBezu3zkiqBpYGQDcqoCPxFWfRv5ksY-YQhimp43GAA7C1GmMynhEG5sQ15CN9kcoenhvDzdaGnpUDNem4znnC0_Uty1vVR6HNMCPKD4D5INJ--PnVV8By72xbYYgM2fR52WZ_hPRSsfjL24SOFQpsse3Fc9M4bA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{8081}}/production-api/garments/5",
+					"host": [
+						"{{8081}}"
+					],
+					"path": [
+						"production-api",
+						"garments",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

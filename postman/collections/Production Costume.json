@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "9d61f97e-c085-472d-a464-944beb28099b",
+		"_postman_id": "cb22dd49-7105-474e-ab29-ef12778c2847",
 		"name": "Production Costume",
 		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "27137666-9d61f97e-c085-472d-a464-944beb28099b"
+		"_uid": "27137666-cb22dd49-7105-474e-ab29-ef12778c2847"
 	},
 	"item": [
 		{
@@ -13,7 +13,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9a97465a-a03d-4cab-9dc0-055e0323f79a",
+						"id": "a171a2bb-2e72-4094-b731-575166b3772d",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -24,7 +24,7 @@
 					}
 				}
 			],
-			"id": "a4813036-e6c4-4a11-b154-4ad4730cc01f",
+			"id": "115b5749-7602-4217-9143-fc34acfbe063",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -42,11 +42,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/costumes/2",
+					"raw": "{{8081}}/production-api/costumes/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"costumes",
 						"2"
 					]
@@ -61,7 +62,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4e411c27-d216-4396-9277-8f4811dfa002",
+						"id": "15ce1611-99ec-4331-b847-b39041adc4a6",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -72,7 +73,7 @@
 					}
 				}
 			],
-			"id": "d4b42e11-f14f-4bd1-824d-4651a6c834f0",
+			"id": "cf574082-0fe7-4ad4-a053-b77fab8902dd",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -82,7 +83,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{UserToken}}",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxMzAzNjg3NCwiaWF0IjoxNzEyOTUwNDc0LCJyb2xlcyI6IlVTRVIifQ.olsZPqTPEnTtavC-UCWMCU1SxPp1iCz0RhOIIDZ9BFg3ieET5-3FildfflcFiqt08ykrTuO_9X0zlHAFoW8ly9WJGextS7CG3Nh2dxBZFnveUnPDZbANmQUr4nnWiP0paRkVyKZJrrQGhSlGMvjYdnFL0b_XhFVKWnpj0rCCok251bBHsFZUyJ2pyIrCZMto-sQ8y1Vbia_PL7G0HTRBJ8g-oLQXOTXUIUeMQ-RP21vb2pJRJexjaT5npCYC9ZZ4tyvs8sPolu1LC_mCJGQhPoHhYXCROrcwRtVmYp5oIZduhJ4nZIi70J8w_-4RRs1oP2F0dgzkik6NrUdyaSLwEg",
 							"type": "string"
 						}
 					]
@@ -90,11 +91,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/costumes/act/2",
+					"raw": "{{8081}}/production-api/costumes/act/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"costumes",
 						"act",
 						"2"
@@ -110,7 +112,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "11a5f28a-61f4-4a1c-9f6c-a23e6ed4d3d5",
+						"id": "33ffe613-95d3-4adf-97b9-743e0f0f0df1",
 						"exec": [
 							"pm.test(\"Successful POST request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
@@ -122,7 +124,7 @@
 					}
 				}
 			],
-			"id": "aec9d88c-69ec-4ada-bb0f-a0a7cfda03e1",
+			"id": "41e7a3a6-38f9-4e4c-9c00-af761e08ddae",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -149,11 +151,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/costumes/2",
+					"raw": "{{8081}}/production-api/costumes/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"costumes",
 						"2"
 					]
@@ -168,7 +171,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6a0d1df3-088f-4d4c-813b-e3b2fc7a0f0f",
+						"id": "2ba8be60-1fa7-4463-8ed1-0d402e36262c",
 						"exec": [
 							"pm.test(\"Successful PUT request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
@@ -180,7 +183,7 @@
 					}
 				}
 			],
-			"id": "d4fbcff4-0f72-45c8-a4d1-631f08b087f8",
+			"id": "1646dbda-ef02-4945-9396-80a88709a13e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -207,11 +210,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/costumes/2",
+					"raw": "{{8081}}/production-api/costumes/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"costumes",
 						"2"
 					]
@@ -226,7 +230,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b117add4-5ef6-495c-b74c-e240333d7769",
+						"id": "c951d308-b714-4202-b79e-c636aeb60887",
 						"exec": [
 							"pm.test(\"Successful DELETE request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
@@ -238,7 +242,7 @@
 					}
 				}
 			],
-			"id": "88444317-d1cf-4d1e-a059-2af41b162497",
+			"id": "badebb34-7de7-4c59-b0ab-eea5e7548e73",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -265,11 +269,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/costumes/3",
+					"raw": "{{8081}}/production-api/costumes/3",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"costumes",
 						"3"
 					]
@@ -287,7 +292,7 @@
 				"exec": [
 					""
 				],
-				"id": "8e2f7321-509b-4813-8a01-103dc10b6d56"
+				"id": "0b21fa6c-1100-4076-a164-daab24f06009"
 			}
 		},
 		{
@@ -297,18 +302,18 @@
 				"exec": [
 					""
 				],
-				"id": "9f552559-469f-4b9d-b0de-4d4ec825f585"
+				"id": "dbb91928-a7ca-41ce-8a1b-7ba8ce5891ab"
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "02a03527-f6b4-4887-bc5d-b46ad94518b0",
+			"id": "807de343-5a70-4077-94bf-87c5c0631b5e",
 			"key": "id",
 			"value": "1"
 		},
 		{
-			"id": "c75cf666-44f7-47ee-8b64-75104bb72ea8",
+			"id": "736bfc0a-4578-43b1-9710-8dac468828d4",
 			"key": "base_url",
 			"value": "https://postman-rest-api-learner.glitch.me/"
 		}

@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "9ff792f0-d86f-40bf-b7dd-7cde944d26b8",
+		"_postman_id": "a93d2567-ed53-4f9b-8864-745ac1905025",
 		"name": "Production Garment",
 		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "27137666-9ff792f0-d86f-40bf-b7dd-7cde944d26b8"
+		"_uid": "27137666-a93d2567-ed53-4f9b-8864-745ac1905025"
 	},
 	"item": [
 		{
@@ -13,7 +13,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "35ec9b46-1395-420e-932f-0d384d9d88d1",
+						"id": "e5c07830-2ee0-483e-8718-a3ea083ae43c",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -24,7 +24,7 @@
 					}
 				}
 			],
-			"id": "2229eaed-1817-44dd-96fb-9e577aa86d2c",
+			"id": "0d882318-292e-42ba-8eea-14f7b24b66df",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -42,11 +42,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/garments/2",
+					"raw": "{{8081}}/production-api/garments/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"garments",
 						"2"
 					]
@@ -61,7 +62,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4caed4ce-a865-4eec-a25d-15e90f82be29",
+						"id": "43c74857-03e5-4ace-bc83-31f00934cb3a",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -72,7 +73,7 @@
 					}
 				}
 			],
-			"id": "bcd98a6a-8fa4-4fc2-8afa-f1460f6feb69",
+			"id": "ecc67665-9ff4-4d3a-8a83-25c6f0e6b86c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -82,7 +83,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{UserToken}}",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxNDA3MDI0MywiaWF0IjoxNzEzOTgzODQzLCJyb2xlcyI6IlVTRVIifQ.JLbHHYEjLLe2Xu6AR_0CTwmOc_ZW8P48mx-PdDm4rSihgaPz8OABgveYZexddeVhfQwlSP3N0tO-Noh3ZmuqFRZm7jGVy_u9dg4K7ExXvaNOhcG1yyyNjVex2NQqe4hPp_eB6slSgbORw67YEXqtyjLhNpwg262fcfe_fRiomasUCNs8NjC9AMUfM06MME_xV7wZFY9q01lIWwrN_g_eHOkZjRSg_EA7754AI9qRSBlBJfZ2QaCpzB66ugh6VsxnVokmis9-WpCIT7gN3bEjnL-Gdk5v-81C_YIOoroOHo5JvnMNeT-TDgWE74HldvXkseaNiWhUjumwXccCSGy3eg",
 							"type": "string"
 						}
 					]
@@ -90,11 +91,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{8081}}/garments/costume/2",
+					"raw": "{{8081}}/production-api/garments/costume/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"garments",
 						"costume",
 						"2"
@@ -110,7 +112,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5200f889-959c-4236-8870-e438575a7dce",
+						"id": "e8bed058-c3a5-4d93-91d7-f44806efd355",
 						"exec": [
 							"pm.test(\"Successful POST request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
@@ -122,7 +124,7 @@
 					}
 				}
 			],
-			"id": "9b282646-429e-4a62-b305-c7f409923d16",
+			"id": "1f29773e-52c3-4ff1-978c-1e330ddad811",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -132,7 +134,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{UserToken}}",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidXNlciIsImV4cCI6MTcxNDA3MDM0MCwiaWF0IjoxNzEzOTgzOTQwLCJyb2xlcyI6IlVTRVIifQ.s0OEoOAdTNMK37yfMmeK1qq_fFUsryBBM578MNxICfl9KzMXPCpXIT7Nw6qXJ9eP7unTucBeCkaFPS4pSBGkK94RrMTCkgBgd9PgVyXJauGtK_db5odIaU5DZWIV1l3zwwHSgxHmu0-b1swjudsC10fzdq_Au7Ae9bCl4VSVxPa9LIuQz81yX_XIfVlOta6gvESord4sIklW4Uo-ezXR3DDrvQaQiBWen-eCHa1mMWoTkZYyZHEiYok7vXApEk_y5GJFzA4raQe61RHa7u0WYlNkVWHk_I2cQ6Uk9VHwZ7uPwk-40_TlZFGTeV3RIJwV_L2EvAh0JUp_vXgql5CYDg",
 							"type": "string"
 						}
 					]
@@ -141,7 +143,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Creating a Garment Test\",\n    \"description\": \"description for test\"\n}",
+					"raw": "{\n\t\"name\": \"Creating a Garment Test\",\n    \"description\": \"description for test\",\n    \"isDone\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -149,11 +151,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/garments/2",
+					"raw": "{{8081}}/production-api/garments/2",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"garments",
 						"2"
 					]
@@ -168,7 +171,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "55f473ac-32f3-4434-a2d8-c81a5976c0c5",
+						"id": "84a346c7-855a-4636-ae49-52d3f4830524",
 						"exec": [
 							"pm.test(\"Successful PUT request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
@@ -180,7 +183,7 @@
 					}
 				}
 			],
-			"id": "8316328b-2b2d-4988-b427-30de3007b01f",
+			"id": "00815ffa-6302-4c13-b6f8-db53a2c7ea72",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -207,11 +210,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/garments/3",
+					"raw": "{{8081}}/production-api/garments/3",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"garments",
 						"3"
 					]
@@ -226,7 +230,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "85392f28-fc8f-4022-a317-c4535ce9cd49",
+						"id": "671358a0-3d5a-459f-a23c-dd9d90580374",
 						"exec": [
 							"pm.test(\"Successful DELETE request\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
@@ -238,7 +242,7 @@
 					}
 				}
 			],
-			"id": "12cb44f4-315f-4826-8c7e-0fd17fe5bf61",
+			"id": "9a3d1476-e9c1-48cd-ba7b-c6349851dd89",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -265,11 +269,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{8081}}/garments/3",
+					"raw": "{{8081}}/production-api/garments/3",
 					"host": [
 						"{{8081}}"
 					],
 					"path": [
+						"production-api",
 						"garments",
 						"3"
 					]
@@ -287,7 +292,7 @@
 				"exec": [
 					""
 				],
-				"id": "b4c44d0d-2f56-433b-90e4-f16e80b22a7b"
+				"id": "23b66c67-9a9f-4373-be93-04378edc1523"
 			}
 		},
 		{
@@ -297,18 +302,18 @@
 				"exec": [
 					""
 				],
-				"id": "3ed1e92c-8d16-42e4-8ed2-478735fb7dc4"
+				"id": "3f66b3e9-30b0-46cd-bb94-b3b0b8b30d91"
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "b0a00c9a-ab5e-4cd1-bbf7-1a5c65e95d47",
+			"id": "4eda270a-2bb5-4b71-b674-ddd5716c0989",
 			"key": "id",
 			"value": "1"
 		},
 		{
-			"id": "7ddd4331-7cd0-4647-9fb7-cccadfe2a09f",
+			"id": "de015fa1-5aab-4693-b63c-d05285389e7c",
 			"key": "base_url",
 			"value": "https://postman-rest-api-learner.glitch.me/"
 		}
