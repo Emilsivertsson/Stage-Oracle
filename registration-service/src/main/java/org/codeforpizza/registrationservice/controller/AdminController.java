@@ -14,7 +14,7 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/registration-api/admin")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin("*")

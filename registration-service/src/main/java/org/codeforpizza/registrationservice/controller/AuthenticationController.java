@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/registration-api/auth")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 @Slf4j

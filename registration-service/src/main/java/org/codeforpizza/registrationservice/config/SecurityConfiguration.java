@@ -68,15 +68,15 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
                     //registation and login
-                    auth.requestMatchers("/auth/**").permitAll();
+                    auth.requestMatchers("/registration-api/auth/**").permitAll();
 
-                    auth.requestMatchers("/toProduction/**").permitAll();
+                    auth.requestMatchers("/registration-api/toProduction/**").permitAll();
 
                     //admin routes
-                    auth.requestMatchers("/admin/**").hasRole("ADMIN");
+                    auth.requestMatchers("/registration-api/admin/**").hasRole("ADMIN");
 
                     //performer routes
-                    auth.requestMatchers("/performer/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/registration-api/performer/**").hasAnyRole("ADMIN", "USER");
 
                     //Swagger
                     auth.requestMatchers("/v3/api-docs/**").permitAll();

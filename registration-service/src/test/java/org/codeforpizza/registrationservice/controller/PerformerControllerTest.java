@@ -55,7 +55,7 @@ class PerformerControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"user\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/registration-api/auth/login")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -68,7 +68,7 @@ class PerformerControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .get("/performer")
+                .get("/registration-api/performer")
                 .then()
                 .statusCode(200)
                 .body("firstName", equalTo("John"));
@@ -89,7 +89,7 @@ class PerformerControllerTest {
                             "department": "updated-Name"
                         }""")
                 .when()
-                .put("/performer")
+                .put("/registration-api/performer")
                 .then()
                 .statusCode(200)
                 .body("firstName", equalTo("updated-Name"));
@@ -110,7 +110,7 @@ class PerformerControllerTest {
                              "head": 67
                          }""")
                 .when()
-                .put("/performer/measurements/")
+                .put("/registration-api/performer/measurements/")
                 .then()
                 .statusCode(200)
                 .body("measurements.height", equalTo(188.0f));
@@ -122,7 +122,7 @@ class PerformerControllerTest {
         given()
                 .headers("Authorization", "Bearer " + token)
                 .when()
-                .delete("/performer")
+                .delete("/registration-api/performer")
                 .then()
                 .statusCode(200)
                 .body(equalTo("Performer deleted successfully"));

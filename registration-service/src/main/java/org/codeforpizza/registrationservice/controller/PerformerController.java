@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping("/performer")
+@RequestMapping("/registration-api/performer")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 @Slf4j

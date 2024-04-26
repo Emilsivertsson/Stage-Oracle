@@ -52,7 +52,7 @@ class AuthenticationControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"kalle\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/register")
+                .post("/registration-api/auth/register")
                 .then()
                 .statusCode(200);
     }
@@ -64,7 +64,7 @@ class AuthenticationControllerTest {
                 .contentType("application/json")
                 .body("{\"username\": \"kalle\", \"password\": \"password1\"}")
                 .when()
-                .post("/auth/login")
+                .post("/registration-api/auth/login")
                 .then()
                 .statusCode(200);
     }
