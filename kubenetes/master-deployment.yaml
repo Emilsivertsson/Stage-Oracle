@@ -75,7 +75,7 @@ spec:
               value: root
             - name: SPRING_DATASOURCE_PASSWORD
               value: root
-            - name: registration.service.url
+            - name: registration-service.url
               value: http://registration-service.default:8080
             - name: spring.mail.host
               value: mail-service.default
