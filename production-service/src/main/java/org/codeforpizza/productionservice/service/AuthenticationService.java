@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.codeforpizza.productionservice.modell.entitys.ApplicationUser;
 import org.codeforpizza.productionservice.modell.DTOs.IsAuthenticatedDTO;
 import org.codeforpizza.productionservice.modell.DTOs.LoginResponseDTO;
+import org.codeforpizza.productionservice.modell.entitys.AwanChats;
 import org.codeforpizza.productionservice.modell.entitys.Production;
 import org.codeforpizza.productionservice.modell.entitys.Role;
 import org.codeforpizza.productionservice.repository.ProductionRepository;
@@ -56,8 +57,9 @@ public class AuthenticationService {
         log.info("User role created");
 
         List<Production> productions = List.of();
+        List<AwanChats> chats = List.of();
 
-        ApplicationUser newUser = new ApplicationUser(username, encodedPassword, authorities,productions);
+        ApplicationUser newUser = new ApplicationUser(username, encodedPassword, authorities,productions,chats);
         userRepository.save(newUser);
         log.info("User registered successfully");
 

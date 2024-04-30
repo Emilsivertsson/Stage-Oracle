@@ -1,7 +1,9 @@
 
+ã
+java:S6539"ŸSplit this â€œMonster Classâ€ into smaller and more specialized ones to reduce its dependencies on other classes from 22 to the maximum authorized 20 or less.(“Ã­ß8•Æúò1J$3f5acd2a-2d1c-4b95-8c27-31b08106da26
 
-java:S1192,"FDefine a constant instead of duplicating this literal "admin" 3 times.(òÚíŠşÿÿÿÿ8¦ÔãŠñ1J$8064766c-3335-449b-b02f-6bd96c43e880
+java:S1192,"FDefine a constant instead of duplicating this literal "admin" 5 times.(òÚíŠşÿÿÿÿ8—Æúò1J$7d523f28-3973-4f85-938d-e55202dd79a3
 y
-java:S64371"6Revoke and change this password, as it is compromised.(Í¯‹ë8·ÔãŠñ1J$99c40b9d-b5b7-4fdf-b1f1-dd6226065577
+java:S64373"6Revoke and change this password, as it is compromised.(Êı©Ä8¥Æúò1J$f5732954-5963-4c42-9e07-e10c8ac24b59
 ~
-java:S6437S"6Revoke and change this password, as it is compromised.(Õéô‰üÿÿÿÿ8¼ÔãŠñ1J$b1f0bbaa-ff59-4bb8-8eae-f3aaa9ffca86
+java:S6437Y"6Revoke and change this password, as it is compromised.(Ä­¬èøÿÿÿÿ8¨Æúò1J$66e84f4d-0369-4f98-b47e-0dbb6f8ad50c

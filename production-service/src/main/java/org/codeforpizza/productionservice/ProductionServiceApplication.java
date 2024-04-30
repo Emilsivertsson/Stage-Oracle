@@ -26,7 +26,7 @@ public class ProductionServiceApplication {
                         , PasswordEncoder passwordEncode, ProductionRepository productionRepository
                         , ActRepository actRepository, CastRepository castRepository, MeasurementsRepository measurementsRepository
                         , ManifestRepository manifestRepository,CostumeRepository costumeRepository,GarmentRepository garmentRepository
-    ,PerformerRepository performerRepository) {
+    ,PerformerRepository performerRepository, AwanRespository awanRespository) {
 
         return args -> {
 
@@ -46,12 +46,16 @@ public class ProductionServiceApplication {
             Manifest adminManifest = new Manifest("Manifest admin", 2026);
             Production adminProduction = new Production(2026L, "Production admin",true, "Description admin");
             List<Production> adminProductions = new ArrayList<>();
-            ApplicationUser admin = new ApplicationUser("admin", passwordEncode.encode("password2"), adminRoles, adminProductions);
+            AwanChats adminChat = new AwanChats( "admin", "admin");
+            List<AwanChats> adminChats = new ArrayList<>();
+            ApplicationUser admin = new ApplicationUser("admin", passwordEncode.encode("password2"), adminRoles, adminProductions, adminChats);
 
             userRepository.save(admin);
             adminProduction.setApplicationUser(admin);
             productionRepository.save(adminProduction);
             adminManifest.setProduction(adminProduction);
+            adminChat.setApplicationUser(admin);
+            awanRespository.save(adminChat);
             manifestRepository.save(adminManifest);
             adminCast.setManifest(adminManifest);
             castRepository.save(adminCast);
@@ -80,12 +84,17 @@ public class ProductionServiceApplication {
             Manifest manifest = new Manifest("Manifest 1", 2021);
             Production production = new Production(2005L, "Hamlet",true, "Producer: William Shakespeare, director: John Doe");
             List<Production> productions = new ArrayList<>();
-            ApplicationUser user = new ApplicationUser( "user", passwordEncode.encode("password1"), userRoles, productions);
+            AwanChats chat = new AwanChats( "Jane", "Doe");
+            List<AwanChats> chats = new ArrayList<>();
+            ApplicationUser user = new ApplicationUser( "user", passwordEncode.encode("password1"), userRoles, productions, chats);
 
             userRepository.save(user);
             production.setApplicationUser(user);
             productionRepository.save(production);
             manifest.setProduction(production);
+            chat.setApplicationUser(user);
+            awanRespository.save(chat);
+
             manifestRepository.save(manifest);
             cast.setManifest(manifest);
             castRepository.save(cast);
@@ -99,15 +108,6 @@ public class ProductionServiceApplication {
             costumeRepository.save(costume);
             garment.setCostume(costume);
             garmentRepository.save(garment);
-
-
-
-
-
-
-
-
-
 
 
         };

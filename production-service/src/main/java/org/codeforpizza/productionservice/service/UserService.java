@@ -39,7 +39,6 @@ public class UserService implements UserDetailsService {
             log.info("User not found");
             throw new UsernameNotFoundException("user is not valid");
         }
-
     }
 
     public ResponseEntity<Optional<ApplicationUser>> getOneUser (Long id){
