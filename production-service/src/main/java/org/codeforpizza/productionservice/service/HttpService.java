@@ -1,7 +1,5 @@
 package org.codeforpizza.productionservice.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -23,7 +21,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -94,6 +91,7 @@ public class HttpService {
 
     public String createQuestion(String question) throws IOException, ParseException {
         log.info("sending request to awan ");
+        log.info("awankey: " + awanKey);
         HttpPost request = new HttpPost(awanAdress);
 
         QuestionPayload payload = new QuestionPayload("Meta-Llama-3-8B-Instruct",

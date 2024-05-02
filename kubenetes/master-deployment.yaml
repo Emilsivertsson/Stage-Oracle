@@ -53,7 +53,7 @@ metadata:
   name: production-deployment
 
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: production-pod
@@ -87,7 +87,7 @@ kind: Deployment
 metadata:
   name: registration-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: registration-pod
