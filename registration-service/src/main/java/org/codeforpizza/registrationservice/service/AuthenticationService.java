@@ -51,7 +51,7 @@ public class AuthenticationService {
         try {
             if (userRepository.existsByUsername(username)) {
                 log.error("User already exists");
-                return ResponseEntity.status(400).body("User already exists");
+                return ResponseEntity.status(409).body("User already exists");
             }
 
             String encodedPassword = passwordEncoder.encode(password);
@@ -79,7 +79,7 @@ public class AuthenticationService {
         try {
             if (!userRepository.existsByUsername(username)) {
                 log.error("no user found");
-                return ResponseEntity.status(400).build();
+                return ResponseEntity.status(404).build();
             }
             ApplicationUser user = userRepository.findByUsername(username);
 

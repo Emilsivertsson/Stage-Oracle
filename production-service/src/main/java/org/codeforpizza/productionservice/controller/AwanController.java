@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.List;
 
+/*
+    * This class is responsible for handling the requests related to the Awan chatbot.
+
+ */
+
 @RestController
 @RequestMapping("/production-api/awan")
 @RequiredArgsConstructor

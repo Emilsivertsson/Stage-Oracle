@@ -14,6 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.security.Principal;
 import java.util.List;
 
+/*
+    * This class is responsible for handling the requests related to the Awan chatbot.
+    * it forwards the requests to the HttpService class and saves the response in the database.
+    * in order to show the user the history of the questions asked.
+ */
+
 @RequiredArgsConstructor
 @Service
 @Transactional
