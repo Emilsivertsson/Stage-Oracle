@@ -70,7 +70,7 @@ class AdminControllerTest {
     @Test
     @Order(3)
     void updateUser() {
-        ApplicationUser user = new ApplicationUser( "Ben Deg", "Buzzword2", null, null);
+        ApplicationUser user = new ApplicationUser( "Ben Deg", "Buzzword2", null, null,null);
         given()
                 .contentType("application/json")
                 .body(user)

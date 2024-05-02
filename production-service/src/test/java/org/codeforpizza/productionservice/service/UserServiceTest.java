@@ -91,7 +91,7 @@ class UserServiceTest {
     @Test
     @Order(7)
     void shouldDeleteUser() {
-        ApplicationUser expected = new ApplicationUser("username", "password", null, null);
+        ApplicationUser expected = new ApplicationUser("username", "password", null, null,null);
         userRepository.save(expected);
         assertEquals(HttpStatusCode.valueOf(200), userService.deleteUser(2L).getStatusCode());
 
