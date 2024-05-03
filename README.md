@@ -99,6 +99,7 @@ As a Production team member you can:
 - Import performers to a production* from the Registration API
 - Send Emails to performers
 - see all your unfinished Garments
+- Ask Ai for help with your Garments thanks to integration with Awan LLM Api
 
 Both Api:s has Admin roles that can perform all operations, and CRUD operations on the users.
 

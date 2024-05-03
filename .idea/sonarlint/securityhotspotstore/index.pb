@@ -5415,3 +5415,5 @@ dproduction-service/src/main/java/org/codeforpizza/productionservice/modell/DTOs
 aproduction-service/src/main/java/org/codeforpizza/productionservice/modell/entitys/AwanChats.java,1\9\195706f464bfdb240c5c6bd8b98b990c9b80fd72
 “
 cproduction-service/src/main/java/org/codeforpizza/productionservice/repository/AwanRespository.java,5\6\56569cadbd887a5ba71dc15083868b33d00df9f9
+M
+kubenetes/master-ingress.yaml,6\7\67e61c56a2729d729edb8992ad025495fb37bc53
