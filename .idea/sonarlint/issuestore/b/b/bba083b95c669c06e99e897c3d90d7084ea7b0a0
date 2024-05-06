@@ -1,0 +1,6 @@
+
+›	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ô—ít8Ÿ„¦ùò1J$b1148021-85bc-407a-be8a-d40176b13556
+t	java:S116"XRename this field "finish_reason" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ø¨Ø8Æì¿ùò1
+y	java:S116-"XRename this field "prompt_tokens" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şß‰úÿÿÿÿ8Çì¿ùò1
+s	java:S116."WRename this field "total_tokens" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú°Œ¤8Èì¿ùò1
+x	java:S116/"\Rename this field "completion_tokens" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûğ´ú8Èì¿ùò1

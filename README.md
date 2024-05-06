@@ -71,6 +71,8 @@ you can then update the frontend with the new IP addresses of the services, sinc
 
 ## Usage
 The APIs are used by the frontend application to manage productions and performers.
+To access the Admin pages you log in as "admin" with the password "password2".\
+To access the Performer pages you log in as any of the existing performers with the password "password1".\
 
 ## Third party credits
 Thanks to ChatGpt, copilot and my rubber-ducks for helping when things got stuck.

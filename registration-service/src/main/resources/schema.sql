@@ -23,7 +23,7 @@ CREATE TABLE if not exists performers
     CONSTRAINT uc_performer_phone UNIQUE (phone_nr)
 );
 
-CREATE TABLE if not exists role
+CREATE TABLE if not exists roles
 (
     role_id   INT NOT NULL,
     authority VARCHAR(255) NULL,
@@ -39,7 +39,7 @@ CREATE TABLE if not exists user_role_junction
     CONSTRAINT fk_user_role_junction_role FOREIGN KEY (role_id) REFERENCES roles (role_id)
 );
 
-CREATE TABLE if not exists user
+CREATE TABLE if not exists users
 (
     user_id      INT NOT NULL,
     username     VARCHAR(255) NULL,

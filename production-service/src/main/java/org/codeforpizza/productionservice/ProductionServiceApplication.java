@@ -21,6 +21,7 @@ public class ProductionServiceApplication {
         SpringApplication.run(ProductionServiceApplication.class, args);
     }
 
+    /*
     @Bean
     CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository
                         , PasswordEncoder passwordEncode, ProductionRepository productionRepository
@@ -112,5 +113,7 @@ public class ProductionServiceApplication {
 
         };
     }
+
+     */
 
 }
