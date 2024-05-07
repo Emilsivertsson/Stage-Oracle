@@ -1,9 +1,11 @@
 
 ã
-java:S6539"ŸSplit this â€œMonster Classâ€ into smaller and more specialized ones to reduce its dependencies on other classes from 22 to the maximum authorized 20 or less.(“Ã­ß8°Ò¦›õ1J$69b8e78a-d18a-4d86-be90-2e526d396343
+java:S6539"ŸSplit this â€œMonster Classâ€ into smaller and more specialized ones to reduce its dependencies on other classes from 22 to the maximum authorized 20 or less.(“Ã­ß8Ã‡™¢õ1J$2192d718-77b2-42a6-a7ac-ffa9d46fdb9d
 
-java:S1192,"FDefine a constant instead of duplicating this literal "admin" 5 times.(òÚíŠşÿÿÿÿ8àà¥›õ1J$143f3459-8db2-4bc9-b735-8b3abbf7e1d7
+java:S1192,"FDefine a constant instead of duplicating this literal "admin" 5 times.(òÚíŠşÿÿÿÿ8Ã‡™¢õ1J$c9c79c5b-a47b-46de-a6b3-0cb34a73bcd8
+µ
+java:S1192_"rDefine a constant instead of duplicating this literal "Producer: William Shakespeare, director: John Doe" 4 times.(±’Î…8Ã‡™¢õ1J$88e8c2a5-548c-4869-a7f2-cb325ee42435
 y
-java:S64373"6Revoke and change this password, as it is compromised.(Êı©Ä8ÒÒ¦›õ1J$25f2a007-3a46-4680-a83f-bf3d72e55ec6
+java:S64373"6Revoke and change this password, as it is compromised.(Êı©Ä8Ó‡™¢õ1J$43136a06-1c1f-41d2-b3c0-48f7bee89938
 ~
-java:S6437Y"6Revoke and change this password, as it is compromised.(Ä­¬èøÿÿÿÿ8ÖÒ¦›õ1J$47995bdc-81f6-4f42-96ef-b06500396d5d
+java:S6437f"6Revoke and change this password, as it is compromised.(Ä­¬èøÿÿÿÿ8â‡™¢õ1J$a6c4117e-201d-4a04-8ed1-0efa1486185d

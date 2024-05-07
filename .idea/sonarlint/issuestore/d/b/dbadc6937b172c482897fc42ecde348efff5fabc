@@ -1,5 +1,17 @@
 
+
+java:S11929"JDefine a constant instead of duplicating this literal "123456789" 4 times.(´Øôÿ8ÛÂ¡õ1J$2b28cde4-17f3-4a27-a19b-42cbe0352753
+’
+java:S1192="JDefine a constant instead of duplicating this literal "password1" 4 times.(öÙ¾¯ÿÿÿÿÿ8ÛÂ¡õ1J$671d375d-7f44-43cf-8e82-95a864b4dd8e
+•
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(úµƒ8êÂ¡õ1J$6c6334b1-2a63-4f51-a395-add6cf96585c
 ~
-java:S6437%"6Revoke and change this password, as it is compromised.(²ç€¥ÿÿÿÿÿ8Ø¢™›õ1J$51a303ed-5344-4a19-9e0b-97d342cd4dec
+java:S6437%"6Revoke and change this password, as it is compromised.(²ç€¥ÿÿÿÿÿ8øƒ¼¡õ1J$a349843e-e8ef-4268-83f3-d87013f49126
 ~
-java:S6437="6Revoke and change this password, as it is compromised.(ñí‚¬üÿÿÿÿ8Ü¢™›õ1J$9208de6c-bdee-4feb-9893-f25a3f2f7602
+java:S6437="6Revoke and change this password, as it is compromised.(öÙ¾¯ÿÿÿÿÿ8õÂ¡õ1J$55e0c964-8725-4336-ba41-189a3352b7d7
+y
+java:S6437J"6Revoke and change this password, as it is compromised.(ì½øù8øÂ¡õ1J$c73e3a73-ce99-4e27-82be-69b92e96c224
+~
+java:S6437W"6Revoke and change this password, as it is compromised.(˜¹‡ùÿÿÿÿ8ûÂ¡õ1J$9ff554b2-6f2a-4754-942e-0d89250232fa
+y
+java:S6437d"6Revoke and change this password, as it is compromised.(À¸÷ª8ˆÜ„¡õ1J$1f95eef5-84bd-43d0-974c-fa230c945eb9
