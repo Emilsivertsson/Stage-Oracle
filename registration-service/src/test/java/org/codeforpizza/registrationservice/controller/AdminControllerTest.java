@@ -66,7 +66,7 @@ class AdminControllerTest {
                 .get("/registration-api/admin/")
                 .then()
                 .statusCode(200)
-                .body("size()", equalTo(2));
+                .body("size()", equalTo(5));
     }
 
     @Test

@@ -43,6 +43,7 @@ class AuthenticationControllerTest {
     @BeforeEach
     void setUp() {
         RestAssured.baseURI = "http://localhost:" + port;
+
     }
 
     @Test
@@ -50,7 +51,12 @@ class AuthenticationControllerTest {
     void registerUser() {
         given()
                 .contentType("application/json")
-                .body("{\"username\": \"kalle\", \"password\": \"password1\"}")
+                .body("""
+                          { 
+                            "username": "kalle",
+                            "password": "password1"
+                            }
+                        """)
                 .when()
                 .post("/registration-api/auth/register")
                 .then()

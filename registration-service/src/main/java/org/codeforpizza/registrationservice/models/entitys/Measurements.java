@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Measurements {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
     double height;
     double shoeSize;
