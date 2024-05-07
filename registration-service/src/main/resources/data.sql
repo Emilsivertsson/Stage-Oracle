@@ -26,8 +26,8 @@ ON DUPLICATE KEY UPDATE height=VALUES(height), shoe_size=VALUES(shoe_size), jack
 
 INSERT INTO performers (id, first_name, last_name, email, phone_nr, department, measurements_id)
 VALUES (1, 'Admin', '', '', '', '', 1),
-       (2, 'John', 'Doe', 'john@gmail.com', '123456789', 'Dancer', 2),
-        (3, 'Jane', 'Doe', 'jane@gmail.com', '987654321', 'Dancer', 3),
+       (2, 'John', 'Doe', 'john@gmail.com', '123456789', 'Singer', 2),
+        (3, 'Jane', 'Doe', 'jane@gmail.com', '987654321', 'Singer', 3),
         (4, 'Jack', 'Doe', 'Jack@hotmail.com', '123456789', 'Dancer', 4),
         (5, 'Jill', 'Doe', 'Jill@msn.com', '987654321', 'Dancer', 5)
 ON DUPLICATE KEY UPDATE first_name=VALUES(first_name), last_name=VALUES(last_name), email=VALUES(email), phone_nr=VALUES(phone_nr), department=VALUES(department), measurements_id=VALUES(measurements_id);

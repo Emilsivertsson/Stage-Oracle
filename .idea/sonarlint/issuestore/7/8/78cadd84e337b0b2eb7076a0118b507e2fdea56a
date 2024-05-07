@@ -1,21 +1,0 @@
-
-~	java:S125"<This block of commented-out lines of code should be removed.(İ„¬8–êŠòô1J$4f3398bb-3a2d-4b80-bdcc-9830feb797e5
-‘
-java:S1128"NRemove this unused import 'org.codeforpizza.productionservice.modell.entitys'.(ø¸´­8˜êŠòô1J$04995fdf-f875-4203-a4f6-56bc71eb8609
-Œ
-java:S1128"JRemove this unused import 'org.codeforpizza.productionservice.repository'.(•‘ÂX8™êŠòô1J$4f2c37d8-7868-4c86-96b8-ca6a0158a020
-Š
-java:S1128"GRemove this unused import 'org.springframework.boot.CommandLineRunner'.(È—ÿÅ8šêŠòô1J$6ea1a11b-83a8-4668-9759-0bb33c65be47
-‹
-java:S1128	"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8›êŠòô1J$3a07c485-89a6-49ff-bf57-a18a2cb3ed8f
-¡
-java:S1128
-"YRemove this unused import 'org.springframework.security.crypto.password.PasswordEncoder'.(‰¡ßáÿÿÿÿÿ8êŠòô1J$d032a4e7-8c0b-4dbe-bf6e-5aa69c024d3f
-s
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8êŠòô1J$fbd3730c-c7b8-455c-bbac-8ed3cb37d895
-p
-java:S1128".Remove this unused import 'java.util.HashSet'.(Ê‚êX8êŠòô1J$6143c27a-1725-4f84-8c56-6f3ccd7bf149
-s
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8êŠòô1J$91a4c317-1e6b-4d4b-a223-b504c77d51e9
-r
-java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8êŠòô1J$86d0eb3d-196d-4957-b694-5071f0833775
