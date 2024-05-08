@@ -129,7 +129,7 @@ spec:
       protocol: TCP
       port: 8025
       targetPort: 8025
-  type: ClusterIP
+  type: LoadBalancer
 
 ---
 
@@ -145,7 +145,7 @@ spec:
     - protocol: TCP
       port: 3306
       targetPort: 3306
-  type: ClusterIP
+  type: LoadBalancer
 
 ---
 
@@ -161,7 +161,7 @@ spec:
     - protocol: TCP
       port: 8081
       targetPort: 8081
-  type: ClusterIP
+  type: LoadBalancer
 
 ---
 
@@ -177,46 +177,34 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-  type: ClusterIP
+  type: LoadBalancer
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  #name of the deployment
   name: stage-oracle-front-deployment
-  #configuration of the deployment
 spec:
-  #number of replicas
   replicas: 1
-  #match labels with the pods of the deployment
   selector:
     matchLabels:
       app: stage-oracle-front-pod
       tier: frontend
   template:
-    #name of the pod
     metadata:
       labels:
         app: stage-oracle-front-pod
         tier: frontend
-    #configuration of the pod
     spec:
       containers:
-        #node name
         - name: stage-oracle-front-node
-          #image of the container
           image: wexio/so-front:latest
-          #always pull the latest image, only works if the image tag is set
           imagePullPolicy: Always
-          # add env variables
           env:
             - name: VITE_REGISTRATION_API_URL
-              value: 'http://registration-service.default:8080'
+              value: 'http://127.0.0.1:8080'
             - name: VITE_PRODUCTION_API_URL
-              value: 'http://production-service.default:8081'
-
-          # check if the container is running
+              value: 'http://127.0.0.1:8081'
           livenessProbe:
             httpGet:
               path: /
@@ -224,10 +212,8 @@ spec:
             periodSeconds: 10
             initialDelaySeconds: 5
 
-#use three dashes to separate documents
 ---
 
-#only v1 for service
 apiVersion: v1
 kind: Service
 metadata:
@@ -238,8 +224,6 @@ spec:
     tier: frontend
   ports:
     - protocol: TCP
-      #port outside the container
       port: 3000
-      #port inside the container
       targetPort: 3000
-  type: ClusterIP
+  type: LoadBalancer

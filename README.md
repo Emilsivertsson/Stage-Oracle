@@ -58,16 +58,21 @@ to check the emails that are sent from the application you can access Mailhog at
 The applications can be run in Kubernetes.\
 To do this you need to have a running Kubernetes cluster like Minikube for local development.\
 You also need to have Kubectl installed on your computer.\
-You can run the following commands in the kubernetes folder:
-- `kubectl apply -f master-deployment.yaml`\
-  This will create the deployments and services for the applications.
-- `minikube service production-service`\
-  To start the production-service tunnel and give outside access to the service.
-- `minikube service registration-service`\
-  To start the registration-service tunnel and give outside access to the service.\
+You need to open two terminals in the root folder of the project.\
+In the first terminal run the following command:\
+ - `minikube tunnel`\
+in the second terminal run the following command:\
+ - `kubectl apply -f master-deployment.yaml`\
 
-you can then update the frontend with the new IP addresses of the services, since the frontend is not running in the cluster.
+wait until the applications are up and running, this will take a small while.\
+when its up and running you can access the applications at localhost:3000 in your browser.\
 
+to verify that the applications are running you can run the following commands:\
+ - `kubectl get pods`\
+ - `kubectl get services`\
+ - `kubectl get deployments`\
+
+its normal that the production and registration pods gets restarted a few times.\
 
 ## Usage
 The APIs are used by the frontend application to manage productions and performers.
