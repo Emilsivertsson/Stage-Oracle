@@ -8965,7 +8965,3 @@ w
 G.idea/sonarlint/issuestore/e/6/e6f8fbb1c0b71f0670130e2478800b228aa0bde0,c\5\c52d2ee85e78ba3987b9ee0032b59c21c0493b04
 Å
 Q.idea/sonarlint/securityhotspotstore/d/d/dd2795b2166a00c9ea51e2374cd847290d41db6b,3\d\3d5303254ffdcaea881ddb7f59426d3f2d20b1c6
-M
-registration-service/data.sql,3\a\3ab922f498b6a63bb06b0303ee36d67611026f32
-K
-production-service/data.sql,4\2\42d362171efaf8b8b18cb32cdcea7acd9971c63c
